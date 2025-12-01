@@ -1,6 +1,5 @@
 package org.example.Ejercicios;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class BateriaMetodos {
@@ -34,27 +33,40 @@ public class BateriaMetodos {
 
         Scanner teclado = new Scanner(System.in);
 
-        System.out.print("Introduzca el número de métodos: ");
-        int numMetodos = teclado.nextInt();
+        menu();
+        System.out.print("Introduzca una opción: ");
+        char opcion = teclado.next().charAt(0);
 
-        System.out.print(menu(numMetodos));
-    }
-
-    static int menu(int numMetodos) {
-        System.out.println("\n*** MENU ***");
-        System.out.println("------------");
-
-        Scanner teclado = new Scanner(System.in);
-
-        for (int i = 1; i <= numMetodos; i++) {
-            System.out.println(i + ". Opción " + i);
+        if (EsValido(opcion)) {
+            System.out.print("Válido");
+        } else {
+            System.out.print("No es válido");
         }
-
-        System.out.print((numMetodos + 1) + ". Salir");
-
-        System.out.print("\n\nIntroduzca una opción: ");
-        return teclado.nextInt();
     }
+
+    static void menu() {
+        System.out.println("Bienvenido!!");
+        System.out.println("1. Saludar");
+        System.out.println("2. Despedirse");
+        System.out.println("3. Alegrarse");
+        System.out.println("4. Despedirse");
+        System.out.println("X. Salir");
+    }
+
+    public static boolean EsValido(char opcion) {
+        switch (opcion) {
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case 'X':
+                return true;
+            default:
+                return false;
+        }
+    }
+
+
 
     // Implementa un metodo (1) para pasar a mayúsculas una cadena.
     // Implementa otro metodo (2) para contar las vocales de una cadena.

@@ -107,15 +107,19 @@ public class BateriaMetodos {
         System.out.println("*** VENTAS ***");
         System.out.println("--------------");
 
-        String[] Semana = {"MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO"};
+        String[] Semana = {"Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
 
         double[] recaudacionSemanal = recaudacion(Semana);
 
+        boolean topDomingo = recaudacionDomingo(recaudacionSemanal);
+        String diaMasV = diaMasVentas(recaudacionSemanal, Semana);
+        String diaMenosV = diaMenosVentas(recaudacionSemanal, Semana);
+
         System.out.println("--------------");
-        if (recaudacionDomingo(recaudacionSemanal)) {
-            System.out.print(diaMasVentas(recaudacionSemanal, Semana) + " " + diaMenosVentas(recaudacionSemanal, Semana) + " SI");
+        if (topDomingo) {
+            System.out.print(diaMasV + " " +  diaMenosV + " SI");
         } else {
-            System.out.print(diaMasVentas(recaudacionSemanal, Semana) + " " + diaMenosVentas(recaudacionSemanal, Semana) + " NO");
+            System.out.print(diaMasV + " " +  diaMenosV + " NO");
         }
     }
 
@@ -132,28 +136,47 @@ public class BateriaMetodos {
 
     static String diaMasVentas(double[] recaudacionSemanal, String[] Semana) {
         double maximoVentas = recaudacionSemanal[0];
+
         int maximo = 0;
+        int empate = 0;
 
         for (int i = 1; i < recaudacionSemanal.length; i++) {
             if (recaudacionSemanal[i] > maximoVentas) {
                 maximoVentas = recaudacionSemanal[i];
                 maximo = i;
+            } else if (recaudacionSemanal[i] == maximoVentas) {
+                empate++;
             }
         }
-        return Semana[maximo];
+        if (empate > 0) {
+            return "Empate";
+        } else {
+            return Semana[maximo];
+        }
+
     }
 
     static String diaMenosVentas(double[] recaudacionSemanal, String[] Semana) {
         double minimoVentas = recaudacionSemanal[0];
+
         int minimo = 0;
+        int empate = 0;
 
         for (int i = 1; i < recaudacionSemanal.length; i++) {
             if (recaudacionSemanal[i] < minimoVentas) {
                 minimoVentas = recaudacionSemanal[i];
                 minimo = i;
+            } else if (recaudacionSemanal[i] == minimoVentas) {
+                empate++;
             }
         }
-        return Semana[minimo];
+
+        if (empate > 0) {
+            return "Empate";
+        } else {
+            return Semana[minimo];
+        }
+
     }
 
     static double mediaSemanal(double[] recaudacionSemanal) {

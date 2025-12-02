@@ -1,5 +1,6 @@
 package org.example.Ejercicios;
 
+import javax.print.DocFlavor;
 import java.util.Scanner;
 
 public class BateriaMetodos {
@@ -67,7 +68,6 @@ public class BateriaMetodos {
     }
 
 
-
     // Implementa un metodo (1) para pasar a mayúsculas una cadena.
     // Implementa otro metodo (2) para contar las vocales de una cadena.
 
@@ -85,7 +85,8 @@ public class BateriaMetodos {
         System.out.print("Introduzca una cadena: ");
         String cadena = teclado.nextLine();
 
-        System.out.println("La cadena en mayus: " + Mayus(cadena));;
+        System.out.println("La cadena en mayus: " + Mayus(cadena));
+        ;
         System.out.println("La cadena tiene " + Vocales(cadena) + " vocales.");
 
     }
@@ -106,6 +107,84 @@ public class BateriaMetodos {
     // ProgramaMe
 
     public static void ejercicio4() {
+        System.out.println("*** VENTAS ***");
+        System.out.println("--------------");
 
+        String Semana[] = {"MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO"};
+
+        double recaudacionSemanal[] = recaudacion(Semana);
+
+        System.out.println("--------------");
+        if (recaudacionDomingo(recaudacionSemanal)) {
+            System.out.print(diaMasVentas(recaudacionSemanal, Semana) + " " + diaMenosVentas(recaudacionSemanal, Semana) + " SI");
+        } else {
+            System.out.print(diaMasVentas(recaudacionSemanal, Semana) + " " + diaMenosVentas(recaudacionSemanal, Semana) + " NO");
+        }
+
+    }
+
+    static double[] recaudacion(String Semana[]) {
+        double recaudacionSemanal[] = new double[Semana.length];
+        Scanner teclado = new Scanner(System.in);
+
+        for (int i = 0; i < Semana.length; i++) {
+            System.out.print("Introduzca los datos del " + Semana[i] + ": ");
+            recaudacionSemanal[i] = teclado.nextDouble();
+        }
+
+        return recaudacionSemanal;
+    }
+
+    static String diaMasVentas(double recaudacionSemanal[], String Semana[]) {
+        double maximoVentas = recaudacionSemanal[0];
+        int maximo = 0;
+
+        for (int i = 1; i < recaudacionSemanal.length; i++) {
+            if (recaudacionSemanal[i] > maximoVentas) {
+                maximoVentas = recaudacionSemanal[i];
+                maximo = i;
+            }
+        }
+
+        return Semana[maximo];
+    }
+
+    static String diaMenosVentas(double recaudacionSemanal[], String Semana[]) {
+        double minimoVentas = recaudacionSemanal[0];
+        int minimo = 0;
+
+        for (int i = 1; i < recaudacionSemanal.length; i++) {
+            if (recaudacionSemanal[i] < minimoVentas) {
+                minimoVentas = recaudacionSemanal[i];
+                minimo = i;
+            }
+        }
+
+        return Semana[minimo];
+    }
+
+    static double mediaSemanal(double recaudacionSemanal[]) {
+        double suma = 0;
+
+        for (int i = 0; i < recaudacionSemanal.length; i++) {
+            suma += recaudacionSemanal[i];
+        }
+
+        double media = suma / recaudacionSemanal.length;
+
+        return media;
+    }
+
+    static boolean recaudacionDomingo(double recaudacionSemanal[]) {
+        int largo = recaudacionSemanal.length - 1;
+
+        double media = mediaSemanal(recaudacionSemanal);
+        double domingo = recaudacionSemanal[largo];
+
+        if (domingo > media) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

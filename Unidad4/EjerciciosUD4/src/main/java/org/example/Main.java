@@ -4,6 +4,6 @@ import org.example.Ejercicios.BateriaMetodos;
 
 public class Main {
     public static void main(String[] args) {
-        BateriaMetodos.ejercicio4();
+        System.out.print("Hola");
     }
 }

@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class BateriaMetodos {
 
+    static Scanner teclado = new Scanner(System.in);
+
     // Implementa un metodo que, dado un número entero, calcule el cubo (N3).
     // Realiza un programa principal que pregunte un número N al usuario,
     // llame al metodo e imprima el resultado que este devuelve.
@@ -11,7 +13,6 @@ public class BateriaMetodos {
         System.out.println("*** E1 - CUBO ***");
         System.out.println("-----------------");
 
-        Scanner teclado = new Scanner(System.in);
 
         System.out.print("Introduzca un número: ");
         int numero = teclado.nextInt();
@@ -30,8 +31,6 @@ public class BateriaMetodos {
     public static void ejercicio2() {
         System.out.println("*** E2 - MENÚ ***");
         System.out.println("-----------------");
-
-        Scanner teclado = new Scanner(System.in);
 
         menu();
         System.out.print("Introduzca una opción: ");
@@ -66,7 +65,6 @@ public class BateriaMetodos {
         }
     }
 
-
     // Implementa un metodo (1) para pasar a mayúsculas una cadena.
     // Implementa otro metodo (2) para contar las vocales de una cadena.
 
@@ -78,8 +76,6 @@ public class BateriaMetodos {
     public static void ejercicio3() {
         System.out.println("*** E3 - PALABRITAS ***");
         System.out.println("-----------------------");
-
-        Scanner teclado = new Scanner(System.in);
 
         System.out.print("Introduzca una cadena: ");
         String cadena = teclado.nextLine();
@@ -117,15 +113,14 @@ public class BateriaMetodos {
 
         System.out.println("--------------");
         if (topDomingo) {
-            System.out.print(diaMasV + " " +  diaMenosV + " SI");
+            System.out.print(diaMasV + " " + diaMenosV + " SI");
         } else {
-            System.out.print(diaMasV + " " +  diaMenosV + " NO");
+            System.out.print(diaMasV + " " + diaMenosV + " NO");
         }
     }
 
     static double[] recaudacion(String[] Semana) {
         double[] recaudacionSemanal = new double[Semana.length];
-        Scanner teclado = new Scanner(System.in);
 
         for (int i = 0; i < Semana.length; i++) {
             System.out.print("Introduzca los datos del " + Semana[i] + ": ");

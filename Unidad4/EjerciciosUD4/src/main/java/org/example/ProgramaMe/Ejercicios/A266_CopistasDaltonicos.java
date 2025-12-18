@@ -6,9 +6,13 @@ public class A266_CopistasDaltonicos {
     static Scanner teclado;
 
     public static void main(String[] args) {
+        long inicio = System.currentTimeMillis();
         teclado = new Scanner(System.in);
         while (casoDePrueba()) {
         }
+
+        long fin = System.currentTimeMillis();
+        System.out.println("Tiempo " + (fin - inicio) + "ms");
     } // main
 
     public static boolean casoDePrueba() {

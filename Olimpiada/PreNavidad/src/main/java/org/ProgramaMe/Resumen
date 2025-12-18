@@ -1,0 +1,17 @@
+1. Tipo 1
+
+¿Cuándo se usa?
+- Cuando la primera línea de la entrada indica explícitamente cuántos casos de prueba hay.
+- La primera línea da N
+
+2. Tipo 2
+
+¿Cuándo se usa?
+- Cuando no se indica cuántos casos hay, pero uno de ellos tiene valores especiales que significan “fin”.
+- Un caso concreto marca el fin (ej. 0 0)
+
+3. Tipo 3
+
+¿Cuándo se usa?
+- Cuando la entrada simplemente termina sin indicar cuántos casos hay ni un caso especial de fin.
+- No hay N inicial ni caso especial

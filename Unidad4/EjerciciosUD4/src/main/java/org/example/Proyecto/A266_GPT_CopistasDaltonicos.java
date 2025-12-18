@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class A266_GPT_CopistasDaltonicos_Final {
+public class A266_GPT_CopistasDaltonicos {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

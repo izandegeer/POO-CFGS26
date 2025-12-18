@@ -3,7 +3,7 @@ package org.example.Proyecto;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class A266_CopistasDaltonicosBonito {
+public class A266_GPT_CopistasDaltonicos2 {
 
     static Scanner teclado = new Scanner(System.in);
 
@@ -29,7 +29,7 @@ public class A266_CopistasDaltonicosBonito {
         try {
             filas = teclado.nextInt();
         } catch (InputMismatchException e) {
-            System.out.print("X ERROR. Solo puede introducir números.");
+            System.out.println("X ERROR. Solo puede introducir números.");
             return;
         }
 
@@ -38,7 +38,7 @@ public class A266_CopistasDaltonicosBonito {
         try {
             columnas = teclado.nextInt();
         } catch (InputMismatchException e) {
-            System.out.print("X ERROR. Solo puede introducir números.");
+            System.out.println("X ERROR. Solo puede introducir números.");
             return;
         }
 
@@ -53,7 +53,7 @@ public class A266_CopistasDaltonicosBonito {
 
     public static String[] LeerCuadro(int filas, int columnas) {
         Separador();
-        teclado.nextLine();
+        teclado.nextLine(); // limpiar buffer
 
         String[] cuadro = new String[filas];
 
@@ -63,19 +63,28 @@ public class A266_CopistasDaltonicosBonito {
 
             if (fila.length() != columnas) {
                 System.out.println("X ERROR. Debe tener " + columnas + " columnas.");
+                i--;
                 continue;
             }
 
-            if (fila.equalsIgnoreCase("A") || fila.equalsIgnoreCase("R") || fila.equalsIgnoreCase("B") || fila.equalsIgnoreCase("N")) {
-                fila = teclado.nextLine().toUpperCase();
-            } else {
-                System.out.println("X ERROR. El programa solo admite cuatro colores:");
-                System.out.println("[A] Azul");
-                System.out.println("[R] Rojo");
-                System.out.println("[B] Blanco");
-                System.out.println("[N] Negro");
+            boolean error = false;
+            for (int j = 0; j < fila.length(); j++) {
+                char c = fila.charAt(j);
+                if (c != 'A' && c != 'R' && c != 'B' && c != 'N') {
+                    error = true;
+                    break;
+                }
             }
+
+            if (error) {
+                System.out.println("X ERROR. Solo se admiten los colores A, R, B o N.");
+                i--;
+                continue;
+            }
+
+            cuadro[i] = fila;
         }
+
         return cuadro;
     }
 
@@ -86,36 +95,38 @@ public class A266_CopistasDaltonicosBonito {
         int numCopistas = teclado.nextInt();
         teclado.nextLine();
 
-
         for (int i = 0; i < numCopistas; i++) {
-            System.out.print("> Introduzca los cambios de letra del copista " + (i + 1) + " [A Z]: ");
-            String linea = teclado.nextLine();
+            System.out.print("> Introduzca el cambio del copista " + (i + 1) + " (ej: A R): ");
+            String linea = teclado.nextLine().toUpperCase();
 
-            if (linea.equalsIgnoreCase("A") || linea.equalsIgnoreCase("R") || linea.equalsIgnoreCase("B") || linea.equalsIgnoreCase("N")) {
-                linea = teclado.nextLine().toUpperCase();
-            } else {
-                System.out.println("X ERROR. El programa solo admite cuatro colores:");
-                System.out.println("[A] Azul");
-                System.out.println("[R] Rojo");
-                System.out.println("[B] Blanco");
-                System.out.println("[N] Negro");
+            if (linea.length() != 3 || linea.charAt(1) != ' ') {
+                System.out.println("X ERROR. Formato incorrecto. Use: A R");
+                i--;
+                continue;
             }
 
-            char colorOriginal = linea.charAt(0);
-            char colorDaltonico = linea.charAt(2);
+            char original = linea.charAt(0);
+            char nuevo = linea.charAt(2);
+
+            if ((original != 'A' && original != 'R' && original != 'B' && original != 'N') ||
+                    (nuevo != 'A' && nuevo != 'R' && nuevo != 'B' && nuevo != 'N')) {
+                System.out.println("X ERROR. Solo se admiten A, R, B o N.");
+                i--;
+                continue;
+            }
 
             for (int j = 0; j < cuadro.length; j++) {
-                cuadro[j] = cuadro[j].replace(colorOriginal, colorDaltonico);
+                cuadro[j] = cuadro[j].replace(original, nuevo);
             }
         }
     }
 
     public static void mostrarResultado(String[] cuadro) {
         Separador();
-        System.out.println("Resultado final del cuadro: ");
+        System.out.println("Resultado final del cuadro:");
 
-        for (String fila : cuadro) {
-            System.out.println(fila);
+        for (int i = 0; i < cuadro.length; i++) {
+            System.out.println(cuadro[i]);
         }
     }
 }

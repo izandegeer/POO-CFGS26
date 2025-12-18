@@ -1,8 +1,8 @@
-package org.ProgramaMe;
+package org.ProgramaMe.Practica;
 
 import java.util.Scanner;
 
-public class Tipo1 {
+public class A763_ColgadasColgantes { // AC - 0.081segs (Pos 501)
     static Scanner teclado;
 
     public static void main(String[] args) {
@@ -16,8 +16,11 @@ public class Tipo1 {
 
     public static void casoDePrueba() {
 
-        // TU CÓDIGO AQUÍ
+        if (teclado.next().toLowerCase().equals("colgadas")) {
+            System.out.println("Bien");
+        } else {
+            System.out.println("Mal");
+        }
 
     } // casoDePrueba
 }
-

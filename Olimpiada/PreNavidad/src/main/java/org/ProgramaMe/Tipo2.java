@@ -1,4 +1,4 @@
-package org.example.ProgramaMe;
+package org.ProgramaMe;
 
 import java.util.Scanner;
 
@@ -12,9 +12,9 @@ public class Tipo2 {
     } // main
     public static boolean casoDePrueba() {
         // leer caso de prueba
-        if (true)// es el caso que marca el final)
-        return false;
-        else{
+        if (true) {// es el caso que marca el final)
+            return false;
+        }else{
             // CÓDIGO PRINCIPAL AQUÍ
             return true;
         }

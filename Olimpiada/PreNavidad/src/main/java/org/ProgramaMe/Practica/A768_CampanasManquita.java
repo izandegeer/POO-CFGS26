@@ -1,8 +1,8 @@
-package org.ProgramaMe;
+package org.ProgramaMe.Practica;
 
 import java.util.Scanner;
 
-public class Tipo3 {
+public class A768_CampanasManquita {
 
     static Scanner teclado;
 
@@ -17,9 +17,11 @@ public class Tipo3 {
             return false;
         else {
             // CÓDIGO PRINCIPAL AQUÍ
+
             // (incluyendo la lectura del caso de prueba)
             return true;
         }
     } // casoDePrueba
 
 }
+

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"org.example.Proyecto","l":"A266_CopistasDaltonicosBonito"},{"l":"All Classes and Interfaces","u":"allclasses-index.html","k":"18"}];updateSearchResults();

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"org.example","l":"A266_CopistasDaltonicos"},{"p":"org.example","l":"A266_CopistasDaltonicosBonito"},{"p":"org.example","l":"A266_GPT_CopistasDaltonicos"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.example","l":"Main"}];updateSearchResults();

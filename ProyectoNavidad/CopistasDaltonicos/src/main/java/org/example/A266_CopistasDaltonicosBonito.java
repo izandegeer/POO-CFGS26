@@ -27,14 +27,14 @@ public class A266_CopistasDaltonicosBonito {
      * @param args
      */
     public static void main(String[] args) {
-        MostrarTitulo();
-        IntroducirDatos();
+        mostrarTitulo();
+        introducirDatos();
     }
 
     /**
      * Muestra el título del programa
      */
-    public static void MostrarTitulo() {
+    public static void mostrarTitulo() {
         System.out.println("===================================");
         System.out.println("******* COPISTAS DALTÓNICOS *******");
         System.out.println("===================================");
@@ -43,7 +43,7 @@ public class A266_CopistasDaltonicosBonito {
     /**
      * Muestra un separador para el fin de cada metodo
      */
-    public static void Separador() {
+    public static void separador() {
         System.out.println("-----------------------------------");
     }
 
@@ -51,7 +51,7 @@ public class A266_CopistasDaltonicosBonito {
      * Se solicita el número de filas y columnas para determinar el tamaño del cuadrado
      * Luego, llama a los métodos aplicarCopistas y Mostrar resultado para seguir el programa
      */
-    public static void IntroducirDatos() {
+    public static void introducirDatos() {
         System.out.print("> Introduzca el nº de filas: ");
 
         int filas;
@@ -77,7 +77,7 @@ public class A266_CopistasDaltonicosBonito {
             return;
         }
 
-        String[] cuadro = LeerCuadro(filas, columnas);
+        String[] cuadro = leerCuadro(filas, columnas);
         aplicarCopistas(cuadro);
         mostrarResultado(cuadro);
     }
@@ -89,8 +89,8 @@ public class A266_CopistasDaltonicosBonito {
      * @param columnas Ancho del cuadro
      * @return Devuelve cada fila del cuadro
      */
-    public static String[] LeerCuadro(int filas, int columnas) {
-        Separador();
+    public static String[] leerCuadro(int filas, int columnas) {
+        separador();
         String[] cuadro = new String[filas];
 
         for (int i = 0; i < filas; i++) {
@@ -117,7 +117,7 @@ public class A266_CopistasDaltonicosBonito {
      * @param cuadro Representa el cuadro
      */
     public static void aplicarCopistas(String[] cuadro) {
-        Separador();
+        separador();
 
         System.out.print("> Número de copistas daltónicos: ");
 
@@ -163,7 +163,7 @@ public class A266_CopistasDaltonicosBonito {
      * @param cuadro Representa el cuadro
      */
     public static void mostrarResultado(String[] cuadro) {
-        Separador();
+        separador();
         System.out.println("Resultado final del cuadro: ");
 
         for (String fila : cuadro) {

@@ -6,17 +6,19 @@ import java.util.Scanner;
 /**
  * Programa "Copistas Daltónicos
  * <p>
- *     Este ejercicio es como el juego del teléfono, pero con una imagen de colores.
- *     Imagina que una foto (hecha con caracteres de colores) pasa de mano en mano.
- *     Cada persona que copia tiene un tipo de daltonismo, y al copiarla, cambia los colores que confunde por los colores que sí ve.
- *     Como cada copia es la "original" para el siguiente, el color se va alterando a cada paso.
- *     El desafío es saber cómo queda la imagen al final después de todos estos cambios sucesivos.
+ * Este ejercicio es como el juego del teléfono, pero con una imagen de colores.
+ * Imagina que una foto (hecha con caracteres de colores) pasa de mano en mano.
+ * Cada persona que copia tiene un tipo de daltonismo, y al copiarla, cambia los colores que confunde por los colores que sí ve.
+ * Como cada copia es la "original" para el siguiente, el color se va alterando a cada paso.
+ * El desafío es saber cómo queda la imagen al final después de todos estos cambios sucesivos.
  * </p>
  */
 
 public class A266_CopistasDaltonicosBonito {
 
-    /** Scanner para leer datos desde el teclado */
+    /**
+     * Scanner para leer datos desde el teclado
+     */
     static Scanner teclado = new Scanner(System.in);
 
     /**
@@ -83,7 +85,7 @@ public class A266_CopistasDaltonicosBonito {
     /**
      * Metodo para leer fila por fila del cuadro
      *
-     * @param filas Alto del cuadro
+     * @param filas    Alto del cuadro
      * @param columnas Ancho del cuadro
      * @return Devuelve cada fila del cuadro
      */
@@ -156,7 +158,7 @@ public class A266_CopistasDaltonicosBonito {
     }
 
     /**
-     *  Muestra el resultado final del cuadro
+     * Muestra el resultado final del cuadro
      *
      * @param cuadro Representa el cuadro
      */

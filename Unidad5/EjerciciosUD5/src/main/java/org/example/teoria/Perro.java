@@ -20,6 +20,8 @@ public class Perro {
     }
 
     public void imprimirFicha() {
+        System.out.println("*** Perro ***");
+        Main.separador();
         System.out.println("Raza: " + raza);
         System.out.println("Pelo: " + pelo);
         System.out.println("Peso: " + peso + "kg");

@@ -1,4 +1,7 @@
-package org.example.teoria;
+package org.example.Baterias;
+
+import org.example.teoria.Perro;
+import org.example.teoria.Persona;
 
 public class Main {
     public static void main(String[] args) {

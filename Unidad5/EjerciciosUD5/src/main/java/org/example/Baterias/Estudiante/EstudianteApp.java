@@ -1,29 +1,46 @@
 package org.example.Baterias.Estudiante;
 
 public class EstudianteApp {
-    static void main(){
-        Estudiante ivan = new Estudiante("Iván", "1DAW", "alumno@mutxamel.com");
 
-        System.out.println("Nia de " + ivan.getNombre() + ": " + ivan.getNia());
+    static void main() {
+
+        Estudiante ivan = new Estudiante("Iván","1DAW","alumno@mutxamel.com");
+
+        System.out.println(ivan.getNia());
 
         Estudiante alejandro = new Estudiante("alejandro");
 
-        System.out.println("Nia de " + alejandro.getNombre() + ": " + alejandro.getNia());
+        System.out.println(alejandro.getNia());
 
         System.out.println("Estudiantes creados: " + Estudiante.obtenerTotalEstudiantes());
 
-        System.out.println("Hola@iesmutxamel.com: " + Estudiante.validarCorreo("Hola@iesmutxamel.com"));
-        System.out.println("Hola@alu.edu.gva.es: " + Estudiante.validarCorreo("Hola@alu.edu.gva.es"));
+        System.out.println(Estudiante.validarCorreo("hola@iesmutxamel.com"));
+        System.out.println(Estudiante.validarCorreo("hola@alu.edu.gva.es"));
 
-        Libro las48leyes = new Libro("Las 48 leyes del poder", "Robert Greene");
-        System.out.println(las48leyes);
+        Editorial anaya = new Editorial("ANAYA","España");
 
-        Libro habitosAtomicos = new Libro("Hábitos atómicos", "James clear");
-        System.out.println(habitosAtomicos);
+        Libro las_48_leyes = new Libro("Las 48 leyes del poder","Robert Greene", anaya);
 
-        las48leyes.prestar();
-        las48leyes.prestar();
-        las48leyes.devolver();
-        las48leyes.devolver();
+        System.out.println(las_48_leyes);
+
+        Libro habitos_atomicos = new Libro("Hábitos atómicos","James Clear", anaya);
+
+        System.out.println(habitos_atomicos);
+
+        las_48_leyes.prestar(ivan);
+
+        System.out.println(las_48_leyes.estaDisponible());
+        System.out.println(ivan);
+
+        habitos_atomicos.prestar(ivan);
+
+        System.out.println("Total libros creados: " + Libro.getCantidadLibros());
+        System.out.println("Libros disponibles: " + Libro.getLibrosDisponibles());
+
+        las_48_leyes.devolver();
+        las_48_leyes.devolver();
+        System.out.println(las_48_leyes.estaDisponible());
+
+
     }
 }

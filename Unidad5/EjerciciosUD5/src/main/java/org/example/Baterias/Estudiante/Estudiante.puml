@@ -1,0 +1,91 @@
+  @startuml
+
+  class Estudiante {
+      - {static} contadorEstudiantes : int
+      - {static} CORREO_FORMAT : String
+      - nombre : String
+      - curso : String
+      - nia : int
+      - email : String
+      + Estudiante(nombre: String, curso: String, email: String)
+      + Estudiante(nombre: String)
+      + {static} obtenerTotalEstudiantes() : int
+      + {static} validarCorreo(email: String) : boolean
+      + getNombre() : String
+      + setNombre(nombre: String) : void
+      + getCurso() : String
+      + setCurso(curso: String) : void
+      + getNia() : int
+      + setNia(nia: int) : void
+      + getEmail() : String
+      + setEmail(email: String) : void
+      + getLibro() : Libro
+      + setLibro(libro: Libro) : void
+      + toString() : String
+  }
+
+  class Libro {
+      - {static} ID_NOMBRE : String
+      - {static} cantidadLibros : int
+      - {static} librosDisponibles : int
+      - titulo : String
+      - autor : String
+      - id : String
+      - disponible : boolean
+      + Libro(titulo: String, autor: String, editorial: Editorial)
+      - calcularId() : String
+      + prestar(estudiante: Estudiante) : Prestamo
+      + devolver() : void
+      + estaDisponible() : boolean
+      + {static} getCantidadLibros() : int
+      + {static} getLibrosDisponibles() : int
+      + getTitulo() : String
+      + setTitulo(titulo: String) : void
+      + getAutor() : String
+      + setAutor(autor: String) : void
+      + getId() : String
+      + isDisponible() : boolean
+      + setDisponible(disponible: boolean) : void
+      + getEditorial() : Editorial
+      + setEditorial(editorial: Editorial) : void
+      + getEstudiantePrestado() : Estudiante
+      + setEstudiantePrestado(estudiantePrestado: Estudiante) : void
+      + toString() : String
+  }
+
+  class Editorial {
+      - nombre : String
+      - pais : String
+      + Editorial(nombre: String, pais: String)
+      + getNombre() : String
+      + setNombre(nombre: String) : void
+      + getPais() : String
+      + setPais(pais: String) : void
+      + toString() : String
+  }
+
+  class Prestamo {
+      - fecha : LocalDateTime
+      + Prestamo(estudiante: Estudiante, libro: Libro)
+      + getEstudiante() : Estudiante
+      + setEstudiante(estudiante: Estudiante) : void
+      + getLibro() : Libro
+      + setLibro(libro: Libro) : void
+      + getFecha() : LocalDateTime
+      + setFecha(fecha: LocalDateTime) : void
+      + toString() : String
+  }
+
+  class EstudianteApp {
+      ~ {static} main() : void
+  }
+
+  Estudiante "1" -- "0..1" Libro : tiene prestado >
+  Libro "1" -- "1" Editorial : publicado por >
+  Prestamo "1" -- "1" Estudiante : registra >
+  Prestamo "1" -- "1" Libro : registra >
+  EstudianteApp ..> Estudiante : usa
+  EstudianteApp ..> Libro : usa
+  EstudianteApp ..> Editorial : usa
+
+  @enduml

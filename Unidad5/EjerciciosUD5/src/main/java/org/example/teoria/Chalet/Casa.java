@@ -30,8 +30,8 @@ public class Casa {
     }
 
     public void borrarHabitacion(String nombre) {
-        for (Habitacion habitacion : listaHabitaciones){
-            if (habitacion.getNombre().equals(nombre)){
+        for (Habitacion habitacion : listaHabitaciones) {
+            if (habitacion.getNombre().equals(nombre)) {
                 listaHabitaciones.remove(habitacion);
                 System.out.println("Habitación " + nombre + " borrada con exito.");
                 return;
@@ -56,6 +56,18 @@ public class Casa {
             }
         }
         return maximo;
+    }
+
+    public Electrodomestico getElectrodomesticoMenosEcoFriendly() {
+        Electrodomestico consumoMaximo = null;
+        for (Habitacion habitacion : listaHabitaciones) {
+            for (Electrodomestico electrodomestico : habitacion.getListaElectrodomesticos()) {
+                if (consumoMaximo.getConsumoElectrico() < electrodomestico.getConsumoElectrico()) {
+                    consumoMaximo = electrodomestico;
+                }
+            }
+        }
+        return consumoMaximo;
     }
 
     public String getDireccion() {

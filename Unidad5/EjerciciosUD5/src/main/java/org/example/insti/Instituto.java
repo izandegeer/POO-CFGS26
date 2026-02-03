@@ -8,6 +8,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
+//@Data
 public class Instituto {
 
     @NonNull

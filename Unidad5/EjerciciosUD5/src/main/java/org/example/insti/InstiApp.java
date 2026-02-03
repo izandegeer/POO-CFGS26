@@ -6,6 +6,6 @@ public class InstiApp {
         Instituto figueras = new Instituto();
         Instituto lloixa = new Instituto("Ies Lloixa", "San Juan");
         lloixa.setPoblacion(null);
-        
+        System.out.printf(lloixa.getPoblacion());
     }
 }

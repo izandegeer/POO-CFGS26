@@ -1,4 +1,4 @@
-package org.example.insti;
+package org.example.Baterias.insti;
 
 import lombok.*;
 

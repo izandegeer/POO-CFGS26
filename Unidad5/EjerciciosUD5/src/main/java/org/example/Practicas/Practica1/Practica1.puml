@@ -1,0 +1,90 @@
+@startuml
+!theme plain
+
+class AppProgramas {
+    +main(String[] args): void
+}
+
+class Cadena {
+    -nombre: String
+    -listaProgramas: ArrayList<Programa>
+    +Cadena(nombre: String)
+    +getNombre(): String
+    +setNombre(nombre: String): void
+    +getListaProgramas(): ArrayList<Programa>
+    +crearPrograma(programa: Programa): void
+    +borrarPrograma(programa: Programa): void
+    +toString(): String
+}
+
+class Programa {
+    -nombre: String
+    -cadena: Cadena
+    -temporadas: int
+    -listaEmpleados: ArrayList<Empleado>
+    -listaInvitados: ArrayList<Invitado>
+    -director: Empleado
+    +Programa(nombre: String, cadena: Cadena, nombreDirector: String)
+    +getNombre(): String
+    +setNombre(nombre: String): void
+    +getCadena(): Cadena
+    +setCadena(cadena: Cadena): void
+    +getTemporadas(): int
+    +getListaEmpleados(): ArrayList<Empleado>
+    +getListaInvitados(): ArrayList<Invitado>
+    +getDirector(): Empleado
+    +setDirector(director: Empleado): void
+    +crearEmpleado(nombre: String, cargo: String, director: Empleado): void
+    +borrarEmpleado(empleado: Empleado): void
+    +crearInvitado(nombre: String, profesion: String, temporada: int): void
+    +borrarInvitado(invitado: Invitado): void
+    +contadorInvitados(temporada: int): void
+    +vecesInvitado(nombre: String): int
+    +rastrearInvitado(nombre: String): void
+    +buscarInvitado(nombre: String): boolean
+    +toString(): String
+}
+
+class Empleado {
+    -{static} contador: int
+    -id: String
+    -nombre: String
+    -cargo: String
+    -director: Empleado
+    +Empleado(nombre: String, cargo: String, director: Empleado)
+    +getId(): String
+    +getNombre(): String
+    +setNombre(nombre: String): void
+    +getCargo(): String
+    +getDirector(): Empleado
+    +setDirector(director: Empleado): void
+    +setCargo(cargo: String): void
+    +toString(): String
+}
+
+class Invitado {
+    -nombre: String
+    -profesion: String
+    -fechaVisita: LocalDate
+    -temporada: int
+    +Invitado(nombre: String, profesion: String, temporada: int, fechaVisita: LocalDate)
+    +Invitado(nombre: String, profesion: String, temporada: int)
+    +getNombre(): String
+    +setNombre(nombre: String): void
+    +getProfesion(): String
+    +setProfesion(profesion: String): void
+    +getFechaVisita(): LocalDate
+    +setFechaVisita(fechaVisita: LocalDate): void
+    +getTemporada(): int
+    +setTemporada(temporada: int): void
+    +toString(): String
+}
+
+Cadena "1" -- "*" Programa : contiene >
+Programa "1" *-- "*" Empleado : emplea >
+Programa "1" *-- "*" Invitado : invita >
+Empleado "1" o-- "0..1" Empleado : dirigido_por >
+AppProgramas ..> Cadena : usa
+AppProgramas ..> Programa : usa
+
+@enduml

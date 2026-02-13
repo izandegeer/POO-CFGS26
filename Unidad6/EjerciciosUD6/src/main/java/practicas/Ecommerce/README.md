@@ -2,21 +2,6 @@
 
 Proyecto Java con ejercicios de la **Unidad 6** del módulo de Programación Orientada a Objetos (CFGS DAW 2025-26).
 
-## Estructura del proyecto
-
-```
-src/
-├── main/java/
-│   ├── teoria/Restaurante/       # Ejemplo de teoría
-│   ├── ejercicios/
-│   │   ├── Empleados/            # Ejercicio 1 — Empleados
-│   │   └── Streaming/            # Ejercicio 2 — Plataforma de streaming
-│   ├── baterias/                 # Batería — Red social
-│   └── practicas/Ecommerce/     # Práctica — Tienda online
-└── test/java/
-    └── practicas/Ecommerce/     # Tests de la práctica
-```
-
 ## Contenido
 
 ### Práctica: E-commerce

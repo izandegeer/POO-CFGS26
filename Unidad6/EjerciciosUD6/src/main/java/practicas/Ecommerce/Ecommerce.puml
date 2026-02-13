@@ -1,0 +1,72 @@
+@startuml Ecommerce
+
+package "practicas.Ecommerce" {
+
+    abstract class MetodoPago {
+        + {abstract} procesarPago(importe: double): void
+    }
+
+    class Tarjeta {
+        - {static} teclado: Scanner
+        - nroTarjeta: String
+        - tipo: String
+        - tipoNovalido: boolean
+        + getNroTarjeta(): String
+        + setNroTarjeta(nroTarjeta: String): void
+        + getTipo(): String
+        + setTipo(tipo: String): void
+        + validarTarjeta(): boolean
+        + rellenarDatosTarjeta(): void
+        + procesarPago(importe: double): void
+        + toString(): String
+    }
+
+    class PayPal {
+        - {static} teclado: Scanner
+        - cuenta: String
+        - saldo: double
+        + getCuenta(): String
+        + setCuenta(cuenta: String): void
+        + getSaldo(): double
+        + setSaldo(saldo: double): void
+        + validarPaypal(importe: double): boolean
+        + rellenarDatosPaypal(): void
+        + procesarPago(importe: double): void
+        + toString(): String
+    }
+
+    class Bizum {
+        - {static} teclado: Scanner
+        - random: Random
+        - telefono: String
+        - pin: int
+        - pinUsuario: int
+        + getTelefono(): String
+        + setTelefono(telefono: String): void
+        + getPin(): int
+        + setPin(pin: int): void
+        + rellenarDatosBizum(): void
+        + validarBizum(): boolean
+        + procesarPago(importe: double): void
+        + toString(): String
+    }
+
+    class Tienda {
+        - {static} teclado: Scanner
+        - {static} importe: double
+        + {static} main(args: String[]): void
+        + {static} realizarPago(metodoPago: MetodoPago): void
+        + {static} iniciarPago(): void
+    }
+
+    MetodoPago <|-- Tarjeta
+    MetodoPago <|-- PayPal
+    MetodoPago <|-- Bizum
+
+    Tienda ..> MetodoPago : usa
+    Tienda ..> Tarjeta : crea
+    Tienda ..> PayPal : crea
+    Tienda ..> Bizum : crea
+}
+
+@enduml

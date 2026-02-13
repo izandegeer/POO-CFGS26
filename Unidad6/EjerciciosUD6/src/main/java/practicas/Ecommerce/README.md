@@ -1,13 +1,6 @@
 # Ejercicios Unidad 6 — Herencia y Polimorfismo
 
-Proyecto Java con ejercicios de la **Unidad 6** del módulo de Programación Orientada a Objetos (CFGS DAM/DAW 2025-26). Los ejercicios cubren **herencia**, **clases abstractas** y **polimorfismo**.
-
-## Tecnologías
-
-- **Java 23**
-- **Maven**
-- **Lombok** 1.18.36
-- **JUnit 5** (Jupiter 5.11.4)
+Proyecto Java con ejercicios de la **Unidad 6** del módulo de Programación Orientada a Objetos (CFGS DAW 2025-26).
 
 ## Estructura del proyecto
 
@@ -26,22 +19,6 @@ src/
 
 ## Contenido
 
-### Teoría: Restaurante (KebabAmego)
-
-Jerarquía de personas en un restaurante: `Persona` como clase base con subclases `Camarero`, `Cliente`, `Cocinero` y `Encargado`.
-
-### Ejercicio 1: Empleados
-
-Jerarquía de empleados de una empresa con la clase base `Empleado` y subclases `Desarrollador`, `Gerente` y `Diseñador`.
-
-### Ejercicio 2: Plataforma de Streaming
-
-Sistema de suscripciones con la clase base `Suscripcion` y distintos planes: `PlanGratis`, `PlanBasico`, `PlanPremium` y `PlanFamiliar`, gestionados por `PlataformaStreaming`.
-
-### Batería: Red Social
-
-Tipos de usuario en una red social: `Usuario` como clase base con subclases `Basico`, `Influencer` y `Streamer`, gestionados por `RedSocial`.
-
 ### Práctica: E-commerce
 
 Simulación de una tienda online con distintos métodos de pago. Incluye diagrama UML y tests unitarios.
@@ -51,26 +28,3 @@ Simulación de una tienda online con distintos métodos de pago. Incluye diagram
 - **`PayPal`** — Pago con cuenta PayPal. Valida email y saldo disponible.
 - **`Bizum`** — Pago con Bizum. Valida teléfono de 9 dígitos y PIN aleatorio.
 - **`Tienda`** — Clase principal con menú interactivo para elegir método de pago.
-
-## Ejecución
-
-```bash
-# Compilar
-mvn compile
-
-# Ejecutar la práctica de E-commerce
-mvn exec:java -Dexec.mainClass="practicas.Ecommerce.Tienda"
-
-# Ejecutar tests
-mvn test
-```
-
-## Tests
-
-La práctica de E-commerce incluye tests unitarios para los tres métodos de pago:
-
-| Clase | Test |
-|---|---|
-| `Bizum` | `BizumTest.java` |
-| `PayPal` | `PayPalTest.java` |
-| `Tarjeta` | `TarjetaTest.java` |

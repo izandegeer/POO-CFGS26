@@ -1,4 +1,4 @@
-# Copa del Rey — Gestor de equipos de fútbol
+# Copa del Rey — App para gestionar el Mutxamel FC
 
 ## Introducción
 

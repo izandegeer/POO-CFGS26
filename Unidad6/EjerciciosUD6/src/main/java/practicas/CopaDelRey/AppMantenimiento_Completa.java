@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Clase dedicada al mantenimiento del Mutxamel FC.
  */
-public class AppMantenimiento {
+public class AppMantenimiento_Completa {
     static Scanner teclado = new Scanner(System.in);
 
     /**
@@ -27,6 +27,20 @@ public class AppMantenimiento {
     }
 
     /**
+     * Muestra el menú de mantenimiento de entrenadores.
+     */
+    public static void mantenimientoEntrenadores() {
+        infoMantenimientoEntrenadores();
+    }
+
+    /**
+     * Muestra el menú de mantenimiento de masajistas.
+     */
+    public static void mantenimientoMasajistas() {
+        infoMantenimientoMasajistas();
+    }
+
+    /**
      * Permite consultar la información de un equipo del club.
      */
     public static void consultaEquipo() {
@@ -36,11 +50,10 @@ public class AppMantenimiento {
             System.out.println("[" + i + "] " + Equipos.values()[i]);
         }
 
-        System.out.print("\nIntroduce el equipo a consultar: ");
+        System.out.print("Introduce el equipo a consultar: ");
         char opcion = teclado.next().charAt(0);
 
-        Equipos equipoSeleccionado = Equipos.values()[opcion - '0'];
-        System.out.println();
+        Equipos equipoSeleccionado = Equipos.values()[opcion];
 
         switch (opcion) {
             case '0':
@@ -69,7 +82,6 @@ public class AppMantenimiento {
                 break;
             case 'x': // Salir
                 salir();
-                return;
             default: // Resto
                 System.out.println("La entrada no es válida");
                 break;
@@ -140,17 +152,16 @@ public class AppMantenimiento {
                 mantenimientoJugadores();
                 break;
             case '2': // Mantenimiento entrenadores
-                System.out.println("Próximamente.");
+                mantenimientoEntrenadores();
                 break;
             case '3': // Mantenimiento masajistas
-                System.out.println("Próximamente.");
+                mantenimientoMasajistas();
                 break;
             case '4': // Consultar equipos
                 consultaEquipo();
                 break;
             case 'x': // Salir
                 salir();
-                return;
             default: // Resto
                 System.out.println("La entrada no es válida");
                 break;
@@ -184,7 +195,6 @@ public class AppMantenimiento {
                 break;
             case 'x': // Salir
                 salir();
-                return;
             default: // Resto
                 System.out.println("La entrada no es válida");
                 break;
@@ -255,7 +265,6 @@ public class AppMantenimiento {
             System.out.println("[" + i + "] " + Jugador.listaJugadores.get(i).getNombre());
         }
 
-        System.out.println("\n==========================================================================================");
         System.out.print("Escoge jugador a modificar: ");
         int opcion = 0;
         try {
@@ -276,15 +285,12 @@ public class AppMantenimiento {
         System.out.println("[3] Categoría");
         System.out.println("[4] Dorsal");
         System.out.println("[5] Posición");
-
-        System.out.println("\n==========================================================================================");
         System.out.print("Introduce dato a modificar: ");
         char opcionDato = teclado.next().charAt(0);
-        System.out.println("==========================================================================================");
 
         switch (opcionDato) {
             case '1':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar nombre");
+                System.out.println("[" + jugadorSeleccionado + "] Modificar nombre");
 
                 System.out.print("Introduzca el nuevo nombre: ");
                 String nuevoNombre = teclado.next();
@@ -298,7 +304,7 @@ public class AppMantenimiento {
 
                 break;
             case '2':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar edad");
+                System.out.println("[" + jugadorSeleccionado + "] Modificar edad");
 
                 System.out.print("Introduzca la nueva edad: ");
                 int nuevaEdad = 0;
@@ -318,7 +324,7 @@ public class AppMantenimiento {
 
                 break;
             case '3':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar categoría");
+                System.out.println("[" + jugadorSeleccionado + "] Modificar categoría");
 
                 System.out.print("Introduzca la nueva categoría " + Arrays.toString(Equipos.values()) + ": ");
                 Equipos nuevaCategoria = null;
@@ -338,7 +344,7 @@ public class AppMantenimiento {
 
                 break;
             case '4':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar dorsal");
+                System.out.println("[" + jugadorSeleccionado + "] Modificar dorsal");
 
                 System.out.print("Introduzca el nuevo dorsal: ");
                 int nuevoDorsal = 0;
@@ -358,7 +364,7 @@ public class AppMantenimiento {
 
                 break;
             case '5':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar posición");
+                System.out.println("[" + jugadorSeleccionado + "] Modificar posición");
 
                 System.out.print("Introduzca la nueva posición " + Arrays.toString(Posiciones.values()) + ": ");
                 Posiciones nuevaPosicion = null;
@@ -378,7 +384,6 @@ public class AppMantenimiento {
                 break;
             case 'x': // Salir
                 salir();
-                return;
             default: // Resto
                 System.out.println("La entrada no es válida");
                 break;
@@ -428,11 +433,363 @@ public class AppMantenimiento {
         System.out.println("\n==========================================================================================");
 
         new Acompanyante(nombre, edad, jugadorAcompanyado, parentesco);
-        System.out.println("\n[" + nombre + "] Ha sido añadido como acompañante de " + jugadorAcompanyado + ".");
+        System.out.println("[" + nombre + "] Ha sido añadido como acompañante de " + jugadorAcompanyado + ".");
+    }
+
+    /**
+     * Muestra las opciones de mantenimiento de entrenadores.
+     */
+    public static void infoMantenimientoEntrenadores() {
+        System.out.println("========================== Mantenimiento de entrenadores ==========================\n");
+
+        System.out.println("    [1] Añadir entrenador");
+        System.out.println("    [2] Modificar entrenador existente");
+        System.out.println("    [X] Salir");
+
+        System.out.println("\n==========================================================================================");
+        System.out.print("Seleccione una opción: ");
+        char opcion = teclado.next().charAt(0);
+
+        switch (opcion) {
+            case '1': // Añadir entrenador
+                anyadirEntrenador();
+                break;
+            case '2': // Modificar entrenador
+                modificarEntrenador();
+                break;
+            case 'x': // Salir
+                salir();
+            default: // Resto
+                System.out.println("La entrada no es válida");
+                break;
+        }
+    }
+
+    /**
+     * Pide los datos por teclado y añade un nuevo entrenador al club.
+     */
+    public static void anyadirEntrenador() {
+        System.out.println("==================== Mantenimiento de entrenadores - Añadir entrenador ====================\n");
+
+        System.out.println("Introduce los datos del entrenador");
+        System.out.print("Nombre: ");
+        String nombre = teclado.next();
+
+        System.out.print("Edad: ");
+        int edad = 0;
+        try {
+            edad = teclado.nextInt();
+        } catch (Exception e) {
+            System.out.println("ERROR. Se debe de introducir un número.");
+            return;
+        }
+
+        System.out.print("Equipo " + Arrays.toString(Equipos.values()) + ": ");
+        Equipos equipo = null;
+        try {
+            equipo = Equipos.valueOf(teclado.next().toUpperCase());
+        } catch (IllegalArgumentException e) {
+            System.out.println("ERROR. El valor introducido no es válido.");
+            return;
+        }
+
+        System.out.println("Formación preferida: ");
+        String formacion = teclado.next();
+
+        String rol = "[Entrenador] ";
+
+        System.out.println("\n==========================================================================================");
+
+        new Entrenador(nombre, edad, equipo, formacion, rol);
+        System.out.println("[" + nombre + "] Ha sido añadido como entrenador.");
+    }
+
+    /**
+     * Permite seleccionar un entrenador de la lista y modificar sus datos.
+     */
+    static void modificarEntrenador() {
+        System.out.println("================== Mantenimiento de entrenadores - Modificar entrenador ==================\n");
+
+        for (int i = 0; i < Entrenador.listaEntrenadores.size(); i++) {
+            System.out.println("[" + i + "]" + Entrenador.listaEntrenadores.get(i).getNombre());
+        }
+
+        System.out.print("Escoge entrenador a modificar: ");
+        int opcion = 0;
+        try {
+            opcion = teclado.nextInt();
+        } catch (Exception e) {
+            System.out.println("ERROR. Se debe de introducir un número.");
+            return;
+        }
+
+        Entrenador entrenadorSeleccionado = Entrenador.listaEntrenadores.get(opcion);
+
+        System.out.println("================== Mantenimiento de entrenadores - Modificar entrenador ==================\n");
+
+        System.out.println("[Entrenador seleccionado: " + entrenadorSeleccionado + "]");
+
+        System.out.println("[1] Nombre");
+        System.out.println("[2] Edad");
+        System.out.println("[3] Equipo");
+        System.out.println("[4] Formación preferida");
+        System.out.print("Introduce dato a modificar: ");
+        char opcionDato = teclado.next().charAt(0);
+
+        switch (opcionDato) {
+            case '1':
+                System.out.println("[" + entrenadorSeleccionado + "] Modificar nombre");
+
+                System.out.print("Introduzca el nuevo nombre: ");
+                String nuevoNombre = teclado.next();
+
+                if (nuevoNombre.equals(entrenadorSeleccionado.getNombre())) {
+                    System.out.println("[Nombre] No se ha hecho ningún cambio, el valor es el mismo.");
+                } else {
+                    entrenadorSeleccionado.setNombre(nuevoNombre);
+                    System.out.println("Nombre cambiado a " + nuevoNombre);
+                }
+
+                break;
+            case '2':
+                System.out.println("[" + entrenadorSeleccionado + "] Modificar edad");
+
+                System.out.print("Introduzca la nueva edad: ");
+                int nuevaEdad = 0;
+                try {
+                    nuevaEdad = teclado.nextInt();
+                } catch (Exception e) {
+                    System.out.println("ERROR. Se debe de introducir un número.");
+                    return;
+                }
+
+                if (nuevaEdad == entrenadorSeleccionado.getEdad()) {
+                    System.out.println("[Edad] No se ha hecho ningún cambio, el valor es el mismo.");
+                } else {
+                    entrenadorSeleccionado.setEdad(nuevaEdad);
+                    System.out.println("Edad cambiada a " + nuevaEdad);
+                }
+
+                break;
+            case '3':
+                System.out.println("[" + entrenadorSeleccionado + "] Modificar equipo");
+
+                System.out.print("Introduzca el nuevo equipo " + Arrays.toString(Equipos.values()) + ": ");
+                Equipos nuevoEquipo = Equipos.valueOf(teclado.next().toUpperCase());
+
+                if (nuevoEquipo.equals(entrenadorSeleccionado.getEquipo())) {
+                    System.out.println("[Equipo] No se ha hecho ningún cambio, el valor es el mismo.");
+                } else {
+                    entrenadorSeleccionado.setEquipo(nuevoEquipo);
+                    System.out.println("Equipo cambiado a " + nuevoEquipo);
+                }
+
+                break;
+            case '4':
+                System.out.println("[" + entrenadorSeleccionado + "] Modificar formación preferida");
+
+                System.out.print("Introduzca la nueva formación: ");
+                String nuevaFormacion = teclado.nextLine();
+
+                if (nuevaFormacion.equals(entrenadorSeleccionado.getFormacionPreferida())) {
+                    System.out.println("[Formación] No se ha hecho ningún cambio, el valor es el mismo.");
+                } else {
+                    entrenadorSeleccionado.setFormacionPreferida(nuevaFormacion);
+                    System.out.println("Formación cambiada a " + nuevaFormacion);
+                }
+
+                break;
+            case 'x': // Salir
+                salir();
+            default: // Resto
+                System.out.println("La entrada no es válida");
+                break;
+        }
+
+        System.out.println("\n==========================================================================================");
+    }
+
+    /**
+     * Muestra las opciones de mantenimiento de masajistas.
+     */
+    public static void infoMantenimientoMasajistas() {
+        System.out.println("========================== Mantenimiento de masajistas ==========================\n");
+
+        System.out.println("    [1] Añadir masajista");
+        System.out.println("    [2] Modificar masajista existente");
+        System.out.println("    [X] Salir");
+
+        System.out.println("\n==========================================================================================");
+        System.out.print("Seleccione una opción: ");
+        char opcion = teclado.next().charAt(0);
+
+        switch (opcion) {
+            case '1': // Añadir masajista
+                anyadirMasajista();
+                break;
+            case '2': // Modificar masajista
+                modificarMasajista();
+                break;
+            case 'x': // Salir
+                salir();
+            default: // Resto
+                System.out.println("La entrada no es válida");
+                break;
+        }
+    }
+
+    /**
+     * Pide los datos por teclado y añade un nuevo masajista al club.
+     */
+    public static void anyadirMasajista() {
+        System.out.println("===================== Mantenimiento de masajistas - Añadir masajista =====================\n");
+
+        System.out.println("Introduce los datos del masajista");
+        System.out.print("Nombre: ");
+        String nombre = teclado.next();
+
+        System.out.print("Edad: ");
+        int edad = 0;
+        try {
+            edad = teclado.nextInt();
+        } catch (Exception e) {
+            System.out.println("ERROR. Se debe de introducir un número.");
+            return;
+        }
+
+        System.out.print("Titulación: ");
+        String titulacion = teclado.next();
+
+        System.out.println("Años experiencia: ");
+        int anyosExperiencia = 0;
+        try {
+            anyosExperiencia = teclado.nextInt();
+        } catch (Exception e) {
+            System.out.println("ERROR. Se debe de introducir un número.");
+            return;
+        }
+
+        String rol = "[Masajista] ";
+
+        System.out.println("\n==========================================================================================");
+
+        new Masajista(nombre, edad, titulacion, anyosExperiencia, rol);
+        System.out.println("[" + nombre + "] Ha sido añadido como masajista.");
+    }
+
+    /**
+     * Permite seleccionar un masajista de la lista y modificar sus datos.
+     */
+    static void modificarMasajista() {
+        System.out.println("================== Mantenimiento de entrenadores - Modificar entrenador ==================\n");
+
+        for (int i = 0; i < Masajista.listaMasajistas.size(); i++) {
+            System.out.println("[" + i + "]" + Masajista.listaMasajistas.get(i).getNombre());
+        }
+
+        System.out.print("Escoge entrenador a modificar: ");
+        int opcion = 0;
+        try {
+            opcion = teclado.nextInt();
+        } catch (Exception e) {
+            System.out.println("ERROR. Se debe de introducir un número.");
+            return;
+        }
+
+        Masajista masajistaSeleccionado = Masajista.listaMasajistas.get(opcion);
+
+        System.out.println("=================== Mantenimiento de masajistas - Modificar masajista ===================\n");
+
+        System.out.println("[Masajista seleccionado: " + masajistaSeleccionado + "]");
+
+        System.out.println("[1] Nombre");
+        System.out.println("[2] Edad");
+        System.out.println("[3] Titulación");
+        System.out.println("[4] Años experiencia");
+        System.out.print("Introduce dato a modificar: ");
+        char opcionDato = teclado.next().charAt(0);
+
+        switch (opcionDato) {
+            case '1':
+                System.out.println("[" + masajistaSeleccionado + "] Modificar nombre");
+
+                System.out.print("Introduzca el nuevo nombre: ");
+                String nuevoNombre = teclado.next();
+
+                if (nuevoNombre.equals(masajistaSeleccionado.getNombre())) {
+                    System.out.println("[Nombre] No se ha hecho ningún cambio, el valor es el mismo.");
+                } else {
+                    masajistaSeleccionado.setNombre(nuevoNombre);
+                    System.out.println("Nombre cambiado a " + nuevoNombre);
+                }
+
+                break;
+            case '2':
+                System.out.println("[" + masajistaSeleccionado + "] Modificar edad");
+
+                System.out.print("Introduzca la nueva edad: ");
+                int nuevaEdad = 0;
+                try {
+                    nuevaEdad = teclado.nextInt();
+                } catch (Exception e) {
+                    System.out.println("ERROR. Se debe de introducir un número.");
+                    return;
+                }
+
+                if (nuevaEdad == masajistaSeleccionado.getEdad()) {
+                    System.out.println("[Edad] No se ha hecho ningún cambio, el valor es el mismo.");
+                } else {
+                    masajistaSeleccionado.setEdad(nuevaEdad);
+                    System.out.println("Edad cambiada a " + nuevaEdad);
+                }
+
+                break;
+            case '3':
+                System.out.println("[" + masajistaSeleccionado + "] Modificar titulación");
+
+                System.out.print("Introduzca la nueva titulación: ");
+                String nuevaTitulacion = teclado.next();
+
+                if (nuevaTitulacion.equals(masajistaSeleccionado.getTitulacion())) {
+                    System.out.println("[Titulación] No se ha hecho ningún cambio, el valor es el mismo.");
+                } else {
+                    masajistaSeleccionado.setTitulacion(nuevaTitulacion);
+                    System.out.println("Titulación cambiada a " + nuevaTitulacion);
+                }
+
+                break;
+            case '4':
+                System.out.println("[" + masajistaSeleccionado + "] Modificar años de experiencia");
+
+                System.out.print("Introduzca la nueva experiencia: ");
+                int nuevosAnyosExp = 0;
+                try {
+                    nuevosAnyosExp = teclado.nextInt();
+                } catch (Exception e) {
+                    System.out.println("ERROR. Se debe de introducir un número.");
+                    return;
+                }
+
+                if (nuevosAnyosExp == masajistaSeleccionado.getAnyosExperiencia()) {
+                    System.out.println("[Experiencia] No se ha hecho ningún cambio, el valor es el mismo.");
+                } else {
+                    masajistaSeleccionado.setAnyosExperiencia(nuevosAnyosExp);
+                    System.out.println("Años de experiencia cambiados a " + nuevosAnyosExp + " años");
+                }
+
+                break;
+            case 'x': // Salir
+                salir();
+            default: // Resto
+                System.out.println("La entrada no es válida");
+                break;
+        }
+
         System.out.println("\n==========================================================================================");
     }
 
     static void salir(){
         System.out.println("Saliendo...");
+        return;
     }
 }

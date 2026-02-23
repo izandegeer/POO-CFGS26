@@ -6,7 +6,7 @@ import lombok.Setter;
 /**
  * Representa a un acompañante de un jugador senior del Mutxamel FC.
  */
-public class Acompañante extends Jugador {
+public class Acompanyante extends Jugador {
     @Getter
     @Setter
     private Jugador integrante;
@@ -20,7 +20,7 @@ public class Acompañante extends Jugador {
      * @param nombre nombre del acompañante
      * @param edad   edad del acompañante
      */
-    public Acompañante(String nombre, int edad) {
+    public Acompanyante(String nombre, int edad) {
         super(nombre, edad);
     }
 
@@ -32,7 +32,7 @@ public class Acompañante extends Jugador {
      * @param integrante jugador al que acompaña
      * @param parentesco relación con el jugador
      */
-    public Acompañante(String nombre, int edad, Jugador integrante, String parentesco) {
+    public Acompanyante(String nombre, int edad, Jugador integrante, String parentesco) {
         super(nombre, edad);
         this.integrante = integrante;
         this.parentesco = parentesco;

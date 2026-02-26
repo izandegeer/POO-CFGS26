@@ -11,7 +11,7 @@ public enum Equipos {
     /**
      * Categoría alevín.
      */
-    ALEVÍN,
+    ALEVIN,
     /**
      * Categoría infantil.
      */

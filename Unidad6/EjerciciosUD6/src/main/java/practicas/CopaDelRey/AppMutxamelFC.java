@@ -8,16 +8,31 @@ public class AppMutxamelFC {
      * Crea los jugadores y entrenadores iniciales del club.
      */
     static void main() {
+        String rolJugador = "[Jugador] ";
+
+        // Equipos
+        Equipos equipoBenjamin = Equipos.BENJAMIN;
+        Equipos equipoAlevin = Equipos.ALEVIN;
+        Equipos equipoInfantil = Equipos.INFANTIL;
+        Equipos equipoCadete = Equipos.CADETE;
+        Equipos equipoJuvenil = Equipos.JUVENIL;
+        Equipos equipoSenior = Equipos.SENIOR;
+
+        // Posiciones
+        Posiciones portero = Posiciones.PORTERO;
+        Posiciones defensa = Posiciones.DEFENSA;
+        Posiciones centrocampista = Posiciones.CENTROCAMPISTA;
+        Posiciones delantero = Posiciones.DELANTERO;
+
         // Jugadores
-        Jugador ismael = new Jugador("Ismael", 19);
-        Jugador ivan = new Jugador("Ivan", 49);
-        Jugador joserra = new Jugador("Joserra", 20);
+        Jugador ismael = new Jugador("Ismael", 19, equipoSenior, delantero, 15, rolJugador);
+        Jugador ivan = new Jugador("Ivan", 49, equipoSenior, defensa, 19, rolJugador);
+        Jugador joserra = new Jugador("Joserra", 20, equipoSenior, centrocampista, 29, rolJugador);
+        Jugador ronaldo = new Jugador("Cristiano Ronaldo", 41, equipoAlevin, delantero, 7, rolJugador);
+        Jugador messi = new Jugador("Leo Meesi", 38, equipoBenjamin, portero, 10, rolJugador);
 
         // Entrenador
         Entrenador izan = new Entrenador("Izan", 21);
-
-        // Equipos
-        Equipos equipoSenior = Equipos.SENIOR;
 
         // Asignar equipo a jugadores
         ismael.setCategoria(equipoSenior);
@@ -28,7 +43,7 @@ public class AppMutxamelFC {
         izan.setEquipo(equipoSenior);
 
 //        Masajista luis = new Masajista("Luis", 19);
-//        Acompañante paco = new Acompañante("Paco", 23);
+//        Acompanyante paco = new Acompanyante("Paco", 23);
 //
 //        izan.concentrarse();
 //        izan.entrenar();
@@ -48,7 +63,9 @@ public class AppMutxamelFC {
 //        ismael.marcarGol();
 //        ismael.celebrarGol();
 //
-//        luis.darMasaje(ismael,ivan,joserra);
+//        luis.darMasaje(ismael);
+//        luis.darMasaje(ivan);
+//        luis.darMasaje(joserra);
 //        luis.viajar("Mutxamel");
 //
 //        joserra.descansar();

@@ -12,9 +12,8 @@ public class AppMantenimiento {
     /**
      * Metodo principal que arranca la aplicación.
      *
-     * @param args argumentos de entrada
      */
-    static void main(String[] args) {
+    static void main() {
         AppMutxamelFC.main();
         mostrarInfo();
     }
@@ -100,14 +99,10 @@ public class AppMantenimiento {
         }
 
         System.out.println("> Lista jugadores: ");
-        if (Jugador.listaJugadores.size() > 0) {
-            for (Jugador jugador : Jugador.listaJugadores) {
-                if (jugador.getCategoria() == equipo) {
-                    System.out.println("- " + jugador.getNombre() + " (" + jugador.getEdad() + " años)");
-                }
+        for (Jugador jugador : Jugador.listaJugadores) {
+            if (jugador.getCategoria() == equipo) {
+                System.out.println("- " + jugador.getNombre() + " (" + jugador.getEdad() + " años)");
             }
-        } else {
-            System.out.println("No hay jugadores disponibles para este equipo, inténtelo de nuevo.");
         }
     }
 
@@ -202,7 +197,7 @@ public class AppMantenimiento {
         String nombre = teclado.next();
 
         System.out.print("Edad: ");
-        int edad = 0;
+        int edad;
         try {
             edad = teclado.nextInt();
         } catch (Exception e) {
@@ -216,7 +211,7 @@ public class AppMantenimiento {
             categoria = Equipos.valueOf(teclado.next().toUpperCase());
         } catch (IllegalArgumentException e) {
             System.out.println("ERROR. El valor introducido no es válido.");
-            return;
+            mostrarInfo();
         }
 
         System.out.print("Posición " + Arrays.toString(Posiciones.values()) + ": ");
@@ -225,7 +220,7 @@ public class AppMantenimiento {
             posicion = Posiciones.valueOf(teclado.next().toUpperCase());
         } catch (IllegalArgumentException e) {
             System.out.println("ERROR. El valor introducido no es válido.");
-            return;
+            mostrarInfo();
         }
 
         System.out.print("Dorsal: ");
@@ -234,7 +229,7 @@ public class AppMantenimiento {
             dorsal = teclado.nextInt();
         } catch (Exception e) {
             System.out.println("ERROR. Se debe de introducir un número.");
-            return;
+            mostrarInfo();
         }
 
         String rol = "[Jugador] ";
@@ -262,7 +257,7 @@ public class AppMantenimiento {
             opcion = teclado.nextInt();
         } catch (Exception e) {
             System.out.println("ERROR. Se debe de introducir un número.");
-            return;
+            mostrarInfo();
         }
 
         Jugador jugadorSeleccionado = Jugador.listaJugadores.get(opcion);
@@ -271,11 +266,11 @@ public class AppMantenimiento {
 
         System.out.println("[Jugador seleccionado: " + jugadorSeleccionado + "]");
 
-        System.out.println("[1] Nombre");
-        System.out.println("[2] Edad");
-        System.out.println("[3] Categoría");
-        System.out.println("[4] Dorsal");
-        System.out.println("[5] Posición");
+        System.out.println("[1] Nombre (" + jugadorSeleccionado.getNombre() + ")");
+        System.out.println("[2] Edad (" + jugadorSeleccionado.getEdad() + ")");
+        System.out.println("[3] Categoría (" + jugadorSeleccionado.getCategoria() + ")");
+        System.out.println("[4] Dorsal (" + jugadorSeleccionado.getDorsal() + ")");
+        System.out.println("[5] Posición (" + jugadorSeleccionado.getPosicion() + ")");
 
         System.out.println("\n==========================================================================================");
         System.out.print("Introduce dato a modificar: ");
@@ -292,8 +287,9 @@ public class AppMantenimiento {
                 if (nuevoNombre.equals(jugadorSeleccionado.getNombre())) {
                     System.out.println("[Nombre] No se ha hecho ningún cambio, el valor es el mismo.");
                 } else {
-                    jugadorSeleccionado.setNombre(nuevoNombre);
+                    Jugador.listaJugadores.get(opcion).setNombre(nuevoNombre);
                     System.out.println("Nombre cambiado a " + nuevoNombre);
+                    mostrarInfo();
                 }
 
                 break;
@@ -306,7 +302,7 @@ public class AppMantenimiento {
                     nuevaEdad = teclado.nextInt();
                 } catch (Exception e) {
                     System.out.println("ERROR. Se debe de introducir un número.");
-                    return;
+                    mostrarInfo();
                 }
 
                 if (nuevaEdad == jugadorSeleccionado.getEdad()) {
@@ -314,6 +310,7 @@ public class AppMantenimiento {
                 } else {
                     jugadorSeleccionado.setEdad(nuevaEdad);
                     System.out.println("Edad cambiada a " + nuevaEdad);
+                    mostrarInfo();
                 }
 
                 break;
@@ -326,7 +323,7 @@ public class AppMantenimiento {
                     nuevaCategoria = Equipos.valueOf(teclado.next().toUpperCase());
                 } catch (IllegalArgumentException e) {
                     System.out.println("ERROR. El valor introducido no es válido.");
-                    return;
+                    mostrarInfo();
                 }
 
                 if (nuevaCategoria.equals(jugadorSeleccionado.getCategoria())) {
@@ -334,6 +331,7 @@ public class AppMantenimiento {
                 } else {
                     jugadorSeleccionado.setCategoria(nuevaCategoria);
                     System.out.println("Categoría cambiada a " + nuevaCategoria);
+                    mostrarInfo();
                 }
 
                 break;
@@ -346,7 +344,7 @@ public class AppMantenimiento {
                     nuevoDorsal = teclado.nextInt();
                 } catch (Exception e) {
                     System.out.println("ERROR. Se debe de introducir un número.");
-                    return;
+                    mostrarInfo();
                 }
 
                 if (nuevoDorsal == jugadorSeleccionado.getDorsal()) {
@@ -354,6 +352,7 @@ public class AppMantenimiento {
                 } else {
                     jugadorSeleccionado.setDorsal(nuevoDorsal);
                     System.out.println("Dorsal cambiado a " + nuevoDorsal);
+                    mostrarInfo();
                 }
 
                 break;
@@ -366,7 +365,7 @@ public class AppMantenimiento {
                     nuevaPosicion = Posiciones.valueOf(teclado.next().toUpperCase());
                 } catch (IllegalArgumentException e) {
                     System.out.println("ERROR. El valor introducido no es válido.");
-                    return;
+                    mostrarInfo();
                 }
 
                 if (nuevaPosicion == jugadorSeleccionado.getPosicion()) {
@@ -374,6 +373,7 @@ public class AppMantenimiento {
                 } else {
                     jugadorSeleccionado.setNombre(String.valueOf(nuevaPosicion));
                     System.out.println("Posición cambiado a " + nuevaPosicion);
+                    mostrarInfo();
                 }
                 break;
             case 'x': // Salir
@@ -403,7 +403,7 @@ public class AppMantenimiento {
             edad = teclado.nextInt();
         } catch (Exception e) {
             System.out.println("ERROR. Se debe de introducir un número.");
-            return;
+            mostrarInfo();
         }
 
         System.out.println("-- Lista de jugadores");
@@ -417,7 +417,7 @@ public class AppMantenimiento {
             opcion = teclado.nextInt();
         } catch (Exception e) {
             System.out.println("ERROR. Se debe de introducir un número.");
-            return;
+            mostrarInfo();
         }
 
         Jugador jugadorAcompanyado = Jugador.listaJugadores.get(opcion);
@@ -432,7 +432,7 @@ public class AppMantenimiento {
         System.out.println("\n==========================================================================================");
     }
 
-    static void salir(){
+    static void salir() {
         System.out.println("Saliendo...");
     }
 }

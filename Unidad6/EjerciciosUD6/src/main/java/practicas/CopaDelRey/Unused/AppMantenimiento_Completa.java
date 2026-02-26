@@ -1,4 +1,6 @@
-package practicas.CopaDelRey;
+package practicas.CopaDelRey.Unused;
+
+import practicas.CopaDelRey.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -15,7 +17,7 @@ public class AppMantenimiento_Completa {
      * @param args argumentos de entrada
      */
     static void main(String[] args) {
-        AppMutxamelFC.main();
+        //AppMutxamelFC.main();
         mostrarInfo();
     }
 

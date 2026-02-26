@@ -59,18 +59,6 @@ public class Masajista extends MutxamelFC {
         System.out.println(rol + jugador + " ha recibido un masaje.");
     }
 
-    /**
-     * Da un masaje a varios jugadores a la vez.
-     *
-     * @param jugador jugadores que reciben el masaje
-     */
-    public void darMasaje(Jugador... jugador) {
-        System.out.println(rol + getNombre() + " ha dado un masaje a ciertos jugadores:");
-        for (Jugador jugador1 : jugador) {
-            System.out.println("  -" + jugador1 + " ha recibido un masaje.");
-        }
-    }
-
     @Override
     public void concentrarse() {
         System.out.println(rol + getNombre() + " se concentra.");

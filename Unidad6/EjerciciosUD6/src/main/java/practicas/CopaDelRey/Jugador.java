@@ -46,12 +46,6 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes, Accione
         listaJugadores.add(this);
     }
 
-    /**
-     * Constructor básico de jugador.
-     *
-     * @param nombre nombre del jugador
-     * @param edad   edad del jugador
-     */
     public Jugador(String nombre, int edad) {
         super(nombre, edad);
         listaJugadores.add(this);
@@ -122,7 +116,7 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes, Accione
      */
     public void compararDorsal(int dorsal) {
         for (Jugador jugador : listaJugadores) {
-            if (jugador.getDorsal() == dorsal) {
+            if (jugador.getDorsal() == dorsal && jugador.getCategoria().equals(categoria)) {
                 throw new dorsalExistente();
             }
         }

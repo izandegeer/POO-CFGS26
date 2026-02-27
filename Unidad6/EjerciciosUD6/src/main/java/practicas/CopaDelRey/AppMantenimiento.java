@@ -279,12 +279,12 @@ public class AppMantenimiento {
 
         switch (opcionDato) {
             case '1':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar nombre");
+                System.out.println("\n[" + Jugador.listaJugadores.get(opcion) + "] Modificar nombre");
 
                 System.out.print("Introduzca el nuevo nombre: ");
                 String nuevoNombre = teclado.next();
 
-                if (nuevoNombre.equals(jugadorSeleccionado.getNombre())) {
+                if (nuevoNombre.equals(Jugador.listaJugadores.get(opcion).getNombre())) {
                     System.out.println("[Nombre] No se ha hecho ningún cambio, el valor es el mismo.");
                 } else {
                     Jugador.listaJugadores.get(opcion).setNombre(nuevoNombre);
@@ -294,7 +294,7 @@ public class AppMantenimiento {
 
                 break;
             case '2':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar edad");
+                System.out.println("\n[" + Jugador.listaJugadores.get(opcion) + "] Modificar edad");
 
                 System.out.print("Introduzca la nueva edad: ");
                 int nuevaEdad = 0;
@@ -305,17 +305,17 @@ public class AppMantenimiento {
                     mostrarInfo();
                 }
 
-                if (nuevaEdad == jugadorSeleccionado.getEdad()) {
+                if (nuevaEdad == Jugador.listaJugadores.get(opcion).getEdad()) {
                     System.out.println("[Edad] No se ha hecho ningún cambio, el valor es el mismo.");
                 } else {
-                    jugadorSeleccionado.setEdad(nuevaEdad);
+                    Jugador.listaJugadores.get(opcion).setEdad(nuevaEdad);
                     System.out.println("Edad cambiada a " + nuevaEdad);
                     mostrarInfo();
                 }
 
                 break;
             case '3':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar categoría");
+                System.out.println("\n[" + Jugador.listaJugadores.get(opcion) + "] Modificar categoría");
 
                 System.out.print("Introduzca la nueva categoría " + Arrays.toString(Equipos.values()) + ": ");
                 Equipos nuevaCategoria = null;
@@ -326,17 +326,17 @@ public class AppMantenimiento {
                     mostrarInfo();
                 }
 
-                if (nuevaCategoria.equals(jugadorSeleccionado.getCategoria())) {
+                if (nuevaCategoria.equals(Jugador.listaJugadores.get(opcion).getCategoria())) {
                     System.out.println("[Categoría] No se ha hecho ningún cambio, el valor es el mismo.");
                 } else {
-                    jugadorSeleccionado.setCategoria(nuevaCategoria);
+                    Jugador.listaJugadores.get(opcion).setCategoria(nuevaCategoria);
                     System.out.println("Categoría cambiada a " + nuevaCategoria);
                     mostrarInfo();
                 }
 
                 break;
             case '4':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar dorsal");
+                System.out.println("\n[" + Jugador.listaJugadores.get(opcion) + "] Modificar dorsal");
 
                 System.out.print("Introduzca el nuevo dorsal: ");
                 int nuevoDorsal = 0;
@@ -347,17 +347,17 @@ public class AppMantenimiento {
                     mostrarInfo();
                 }
 
-                if (nuevoDorsal == jugadorSeleccionado.getDorsal()) {
+                if (nuevoDorsal == Jugador.listaJugadores.get(opcion).getDorsal()) {
                     System.out.println("[Dorsal] No se ha hecho ningún cambio, el valor es el mismo.");
                 } else {
-                    jugadorSeleccionado.setDorsal(nuevoDorsal);
+                    Jugador.listaJugadores.get(opcion).setDorsal(nuevoDorsal);
                     System.out.println("Dorsal cambiado a " + nuevoDorsal);
                     mostrarInfo();
                 }
 
                 break;
             case '5':
-                System.out.println("\n[" + jugadorSeleccionado + "] Modificar posición");
+                System.out.println("\n[" + Jugador.listaJugadores.get(opcion) + "] Modificar posición");
 
                 System.out.print("Introduzca la nueva posición " + Arrays.toString(Posiciones.values()) + ": ");
                 Posiciones nuevaPosicion = null;
@@ -368,7 +368,7 @@ public class AppMantenimiento {
                     mostrarInfo();
                 }
 
-                if (nuevaPosicion == jugadorSeleccionado.getPosicion()) {
+                if (nuevaPosicion == Jugador.listaJugadores.get(opcion).getPosicion()) {
                     System.out.println("[Posición] No se ha hecho ningún cambio, el valor es el mismo.");
                 } else {
                     jugadorSeleccionado.setNombre(String.valueOf(nuevaPosicion));

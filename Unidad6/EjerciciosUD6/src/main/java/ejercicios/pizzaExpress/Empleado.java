@@ -1,0 +1,53 @@
+package ejercicios.pizzaExpress;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@ToString
+public class Empleado extends PizzaExpress implements AccionesPedido {
+
+    public static final String ID_DEF = "EMP"; //una constante pública también para ir definiendo los IDs
+    public static int cantidadID = 0; //un contador de cantidad de IDs que es publico para poder acceder a él si es necesario
+    private String id_empleado;
+    @Setter
+    private String nombre;
+
+
+    public Empleado(String nombre) {
+        this.nombre = nombre;
+        cantidadID++;
+        this.id_empleado = calcularID();
+    }
+
+    //para calcular la ID
+    private String calcularID() {
+        return ID_DEF + String.format("%03d", cantidadID); //devuelve lo que contenga la constante de ID_DEF + el número del contador, lo rellena con ceros si no llega a 3 dígitos
+    }
+    //
+
+    public void siguienteEstado(Pedido pedido) {
+        Estado actual = pedido.getEstadoPedido();
+        actual = actual.siguiente(actual);
+        pedido.setEstadoPedido(actual);
+    }
+
+    public void entregarPedido(Pedido pedido) {
+        if (pedido.getEstadoPedido() != Estado.LISTO) {
+            throw new NoListoExcepcion();
+        } else {
+            System.out.print("Entregando el ");
+            pedido.obtenerDetalles();
+        }
+    }
+
+    public void cancelar(Pedido pedido) {
+        pedido.setEstadoPedido(Estado.CANCELADO);
+    }
+
+    public void obtenerDetalles() {
+        System.out.println("Empleado " + id_empleado + ": " + nombre);
+    }
+
+}

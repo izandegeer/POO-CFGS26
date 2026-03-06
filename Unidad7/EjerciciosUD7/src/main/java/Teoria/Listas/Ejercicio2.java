@@ -1,4 +1,4 @@
-package Teoria;
+package Teoria.Listas;
 
 import java.util.Scanner;
 import java.util.Stack;

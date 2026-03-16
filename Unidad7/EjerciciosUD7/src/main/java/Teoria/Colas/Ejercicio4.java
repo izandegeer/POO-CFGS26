@@ -70,7 +70,10 @@ public class Ejercicio4 {
                 mostrarMenu();
                 break;
             case "6":
-                System.out.printf("Lista de compra actual: " + listaCompra);
+                System.out.println("Lista de compra actual");
+                for (int i = 0; i < listaCompra.size(); i++) {
+                    System.out.println(i + ". " + listaCompra.get(i));
+                }
                 System.out.println();
                 mostrarMenu();
                 break;

@@ -2,11 +2,13 @@ package Practicas.MercaDAW;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.HashMap;
 
 @Getter
 @Setter
+@ToString
 public class Cliente {
     private String usuario;
     private String contrasenya;
@@ -23,7 +25,7 @@ public class Cliente {
     }
 
     public void crearPedido(){
-        this.pedido = new Pedido(new HashMap<>(), 0);
+        this.pedido = new Pedido(0);
     }
 
     public void insertarProducto(Producto producto){

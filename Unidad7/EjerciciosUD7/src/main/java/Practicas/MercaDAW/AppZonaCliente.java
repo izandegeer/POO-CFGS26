@@ -9,12 +9,20 @@ public class AppZonaCliente {
     private static Cliente clienteAsignado;
     private static Scanner teclado = new Scanner(System.in);
 
+    /**
+     * Main para llamar a los metodos
+     * @param args
+     */
     public static void main(String[] args) {
         MercaDAW mercaDAW = new MercaDAW(); // Llamar a generarClientes()
         mercaDAW.generarClientes();
         autenticacion(mercaDAW.getListaClientes());
     }
 
+    /**
+     * Metodo para autentificar al cliente (usuario y contraseña)
+     * @param listaClientes
+     */
     public static void autenticacion(List<Cliente> listaClientes) {
         int intentos = 3;
 
@@ -47,6 +55,9 @@ public class AppZonaCliente {
         System.out.println("ERROR DE AUTENTICACIÓN.");
     }
 
+    /**
+     * Metodo para iniciar el pedido
+     */
     public static void iniciarCompra(){
         System.out.println("\nCreando nuevo pedido...");
 
@@ -54,6 +65,9 @@ public class AppZonaCliente {
         imprimirProductos();
     }
 
+    /**
+     * Metodo para imprimir la lista de la compra
+     */
     public static void imprimirProductos(){
         System.out.println("\nElige un producto de la lista...");
 
@@ -91,6 +105,9 @@ public class AppZonaCliente {
         }
     }
 
+    /**
+     * Metodo para imprimir la lista de la compra
+     */
     public static void imprimirResumen(){
         System.out.println("=== RESUMEN DE TU CARRITO DE LA COMPRA ===");
         System.out.println("Productos: ");
@@ -101,11 +118,17 @@ public class AppZonaCliente {
         System.out.println("\nImporte total: " + clienteAsignado.getPedido().getImporteTotal());
     }
 
+    /**
+     * Metodo de despedida
+     */
     public static void imprimirDespedida(){
         System.out.println("=== GRACIAS POR SU PEDIDO ===");
         System.out.println("Lo recibirá en unos días en la dirección " + clienteAsignado.getDireccion());
     }
 
+    /**
+     * Metodo para mostrar las opciones posibles sobre el pedido
+     */
     public static void mostrarOpciones() {
         System.out.println("\n¿Qué desea hacer?");
         System.out.println("[1]. Aplicar promos.");

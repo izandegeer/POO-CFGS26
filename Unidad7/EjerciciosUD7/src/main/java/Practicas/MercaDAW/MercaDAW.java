@@ -14,6 +14,9 @@ public class MercaDAW {
 
     static int cantidadUsuarios = random.nextInt(15);
 
+    /**
+     * Metodo para generar clientes
+     */
     public void generarClientes() {
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 

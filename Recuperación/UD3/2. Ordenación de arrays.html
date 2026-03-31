@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./2. Ordenación de arrays_files/base.css">
+<link rel="stylesheet" type="text/css" href="./2. Ordenación de arrays_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./2. Ordenación de arrays_files/content.css">
+<link rel="stylesheet" type="text/css" href="./2. Ordenación de arrays_files/nav.css">
+
+<title>2. Ordenación de arrays </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<meta name="description" content="wwe">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./2. Ordenación de arrays_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./2. Ordenación de arrays_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./2. Ordenación de arrays_files/common_i18n.js"></script>
+<script type="text/javascript" src="./2. Ordenación de arrays_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js home-page" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">2. Ordenación de arrays</div></header>
+<p id="header-options"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/index.html#" class="hide-nav" id="toggle-nav" title="Menú (ocultar)"><span>Menú</span></a></p><nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/index.html" class="active daddy main-node">2. Ordenación de arrays</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/21_otros_algoritmos_de_ordenacin.html" class="no-ch">2.1. Otros algoritmos de ordenación</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/22_cmo_ordenar_arrays_en_java_con_el_mtodo_sort_de_la_clase_arrays.html" class="no-ch">2.2. Cómo ordenar arrays en Java con el método sort() de la clase Arrays</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/23_cmo_buscar_en_un_array_ordenado_con_el_mtodo_binarysearch.html" class="no-ch">2.3. Cómo buscar en un array ordenado con el método binarySearch()</a></li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/21_otros_algoritmos_de_ordenacin.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper" style="min-height: 286px;">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">2. Ordenación de arrays</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id0">
+<div class="iDevice emphasis1">
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Ordenar Arrays en JAVA</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta0_127_2" class="block iDevice_content">
+<div class="exe-text"><p><strong>¿Por qué ordenar los datos?&nbsp;</strong></p>
+<p style="padding-left: 30px;"><span style="background-color: #ffff99;"><strong>→</strong> Es mucho más eficiente trabajar con datos ordenados.</span></p>
+<p><strong>¿Qué podemos ordenar?&nbsp;</strong></p>
+<p style="padding-left: 30px;"><strong>→</strong> Cualquier estructura con elementos ordenables, ya sean números, caracteres u&nbsp;objetos.</p>
+<hr>
+<p>Los problemas más comunes en la informática son la búsqueda y la ordenación. En este caso, el proceso de ordenar un <em>array</em> consiste en recolocar los elementos que lo componen (ya sea de mayor a menor o viceversa), con el fin de acelerar la búsqueda posterior de la información.</p>
+<p>En este aspecto, existe una multitud de algoritmos de ordenamiento, como por ejemplo el de <span style="font-size: 12pt;"><em><strong>Intercambio/Selección</strong></em></span>, que se comporta de la siguiente manera.</p>
+<h4>Cómo ordenar <em>arrays</em> en Java con bucles y variables auxiliares</h4>
+<p>Esta opción es la más manual, puesto que tendremos que programar todo el algoritmo, pero es una buena práctica que nos ayudará a comprender mejor el manejo de <em>arrays</em>. El <span style="font-size: 18pt;"><strong>algoritmo de Selección</strong></span> es el algoritmo más sencillo que podemos utilizar a la hora de ordenar <em>arrays</em>. Básicamente, consiste en intercambiar elementos dentro del <em>array</em> hasta conseguir que este quede ordenado.</p>
+<p>La idea es recorrer el <em>array</em> y comparar cada elemento con todos los siguientes para buscar el apropiado con el que intercambiarlo. Si ordenamos de forma ascendente (de menor a mayor), entonces buscaremos elementos menores para hacer el intercambio. Por el contrario, si ordenamos de forma descendente (de mayor a menor), buscaremos elementos mayores para intercambiar.</p>
+<p>Vamos a verlo directamente con un ejemplo para que lo entendamos mejor.&nbsp;Utilizaremos el siguiente array:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">int</span> array<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p><img src="./2. Ordenación de arrays_files/img0.1.png" width="438" height="150" alt="4" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h5>- De forma ascendente (de menor a mayor)</h5>
+<p style="padding-left: 30px;">Lo vamos a ordenar de forma ascendente (de menor a mayor) utilizando el siguiente código:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> aux <span class="token operator">=</span> array<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            array<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            array<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> aux<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">Vamos a analizarlo paso a paso:</p>
+<p style="padding-left: 60px;">- Como puedes comprobar hay dos bucles <em>for </em>y un <em>if</em> anidados.</p>
+<p style="padding-left: 60px; text-align: justify;">- El&nbsp;<em>for</em> externo&nbsp;nos permite recorrer todos los elementos del <em>array</em>&nbsp;desde el primero&nbsp;(posición 0)&nbsp;hasta el penúltimo, por eso en la condición hemos puesto <em>array.length-1</em>. Está hecho así intencionadamente, puesto que queremos comparar cada elemento con todos los siguientes (todos los que están a su derecha). El último elemento no tiene más elementos detrás, por lo que no tiene sentido compararlo con nada. El dato que se encuentre en la posición <em>i</em> será el dato de referencia en cada iteración de este bucle.</p>
+<p style="padding-left: 60px; text-align: justify;">-&nbsp;El bucle&nbsp;<em>for</em> interno&nbsp;sirve para&nbsp;recorrer&nbsp;todos los elementos que se encuentran&nbsp;posicionados después del dato de referencia, es decir, todos los que están a la derecha de la posición <em>i</em>. Cada uno de estos elementos los tenemos que comparar con el dato que se encuentra en la posición <em>i</em>, es decir, con el dato de referencia.</p>
+<p style="padding-left: 60px; text-align: justify;">-&nbsp;De esto se encarga la instrucción&nbsp;<em>if</em>. Si encontramos en la posición <em>j</em> algún dato con valor menor al de referencia, lo intercambiamos con el que está en la posición <em>i. </em>Si no, no hacemos nada. Por eso la condición del <em>if</em> es&nbsp;<em>array[j]&lt;array[i]</em>. Si se cumple la condición, se ejecutan las instrucciones de las líneas 4, 5 y 6, que básicamente realizan el intercambio con ayuda de una variable auxiliar. Si se produce un intercambio, entonces el valor de referencia cambia, puesto que se ha sustituido lo que había en la posición <em>i</em>.&nbsp;</p>
+<p style="padding-left: 60px; text-align: justify;">&nbsp;</p>
+<p style="padding-left: 30px;">Vamos a ver la <span style="background-color: #ffff99;"><strong>ejecución paso a paso</strong></span> y cómo se va modificando el <em>array</em> en cada iteración de los bucles...</p>
+<p style="padding-left: 60px;"><em>-<span style="text-decoration: underline;"><strong> Iteración 1</strong></span></em><strong>: Primera iteración del <em>for</em> externo.</strong></p>
+<p style="padding-left: 120px;">La variable<em>&nbsp;i</em>&nbsp;toma valor&nbsp;0.<br>El <em>for</em> interno también comienza y la variable&nbsp;<em>j</em>&nbsp;toma valor <em>i+1</em>, es decir&nbsp;<em>1</em>.</p>
+<p style="padding-left: 30px;"><img src="./2. Ordenación de arrays_files/img1.1.png" width="422" height="170" alt="5" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 90px; text-align: justify;">Ahora es el turno del <em>if</em>. Comparamos<em> array[j]&lt;array[i]</em>. En este caso, la condición no es cierta&nbsp;porque <em>array[j]</em> tiene valor 6, y <em>array[i]</em> tiene valor 4. No se cumple que <em>array[j]</em> sea menor, por lo que no se ejecuta el cuerpo del <em>if</em>. y por lo tanto de momento no se realiza ningún intercambio.</p>
+<p style="padding-left: 90px;">El <em>for</em> interno avanza. El valor de&nbsp;<em>j</em> se incrementa una unidad&nbsp;(<em>j++</em>) y como sigue siendo menor que length (<em>j &lt; array.length</em>), continúa su ejecución.</p>
+<p style="padding-left: 120px;">La variable&nbsp;<em>i</em>&nbsp;sigue siendo&nbsp;0.<br>La variable&nbsp;<em>j</em>&nbsp;ahora es&nbsp;2.</p>
+<p style="padding-left: 90px;"><img src="./2. Ordenación de arrays_files/img2.png" width="420" height="173" alt="6" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 60px; text-align: justify;">Se ejecuta de nuevo la instrucción<em> if,</em> y en este caso&nbsp;la condición es verdadera&nbsp;(<em>array[j]&lt;array[i]</em>) puesto que el dato que se encuentra en la posición <em>j</em> (2) es menor que el almacenado en la posición <em>i</em> (4). En este caso sí se ejecuta el cuerpo del <em>if,</em> y&nbsp;se produce un intercambio:</p>
+<p style="padding-left: 90px;">1. Se copia en la variable <em>aux</em> lo que hay en <em>array[j]</em> (2)<br>2. Se copia en<em> array[j]</em> lo que hay en <em>array[i]</em> (4)<br>3. Se copia en <em>array[i]</em> lo que hay en la variable <em>aux</em> (2)</p>
+<p style="padding-left: 30px;"><img src="./2. Ordenación de arrays_files/img3.png" width="791" height="240" alt="7" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 60px;">El <em>for</em> interno avanza&nbsp;de nuevo, incrementando el valor de<em> j</em>&nbsp;en una unidad. Ahora <em>j</em> tiene valor 3 y se repite de nuevo la comprobación del <em>if</em>.</p>
+<p style="padding-left: 90px;">La variable&nbsp;i&nbsp;sigue siendo&nbsp;0.<br>La variable&nbsp;j&nbsp;ahora vale&nbsp;3.</p>
+<p style="padding-left: 60px;"><img src="./2. Ordenación de arrays_files/img4.png" width="425" height="173" alt="8" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 60px;">En este caso&nbsp;no se cumple la condición&nbsp;<em>array[j]&lt;array[i],</em> puesto que 8 no es menor que 2. No se ejecuta ninguna de las instrucciones del cuerpo del <em>if</em>&nbsp;,y&nbsp;el <em>for</em> interno avanza&nbsp;de nuevo incrementando el valor de <em>j</em>.</p>
+<p style="padding-left: 90px;">La&nbsp;i&nbsp;sigue siendo&nbsp;0.<br>La&nbsp;j&nbsp;ahora es&nbsp;4.</p>
+<p style="padding-left: 90px;"><img src="./2. Ordenación de arrays_files/img5.png" width="420" height="172" alt="9" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 60px; text-align: justify;">En este caso ocurre lo mismo. El valor que hay en la posición <em>j</em> no es menor al que se encuentra en la posición <em>i,</em> por lo que la condición del <em>if</em> no se cumple y no se ejecuta nada.</p>
+<p style="padding-left: 60px; text-align: justify;">El <em>for</em> interno incrementa de nuevo el valor de <em>j</em> en una unidad, por lo que pasa a valer 5. Como <em>length</em> en este ejemplo también es 5, el bucle interno se detiene. Ha completado todas sus iteraciones.</p>
+<p style="padding-left: 60px;"><strong>¿Qué hemos conseguido hasta aquí?</strong> Comparar el dato de referencia (posición 0) con todos los demás e intercambiarlo por otro menor siempre que ha sido posible. Ahora toca avanzar el bucle externo.</p>
+<p style="padding-left: 60px;">&nbsp;</p>
+<p style="padding-left: 60px;">- <strong><span style="text-decoration: underline;">Iteración 2</span>: Segunda iteración del <em>for</em> externo</strong>.</p>
+<p style="padding-left: 120px;">La variable<em>&nbsp;i</em>&nbsp;se incrementa en una unidad (<em>i++</em>) y pasa a valer&nbsp;1.<br>El <em>for</em> interno empieza de nuevo. La&nbsp;<em>j</em>&nbsp;toma valor <em>i+1</em>, es decir&nbsp;2.</p>
+<p style="padding-left: 120px;"><img src="./2. Ordenación de arrays_files/img6.png" width="417" height="163" alt="10" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 90px;">¿Qué ocurre si ahora comprobamos la condición del <em>if</em>: <em>array[j]&lt;array[i]</em>? Pues que es cierta, porque&nbsp;4 es menor que 6. En este caso, se ejecutan las instrucciones del <em>if</em> y se&nbsp;intercambian&nbsp;los valores de las dos posiciones:</p>
+<p style="padding-left: 120px;">1. El valor 4 que se encuentra en la posición <em>j</em> se copia en la variable <em>aux</em>.<br>2. El valor 6 de la posición <em>i</em> se copia en la posición <em>j</em>.<br>3. Por último el valor de <em>aux</em>, que es 4, se copia en la posición <em>i</em>.</p>
+<p style="padding-left: 90px;"><img src="./2. Ordenación de arrays_files/img7.png" width="781" height="244" alt="11" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 90px;">Las dos iteraciones que quedan del bucle interno no van a producir intercambios, puesto que 8 y 7 son mayores que 4, que es el valor de referencia actual, por lo que este bucle interno completará sus iteraciones sin más cambios.</p>
+<p style="padding-left: 90px;">&nbsp;</p>
+<p style="padding-left: 60px;">-&nbsp;<strong><span style="text-decoration: underline;">Iteración 3</span>: Tercera iteración del <em>for</em> externo.</strong></p>
+<p style="padding-left: 90px;">El <em>for</em> externo avanza&nbsp;de nuevo incrementando el valor de <em>i</em> en una unidad y el <em>for</em> interno comienza de nuevo desde la posición <em>i+1</em>.</p>
+<p style="padding-left: 120px;">La variable&nbsp;<em>i</em>&nbsp;ahora vale&nbsp;2.<br>La variable&nbsp;<em>j&nbsp;</em>ahora vale&nbsp;3.</p>
+<p style="padding-left: 90px;"><img src="./2. Ordenación de arrays_files/img8.png" width="420" height="173" alt="12" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 90px;">Como puedes comprobar, <span style="text-decoration: underline;">en esta iteración no se realizará ningún intercambio</span> puesto que el valor que hay en la posición 2 (6) es menor que todos los elementos siguientes: 8 y 7.&nbsp;El bucle interno completará sus iteraciones sin cambios.</p>
+<p style="padding-left: 90px;">&nbsp;</p>
+<p style="padding-left: 60px;"><strong>- <span style="text-decoration: underline;">Iteración 4</span>: Cuarta y última iteración del <em>for</em> externo.</strong></p>
+<p style="padding-left: 90px; text-align: justify;">Hemos llegado a la&nbsp;última iteración del <em>for</em> externo. El valor de <em>i</em> se incrementa pasando a valer 3, y el <em>for</em> interno comienza de nuevo inicializando el valor de <em>j</em> a <em>i+1</em>.</p>
+<p style="padding-left: 120px; text-align: justify;">El valor de<em>&nbsp;i</em>&nbsp;ahora es&nbsp;3.<br>El valor de&nbsp;<em>j</em>&nbsp;ahora es&nbsp;4.</p>
+<p style="padding-left: 90px;"><img src="./2. Ordenación de arrays_files/img9.png" width="422" height="169" alt="14" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 90px;">Supongo que ya te habrás dado cuenta. El valor que hay en la posición <em>j</em> (7) es menor que el valor que hay en la posición <em>i</em> (8), por tanto, la condición del <em>if</em>&nbsp;(<em>array[j]&lt;array[i]</em>)&nbsp;se cumple&nbsp;y se produce el&nbsp;intercambio&nbsp;entre ambas posiciones:</p>
+<p style="padding-left: 120px;">1. El valor 7 de la posición 4 se copia en la variable <em>aux</em>.<br>2. El valor 8 de la posición 3 se copia en la posición 4.<br>3. El valor 7 almacenado en <em>aux</em> se copia en la posición 3.</p>
+<p style="padding-left: 90px;"><img src="./2. Ordenación de arrays_files/img10.png" width="774" height="218" alt="15" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="padding-left: 60px;">El bucle interno finaliza sus iteraciones y el bucle externo también, puesto que ha alcanzado la penúltima posición (tal y como vimos al principio).&nbsp;La ejecución termina y el <em>array</em> queda ordenado de menor a mayor. Compruébalo:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 90px;">&nbsp;</p>
+<h5>- De forma descendente (de mayor a menor)</h5>
+<p>¿Cómo sería el algoritmo si lo que buscamos es ordenar el <em>array</em> de forma descendente? Pues exactamente igual, la única diferencia es que la comprobación que tenemos que hacer en el <em>if</em>&nbsp;ahora es: <em>array[j]&gt;array[i]</em> en vez de <em>array[j]&lt;array[i]</em>:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> aux <span class="token operator">=</span> array<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            array<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            array<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> aux<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">De esta forma, el intercambio se produce cuando el valor de la posición <em>j</em> sea menor que el valor de referencia de la posición<em> i</em>. Así conseguimos que quede ordenado de mayor a menor.&nbsp;</p>
+<hr>
+<p><span style="background-color: #ffff00;"><strong>ACTIVIDAD. Analiza paso a paso el algoritmo descendente de la misma forma que lo hemos hecho en el caso anterior.</strong></span></p>
+<hr>
+<p style="padding-left: 30px;"></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471890/mod_resource/content/5/ud3_ordenacion_busqueda/21_otros_algoritmos_de_ordenacin.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./2. Ordenación de arrays_files/_style_js.js"></script></body></html>

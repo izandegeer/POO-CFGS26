@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)https://aules.edu.gva.es/fp/pluginfile.php/11471878/mod_resource/content/1/ud2_random/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./BONUS. Clase Random (generación de valores aleatorios)_files/base.css">
+<link rel="stylesheet" type="text/css" href="./BONUS. Clase Random (generación de valores aleatorios)_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./BONUS. Clase Random (generación de valores aleatorios)_files/content.css">
+<link rel="stylesheet" type="text/css" href="./BONUS. Clase Random (generación de valores aleatorios)_files/nav.css">
+
+<title>BONUS. Clase Random (generación de valores aleatorios) </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471878/mod_resource/content/1/ud2_random/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente Domenech">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<meta name="description" content="adsas">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./BONUS. Clase Random (generación de valores aleatorios)_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./BONUS. Clase Random (generación de valores aleatorios)_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./BONUS. Clase Random (generación de valores aleatorios)_files/common_i18n.js"></script>
+<script type="text/javascript" src="./BONUS. Clase Random (generación de valores aleatorios)_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js home-page" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471878/mod_resource/content/1/ud2_random/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">BONUS. Clase Random (generación de valores aleatorios)</div></header>
+<p id="header-options"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471878/mod_resource/content/1/ud2_random/index.html#" class="hide-nav" id="toggle-nav" title="Menú (ocultar)"><span>Menú</span></a></p><nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471878/mod_resource/content/1/ud2_random/index.html" class="active no-ch main-node">BONUS. Clase Random (generación de valores aleatorios)</a></li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+
+</nav>
+</div>
+<div id="main-wrapper" style="min-height: 107px;">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">BONUS. Clase Random (generación de valores aleatorios)</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id0">
+<div class="iDevice emphasis1">
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">La clase Random</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta0_127_2" class="block iDevice_content">
+<div class="exe-text"><p>La clase <em>Random</em> de Java es útil a la hora de querer generar valores aleatorios de forma rápida y fácil.</p>
+<p>Para poder generar números aleatorios se tiene que crear una instancia de la clase <em>Random (</em>como hacemos con <em>Scanner</em>, por ejemplo):</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">Random random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p>Una vez hecho, ya podemos utilizar el objeto <em>random</em> para generar números aleatorios con los métodos que nos ofrece la clase <em>Random. </em>Por ejemplo, para un número entero sería de la siguiente manera:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">int</span> aleatorio<span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p>La instrucción anterior nos puede generar un número entero que abarca desde -2<sup>32</sup> hasta 2<sup>32</sup>.&nbsp;Si queremos generar un <strong>número aleatorio en un rango</strong>, lo podemos hacer con el mismo método pero poniendo el rango entre paréntesis:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">aleatorio <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p>Lo que estamos diciéndole realmente es lo siguiente:&nbsp;100 es la cantidad de números enteros que queremos en el rango, y si no indicamos nada más, 0 es el término inicial del rango. Por lo tanto, generará un número incluido en [0,99].</p>
+<p>Pero como normalmente vamos a necesitar el rango completo, es decir,&nbsp;[1,100], deberemos expresarlo así:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">aleatorio <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p><strong>Lo más habitual para generar un número aleatorio es usar el método <em>.nextDouble()</em>.</strong> Un aspecto importante a tener en cuenta es que <strong>el valor devuelto se encuentra en el rango mayor o igual a cero y <span style="text-decoration: underline;">menor a 1</span></strong>. Es decir, el número devuelto puede ser cero pero no puede ser uno. ¿Por qué? Mira lo que pasa...</p>
+<p></p>
+<p style="text-align: center;"><strong>[EXPLICACIÓN EN CLASE]</strong></p>
+<p style="text-align: center;"><strong></strong></p>
+<p>En el caso de necesitar números aleatorios enteros en un rango determinado, simplemente multiplicaremos. Para el primer caso [0,99] sería:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">aleatorio <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> random<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//se puede borrar el '+ 0'</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p>y para el segundo [1,100]:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">aleatorio <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> random<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p>Es decir, la fórmula sería:&nbsp;&nbsp;<em><strong>(int) random.nextDouble() * cantidad_números_rango + término_inicial_rango</strong></em></p>
+<p></p>
+<h5><span style="text-decoration: underline;">Math.Random()</span></h5>
+<p>Como curiosidad, decir que también existe la función <em>Math.random() </em>que nos permite calcular números aleatorios. Siempre devuelve un valor de tipo <em>double </em>(por defecto, [0,0.999999999]), es decir, se comporta igual que .<em>nextDouble()</em> del caso anterior.</p>
+<p>Bajo manga, <em>Math.random()</em> utiliza la clase <em>Random</em> de todos modos. En la primera llamada a ella, se inicializa una instancia de <em>Random</em> y después de eso, sigue llamando al método .<em>nextDouble():</em></p>
+<p><img src="./BONUS. Clase Random (generación de valores aleatorios)_files/img0.png" width="695" height="558" alt="asd"></p>
+<p><img src="./BONUS. Clase Random (generación de valores aleatorios)_files/img1.png" width="616" height="93" alt="asda"></p>
+<p><img src="./BONUS. Clase Random (generación de valores aleatorios)_files/img2.png" width="906" height="667" alt="as"></p>
+<p>Como ves, <em>Random</em> es superior en jerarquía, permitiendo solicitar booleanos aleatorios, secuencias de bytes, dobles, flotantes y enteros. Por lo tanto, debemos acostumbrarnos a usar sólo la clase <em>Random</em> en vez de la función <em>Math.random()</em>.&nbsp;</p>
+<p></p>
+<p style="padding-left: 30px;"><span style="text-decoration: underline;">Ejemplo</span>:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">        Random rnd<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">int</span> aleatorio<span class="token operator">=</span>rnd<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>aleatorio<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        aleatorio<span class="token operator">=</span>rnd<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>aleatorio<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">float</span> ale<span class="token operator">=</span>rnd<span class="token punctuation">.</span><span class="token function">nextFloat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ale<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">double</span> ale2<span class="token operator">=</span>rnd<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ale2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">long</span> ale3<span class="token operator">=</span>rnd<span class="token punctuation">.</span><span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ale3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">boolean</span> ale4<span class="token operator">=</span>rnd<span class="token punctuation">.</span><span class="token function">nextBoolean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ale4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        aleatorio <span class="token operator">=</span> rnd<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>aleatorio<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        aleatorio <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> rnd<span class="token punctuation">.</span><span class="token function">nextFloat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">100</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>aleatorio<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        ale2 <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ale2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        aleatorio <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>aleatorio<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./BONUS. Clase Random (generación de valores aleatorios)_files/_style_js.js"></script></body></html>

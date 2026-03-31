@@ -53,4 +53,19 @@ class PedidoTest {
         // 2 no es multiplo de 3, no cambia
         assertEquals(2.0, pedido.getImporteTotal(), 0.01);
     }
+
+    @Test
+    void testPromocionesCombinadas3x2Y10() {
+        // 3 panes a 1.00€ = 3.00€
+        pedido.getPedido().put(Producto.PAN, 3);
+        pedido.setImporteTotal(3.0);
+
+        // 3x2: 1 gratis → 2.00€
+        pedido.aplicarPromo3x2();
+        assertEquals(2.0, pedido.getImporteTotal(), 0.01);
+
+        // 10% descuento sobre 2.00€ → 1.80€
+        pedido.aplicarPromo10();
+        assertEquals(1.80, pedido.getImporteTotal(), 0.01);
+    }
 }

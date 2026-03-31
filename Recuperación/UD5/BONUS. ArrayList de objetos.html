@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)https://aules.edu.gva.es/fp/pluginfile.php/11471944/mod_resource/content/3/ud5_arraylists/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./BONUS. ArrayList de objetos_files/base.css">
+<link rel="stylesheet" type="text/css" href="./BONUS. ArrayList de objetos_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./BONUS. ArrayList de objetos_files/content.css">
+<link rel="stylesheet" type="text/css" href="./BONUS. ArrayList de objetos_files/nav.css">
+
+<title>BONUS. ArrayList de objetos </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471944/mod_resource/content/3/ud5_arraylists/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<meta name="description" content="BONUS. ArrayList de objetos">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./BONUS. ArrayList de objetos_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./BONUS. ArrayList de objetos_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./BONUS. ArrayList de objetos_files/common_i18n.js"></script>
+<script type="text/javascript" src="./BONUS. ArrayList de objetos_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js home-page" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471944/mod_resource/content/3/ud5_arraylists/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">BONUS. ArrayList de objetos</div></header>
+<p id="header-options"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471944/mod_resource/content/3/ud5_arraylists/index.html#" class="hide-nav" id="toggle-nav" title="Menú (ocultar)"><span>Menú</span></a></p><nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471944/mod_resource/content/3/ud5_arraylists/index.html" class="active daddy main-node">BONUS. ArrayList de objetos</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471944/mod_resource/content/3/ud5_arraylists/ejercicios_sobre_arraylist.html" class="no-ch">Ejercicios sobre ArrayList</a></li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471944/mod_resource/content/3/ud5_arraylists/ejercicios_sobre_arraylist.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper" style="min-height: 100px;">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">BONUS. ArrayList de objetos</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id0">
+<div class="iDevice emphasis0">
+<div id="ta0_127_2" class="block iDevice_content">
+<div class="exe-text"><p>El uso de vectores o&nbsp;<em>arrays</em> no tiene por qué restringirse a elementos de tipo primitivo. Por&nbsp;ejemplo, pueden crearse referencias a <em>arrays</em> de la clase <em>Punto</em>:</p>
+<p><img src="./BONUS. ArrayList de objetos_files/img0.png" width="433" height="101" alt="1" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p><img src="./BONUS. ArrayList de objetos_files/img1.png" width="491" height="364" alt="2" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="text-align: justify;">Pero en la <em>POO</em> no es común ceñirnos a los <em>arrays</em> tradicionales, sino usar otro tipo de listas "dopadas" para manipular mejor nuestros objetos. Estas listas son las llamadas <em><strong>ArrayList</strong></em>.</p>
+<p style="text-align: justify;">Un <em>ArrayList </em>permite almacenar elementos en memoria de manera dinámica. La principal&nbsp;diferencia con los <em>arrays</em> es que <span style="background-color: #ffff99;">el número de elementos que almacena no está limitado por&nbsp;un número fijado al inicio</span>.</p>
+<p style="text-align: justify;">La declaración de un <em>ArrayList</em> se hace según el siguiente formato:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">ArrayList<span class="token operator">&lt;</span>nombreTipoClase<span class="token operator">&gt;</span> nombreDeLista <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">Entre <em><strong>&lt; &gt;</strong></em> indicamos la clase o tipos básicos de los objetos que se almacenarán:</p>
+<p><img src="./BONUS. ArrayList de objetos_files/img2.png" width="669" height="177" alt="2" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<hr>
+<h5>Métodos típicos de los <em>ArrayList</em></h5>
+<ul>
+<li>El método <em><span style="color: #800080;"><strong>add</strong> </span></em>posibilita añadir elementos, que se colocan después del&nbsp;último elemento que existiera en el <em>ArrayList.</em></li>
+</ul>
+<p><em><img src="./BONUS. ArrayList de objetos_files/img3.png" width="706" height="147" alt="3" style="display: block; margin-left: auto; margin-right: auto;"></em></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Ocupa la posición 0</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Ocupa la posición 1</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Ocupa la posición 2</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">Es posible insertar un elemento en una determinada posición, desplazando el elemento&nbsp;que se encontraba en esa posición, y todos los siguientes, una posición más. Se utiliza el&nbsp;método <em><strong>add</strong> </em>indicando como primer parámetro el número de la posición:</p>
+<p style="padding-left: 30px;"><img src="./BONUS. ArrayList de objetos_files/img4.png" width="709" height="147" alt="4" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//El orden hasta ahora es: España, Francia, Portugal</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//El orden ahora es: España, Italia, Francia, Portugal</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li>El método <span style="color: #800080;"><em><strong>get</strong> </em></span>permite obtener el elemento almacenado en una determinada posición:</li>
+</ul>
+<p><img src="./BONUS. ArrayList de objetos_files/img5.png" width="706" height="100" alt="6" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//El orden hasta ahora es: España, Francia, Portugal</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//El orden ahora es: España, Italia, Francia, Portugal</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//Siguiendo el ejemplo anterior, mostraría: Portugal</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">Si tuviéramos un <em>ArrayList</em> con otro tipo de datos, como objetos que&nbsp;hayamos creado:</p>
+<p style="padding-left: 30px;"><img src="./BONUS. ArrayList de objetos_files/img6.png" width="706" height="231" alt="7" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<ul>
+<li>Para eliminar un determinado elemento se emplea el método <span style="color: #800080;"><em><strong>remove</strong> </em></span>al que se le puede&nbsp;indicar por parámetro un valor <em>int</em> con la posición a suprimir:</li>
+</ul>
+<p><img src="./BONUS. ArrayList de objetos_files/img7.png" width="569" height="346" alt="8" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Francia, Portugal</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Italia, Francia, </span>
+Portugal
+listaPaises<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Italia, Portugal</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Italia</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">o bien, se puede <strong>especificar&nbsp;el elemento a eliminar</strong> si es encontrado en la lista:</p>
+<p style="padding-left: 30px;"><img src="./BONUS. ArrayList de objetos_files/img8.png" width="385" height="362" alt="9" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<ul>
+<li style="text-align: justify;">El método <span style="color: #800080;"><em><strong>indexOf</strong> </em></span>retorna un valor&nbsp;<em>int</em> con la posición que ocupa el elemento que se&nbsp;indica por parámetro. Si no lo encuentra, devuelve <strong>-1</strong>.</li>
+</ul>
+<p><img src="./BONUS. ArrayList de objetos_files/img9.png" width="948" height="190" alt="10" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Francia, Portugal</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Italia, Francia, </span>
+Portugal
+listaPaises<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Italia, Portugal</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Italia</span>
+String paisBuscado <span class="token operator">=</span> <span class="token string">"Francia"</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> pos <span class="token operator">=</span> listaPaises<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>paisBuscado<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>pos <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> 
+ System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>paisBuscado <span class="token operator">+</span> <span class="token string">" encontrado en la posición: "</span> <span class="token operator">+</span> pos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>paisBuscado <span class="token operator">+</span> <span class="token string">" no se ha encontrado"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li>Podemos recorrer un <em>ArrayList</em> con un bucle <span style="color: #800080;"><em><strong>for</strong> </em></span>como lo haríamos con los <em>arrays </em>convencionales.&nbsp;Para obtener el número de elementos, se utiliza el método <span style="color: #800080;"><em><strong>size()</strong></em></span>.</li>
+</ul>
+<p><img src="./BONUS. ArrayList de objetos_files/img10.png" width="629" height="131" alt="11" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Francia, Portugal</span>
+listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//listaPaises → España, Italia, Francia, Portugal</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> listaPaises<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p>Como ya sabes, el <span style="color: #800080;"><strong><em>foreach</em> </strong></span>nos permite recorrer los elementos de un <em>array&nbsp;</em>sin utilizar un índice. Aunque la&nbsp;flexibilidad es menor que el bucle <em>for</em> normal, es muy útil para recorrer de forma típica un&nbsp;<em>ArrayList</em>.</p>
+<p><img src="./BONUS. ArrayList de objetos_files/img11.png" width="684" height="196" alt="12" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<ul>
+<li><span style="color: #800080;"><em><strong>set (posicion, nuevoValor)&nbsp;</strong></em></span>: modifica un elemento.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">        ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        listaPaises<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"Polonia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li><span style="color: #800080;"><em><strong>clear()&nbsp;</strong></em></span>: borra todo el contenido de la lista.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">        ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        listaPaises<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"El tamaño de la lista es "</span> <span class="token operator">+</span> listaPaises<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//0</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li>Object <span style="color: #800080;"><em><strong>clone()&nbsp;</strong></em></span>: retorna una copia de la lista.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">        ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Object listaPaises_copia <span class="token operator">=</span> listaPaises<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>listaPaises_copia<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li>boolean <span style="color: #800080;"><em><strong>contains(Object o)&nbsp;</strong></em></span>: retorna <em>true</em> si se encuentra el elemento en la lista, y&nbsp;<em>false</em> en caso contrario.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">        ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"Suiza"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Tenemos a Suiza."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"No tenemos a Suiza."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li><span style="color: #800080;"><em><strong>boolean isEmpty()&nbsp;</strong></em></span>: retorna <em>true</em> si la lista está vacía.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">        ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//listaPaises.clear();</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"La lista está vacía"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"La lista no está vacía"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li><span style="color: #800080;"><em><strong>int lastIndexOf(Object o)&nbsp;</strong></em></span>: devuelve el índice de la última ocurrencia del elemento. Si el elemento no se encuentra, devuelve <strong>-1</strong>.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">        ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//2</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"Suiza"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//-1</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li><span style="color: #800080;"><em><strong>addAll(Arrays.asList(elemento1, elemento2, elemento3,...))&nbsp;</strong></em></span>: añadir más de un elemento a la lista.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">        ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        listaPaises<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"Polonia"</span><span class="token punctuation">,</span><span class="token string">"Suiza"</span><span class="token punctuation">,</span><span class="token string">"Alemania"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">También se puede hacer desde un método a parte, usando <em><strong>varargs</strong></em>:&nbsp;</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> listaPaises <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"España"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Francia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Portugal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listaPaises<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"Italia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">agregarVariosPaises</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">,</span><span class="token string">"Polonia"</span><span class="token punctuation">,</span><span class="token string">"Suiza"</span><span class="token punctuation">,</span><span class="token string">"Alemania"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>listaPaises<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">agregarVariosPaises</span><span class="token punctuation">(</span>ArrayList<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> lista<span class="token punctuation">,</span> String<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> paises<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        lista<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>paises<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;"></p></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471944/mod_resource/content/3/ud5_arraylists/ejercicios_sobre_arraylist.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./BONUS. ArrayList de objetos_files/_style_js.js"></script></body></html>

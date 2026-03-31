@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!-- saved from url=(0098)https://aules.edu.gva.es/fp/pluginfile.php/11471875/mod_resource/content/7/ud2_4_bucles/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./4. Estructuras de control repetitivas_files/base.css">
+<link rel="stylesheet" type="text/css" href="./4. Estructuras de control repetitivas_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./4. Estructuras de control repetitivas_files/content.css">
+<link rel="stylesheet" type="text/css" href="./4. Estructuras de control repetitivas_files/nav.css">
+
+<title>4. Estructuras de control repetitivas </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471875/mod_resource/content/7/ud2_4_bucles/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente Domenech">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<meta name="description" content="bucles">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./4. Estructuras de control repetitivas_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./4. Estructuras de control repetitivas_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./4. Estructuras de control repetitivas_files/common_i18n.js"></script>
+<script type="text/javascript" src="./4. Estructuras de control repetitivas_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471875/mod_resource/content/7/ud2_4_bucles/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">4. Estructuras de control repetitivas</div></header>
+<nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471875/mod_resource/content/7/ud2_4_bucles/index.html" class="active no-ch main-node">4. Estructuras de control repetitivas/iterativas (bucles)</a></li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4. Estructuras de control repetitivas/iterativas (bucles)</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id3">
+<div class="iDevice emphasis1">
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Tipos de bucles</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta3_130_2" class="block iDevice_content">
+<div class="exe-text"><h4><img src="./4. Estructuras de control repetitivas_files/img0.png" width="958" height="383" alt="tipos" style="display: block; margin-left: auto; margin-right: auto;"></h4>
+<h4>4.1. Sentencia <em>while</em></h4>
+<p>Este bucle es el que hemos usado hasta ahora, generalmente para validar el valor o formato correcto para una entrada por teclado del usuario. Esta sentencia hace&nbsp;que una parte del programa se repita mientras se&nbsp;cumpla una cierta condición:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"WHILE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// Se ejecuta 10 veces.</span>
+      i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<h4></h4>
+<h4>4.2. Sentencia <em>do-while</em></h4>
+<p>En este caso, la condición se comprueba al final,&nbsp;lo que quiere decir que las sentencias&nbsp;intermedias se realizarán al menos una vez. Esto&nbsp;no ocurría en la construcción anterior,&nbsp;porque con "<em>while</em>" si la condición era falsa, las&nbsp;sentencias que contenía no llegaban a&nbsp;ejecutarse nunca.</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">Scanner teclado <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> num<span class="token punctuation">;</span>
+
+<span class="token keyword">do</span> <span class="token punctuation">{</span>
+ 
+   System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Introduce un número distinto de cero para seguir en el bucle"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   num <span class="token operator">=</span> teclado<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>num <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p>Tal y como hemos estado usando nosotros el "<em>while</em>" hasta ahora, forzando siempre al menos una vuelta para que cuando se cumpla que el usuario ha introducido bien los datos esperados, salgamos del bucle:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">boolean</span> err<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//System.in para pedir por teclado al usuario</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>dato ok<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          err<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p>Ahora, habiendo conocido al <em>do-while</em>, no sería necesario forzar la entrada al menos una vez, sino que escribiremos el código necesario en el <em>do</em> y se repetirá siempre que el usuario no introduzca bien los datos que esperamos:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">do</span><span class="token punctuation">{</span>
+
+      <span class="token comment" spellcheck="true">//System.in para pedir datos por teclado al usuario</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>dato no ok<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<h4></h4>
+<h4>4.3. Sentencia&nbsp;<em>for</em></h4>
+<p>Una tercera forma de conseguir que parte de nuestro programa se repita es la orden "<em>for</em>". A diferencia de los bucles <em>while</em>, que podrían ser infinitos mientras no se cumplan las condiciones, al bucle <em>for</em> lo emplearemos sobre todo para conseguir un <span style="text-decoration: underline;"><strong>número concreto de repeticiones</strong></span>.</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span>valor_inicial <span class="token punctuation">;</span> condicion_continuacion <span class="token punctuation">;</span> incremento<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   sentencia1<span class="token punctuation">;</span>
+   sentencia2<span class="token punctuation">;</span>
+   …
+   sentenciaN<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p>Debemos indicar, entre paréntesis, y separadas por puntos y coma, tres órdenes:</p>
+<ul>
+<li>La primera orden dará el valor inicial a una variable que sirve de control.</li>
+<li>La segunda orden será la condición del bucle, mientras sea cierta, permaneceremos&nbsp;dentro del bucle.</li>
+<li>La tercera orden será la que se encargue de modificar la variable de control para que en&nbsp;algún momento la condición se deje de cumplir y el bucle termine.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> … <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//10 pasadas</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p>Inicialmente ‘<em>i</em>’ tiene como valor 0. Hay que repetir mientras se cumpla la&nbsp;condición, y en cada pasada por el bucle hay que aumentar el valor de ‘<em>i</em>’ en una&nbsp;unidad.</p>
+<hr>
+<p><span style="background-color: #ffff99;"><strong>IMPORTANTE</strong></span>:&nbsp;No es necesario que declaremos la variable que utilicemos como valor de control dentro del paréntesis. Es decir, en lugar de '<em>i</em>' podemos utilizar una variable que exista con anterioridad.&nbsp;No obstante, si declaramos el índice de control en el paréntesis, <strong>sólo podremos utilizar esta variable dentro del bucle&nbsp;<em>for</em></strong>.</p>
+<p>Además, si alguno de los elementos no está presente, los dos puntos y comas han de aparecer de todas formas: <em>for (;;)</em></p>
+<hr>
+<p style="padding-left: 30px;"><span style="text-decoration: underline;">Más ejemplos</span>:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">-=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<h4 style="padding-left: 90px;"><span style="text-decoration: underline;"><img src="./4. Estructuras de control repetitivas_files/img1.png" width="65" height="258" alt="salida"></span></h4>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> j <span class="token operator">+=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<h4 style="padding-left: 90px;"><span style="text-decoration: underline;"><img src="./4. Estructuras de control repetitivas_files/img2.png" width="65" height="219" alt="salida2"></span></h4>
+<ul style="list-style-type: circle;">
+<li>Es muy importante tener claro el orden de&nbsp;ejecución de las instrucciones en un bucle <em>for. </em>Aquí tenéis varios ejemplos:</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">3</span> <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p><span style="text-decoration: underline; background-color: #ccffcc;"><img src="./4. Estructuras de control repetitivas_files/img3.png" width="288" height="427" alt="salida3" style="display: block; margin-left: auto; margin-right: auto;"></span></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">;</span> j <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p><span style="text-decoration: underline; background-color: #ccffcc;"><img src="./4. Estructuras de control repetitivas_files/img4.png" width="288" height="458" alt="salida4" style="display: block; margin-left: auto; margin-right: auto;"></span></p>
+<hr>
+<table border="1" style="width: 100%;" class="feedbackbutton">
+<tbody>
+<tr>
+<td style="width: 100%;">EJERCICIO:</td>
+</tr>
+<tr>
+<td style="width: 100%;">
+<p>Desglosa el orden de ejecución del siguiente bucle for:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">10</span> <span class="token punctuation">;</span> j <span class="token operator">&gt;</span> <span class="token number">4</span> <span class="token punctuation">;</span> j <span class="token operator">-=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" style="width: 100%; height: 69px;">
+<tbody>
+<tr style="height: 23px;">
+<td style="width: 33.3333%; text-align: center; height: 23px;">Orden</td>
+<td style="width: 33.3333%; text-align: center; height: 23px;">Instrucción</td>
+<td style="width: 33.3333%; text-align: center; height: 23px;">j</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 33.3333%; height: 23px; text-align: center;">1</td>
+<td style="width: 33.3333%; height: 23px; text-align: center;">j=10</td>
+<td style="width: 33.3333%; height: 23px; text-align: center;">10</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 33.3333%; height: 23px; text-align: center;">2</td>
+<td style="width: 33.3333%; height: 23px; text-align: center;">...</td>
+<td style="width: 33.3333%; height: 23px; text-align: center;">...</td>
+</tr>
+</tbody>
+</table>
+<p><span style="text-decoration: underline; background-color: #ccffcc;"></span></p>
+<hr>
+<h4><span style="text-decoration: underline; background-color: #ccffcc;">BONUS: sentencias "<em>break</em>" y "<em>continue</em>"</span></h4>
+<p>Habiéndolo conocido para <em>switches</em>, también se puede modificar el comportamiento de los bucles con las órdenes "<em>break</em>" y "<em>continue</em>". Ambas son de tipo de control, pero siempre dentro de bucles.&nbsp;</p>
+<ul>
+<li>La <strong>sentencia '<em>break</em>':</strong>&nbsp;durante la iteración en un bucle de cualquiera de los tipos (<em>while, do-while, for</em>), el uso de esta sentencia rompe la iteración de dicho bucle, y el programa sale de él inmediatamente:</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    sentencia <span class="token number">1</span><span class="token punctuation">;</span>
+    sentencia <span class="token number">2</span><span class="token punctuation">;</span>
+    sentencia <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p>Este bucle debería ejecutarse 10 veces, desde i = 0 hasta i = 9. Sin embargo, la utilización de la sentencia <em>break</em>&nbsp;rompe la iteración del bucle, de tal manera que tras la primera ejecución el bucle acaba habiéndose ejecutado una sola vez.</p>
+<p>Un código como el anterior no sirve para nada, ya que sería lo mismo que hacer las 3 sentencias fuera del bucle. Por eso, se suelen usar condiciones para la ruptura del bucle, de tal manera que un código como el anterior salga del bucle sólo si se cumple alguna circunstancia (y no siempre).</p>
+<p>En el siguiente caso, tenemos un programa que queremos que cuente los dígitos de un número, pero solamente hasta llegar a 5 dígitos. En caso de que tenga más, dejaremos de contarlos:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">      <span class="token keyword">int</span> número <span class="token operator">=</span> <span class="token number">4557888</span><span class="token punctuation">;</span>
+      <span class="token keyword">int</span> dígitos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span> numero <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          numero<span class="token operator">/=</span><span class="token number">10</span><span class="token punctuation">;</span>
+          digitos<span class="token operator">++</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>digitos <span class="token operator">==</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      
+   <span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li>La <strong>sentencia "<em>continue</em>"</strong> hace que se salten las instrucciones del bucle que quedan por realizar,&nbsp;pero no se sale del bucle, sino que se pasa a la siguiente iteración (la siguiente "vuelta").</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Empezamos..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Vuelta: "</span><span class="token operator">+</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Terminada vuelta: "</span><span class="token operator">+</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Terminado"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p>En este caso, no se mostraría el texto "<em>Terminada esta vuelta</em>" para la pasada con i=8, pero sí se&nbsp;realizarían las iteraciones que faltan para i=9 y i=10.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./4. Estructuras de control repetitivas_files/_style_js.js"></script></body></html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- saved from url=(0111)https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./6.1. Herencia y polimorfismo_files/base.css">
+<link rel="stylesheet" type="text/css" href="./6.1. Herencia y polimorfismo_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./6.1. Herencia y polimorfismo_files/content.css">
+<link rel="stylesheet" type="text/css" href="./6.1. Herencia y polimorfismo_files/nav.css">
+
+<title>6.1. Herencia y polimorfismo </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<meta name="description" content="Herencia y polimorfismo">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./6.1. Herencia y polimorfismo_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./6.1. Herencia y polimorfismo_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./6.1. Herencia y polimorfismo_files/common_i18n.js"></script>
+<script type="text/javascript" src="./6.1. Herencia y polimorfismo_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js home-page" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">6.1. Herencia y polimorfismo</div></header>
+<p id="header-options"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/index.html#" class="hide-nav" id="toggle-nav" title="Menú (ocultar)"><span>Menú</span></a></p><nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/index.html" class="active daddy main-node">6.1. Herencia y redefinición de métodos (@Override + super)</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/ejercicio.html" class="no-ch">Ejercicio</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/62_polimorfismo.html" class="daddy">6.2. Polimorfismo</a>
+   <ul class="other-section">
+      <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/ejercicio0.html" class="no-ch">Ejercicio</a></li>
+   </ul>
+   </li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/diagramas_uml_con_herencia.html" class="no-ch">Diagramas UML con herencia</a></li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/ejercicio.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper" style="min-height: 197px;">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">6.1. Herencia y redefinición de métodos (@Override + super)</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id1">
+<p class="toggle-idevice toggle-em0"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/index.html#" id="toggle-idevice-id1-em0" title="Ocultar"><span>Ocultar</span></a></p><div class="iDevice emphasis0">
+<div id="ta1_128_2" class="block iDevice_content">
+<div class="exe-text"><p>La <strong>herencia</strong> en <em>Java</em> es un mecanismo que permite que una clase (<strong>subclase</strong> o clase hija) adquiera los atributos y métodos de otra clase (<strong>superclase</strong> o clase padre).</p>
+<p>Esto nos ayuda a reutilizar código, evitar duplicaciones y crear una jerarquía de clases más organizada.</p>
+<h5>Uso de <em>extends</em> y <em>super</em> en la Herencia</h5>
+<p>En <em>Java</em>, la herencia se implementa usando la palabra clave <em><strong>extends</strong></em>, y para acceder a los métodos o atributos de la superclase usamos <em><strong>super</strong></em>. Si hacemos analogía con lo que ya conocemos de la POO, <em>super</em> equivaldría a <em>this</em>, pero apuntando a los elementos de nuestra clase "madre" en lugar de a los propios de la clase en la que nos encontremos.</p>
+<p style="padding-left: 30px;"><strong>Un ejemplo...</strong></p>
+<p>Imaginemos que estamos programando un sistema&nbsp;para un <em>Festival</em>. En un concierto hay diferentes tipos de personas, como <em>asistentes</em> y <em>artistas</em>. Todos tienen atributos en común, pero también características únicas que los diferencia.</p>
+<p style="padding-left: 30px;">1️⃣ <strong>Superclase</strong>. Definimos la clase "madre", o mejor dicho, los elementos que se tendrán en común. En este caso, todas las personas en el festival tienen un nombre y una edad:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token comment" spellcheck="true">//superclase</span>
+<span class="token keyword">class</span> <span class="token class-name">Persona</span> <span class="token punctuation">{</span>
+    String nombre<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> edad<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Persona</span><span class="token punctuation">(</span>String nombre<span class="token punctuation">,</span> <span class="token keyword">int</span> edad<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>nombre <span class="token operator">=</span> nombre<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>edad <span class="token operator">=</span> edad<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Nombre: "</span> <span class="token operator">+</span> nombre<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Edad: "</span> <span class="token operator">+</span> edad<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;"><strong>2️⃣&nbsp;</strong><em><strong>extends.</strong></em>&nbsp;Creamos una subclase a partir de una superclase, lo que permite que una clase herede atributos y métodos de otra:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token comment" spellcheck="true">//subclase que hereda de Persona</span>
+<span class="token keyword">class</span> <span class="token class-name">Asistente</span> <span class="token keyword">extends</span> <span class="token class-name">Persona</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String entrada<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//tipo de entrada (General, VIP, etc.)</span>
+
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li><strong><em>Asistente</em></strong> hereda de <em>Persona</em>&nbsp;<em>nombre</em> y edad, pero añade un nuevo atributo: tipo de <em>entrada</em>.</li>
+</ul>
+<p>&nbsp;</p>
+<p style="padding-left: 30px;">3️⃣&nbsp;Usar <em><strong>super()</strong></em> en el constructor y métodos:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token comment" spellcheck="true">//subclase que hereda de Persona</span>
+<span class="token keyword">class</span> <span class="token class-name">Asistente</span> <span class="token keyword">extends</span> <span class="token class-name">Persona</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String entrada<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//tipo de entrada (General, VIP, etc.)</span>
+
+    <span class="token keyword">public</span> <span class="token function">Asistente</span><span class="token punctuation">(</span>String nombre<span class="token punctuation">,</span> <span class="token keyword">int</span> edad<span class="token punctuation">,</span> String entrada<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>nombre<span class="token punctuation">,</span> edad<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//llamamos al constructor de la clase Persona</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>entrada <span class="token operator">=</span> entrada<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    @Override
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//llamamos al método de la clase Persona</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Tipo de entrada: "</span> <span class="token operator">+</span> entrada<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li style="text-align: justify;">Se usa <em>super(nombre, edad)</em>&nbsp;para llamar al constructor de <em>Persona</em>&nbsp;para evitar repetir código, además de asegurarnos de que su <em>nombre</em> y <em>edad</em> se inicializan correctamente.</li>
+<li style="text-align: justify;"><em>super.mostrarInfo()</em>&nbsp;reutiliza el método de <em>Persona</em> antes de agregar más información dentro de su propio método&nbsp;<em>mostrarInfo()</em>.&nbsp;Si <em>Persona</em> cambia su <em>mostrarInfo()</em>, todas las subclases se actualizan automáticamente.</li>
+</ul>
+<p style="padding-left: 30px;">Además de <em>Asistentes</em>, podría haber <em>Artistas&nbsp;</em>:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token comment" spellcheck="true">//subclase que también hereda de Persona</span>
+<span class="token keyword">class</span> <span class="token class-name">Artista</span> <span class="token keyword">extends</span> <span class="token class-name">Persona</span> <span class="token punctuation">{</span>
+
+    String generoMusical<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Artista</span><span class="token punctuation">(</span>String nombre<span class="token punctuation">,</span> <span class="token keyword">int</span> edad<span class="token punctuation">,</span> String generoMusical<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>nombre<span class="token punctuation">,</span> edad<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>generoMusical <span class="token operator">=</span> generoMusical<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    @Override
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Género Musical: "</span> <span class="token operator">+</span> generoMusical<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">Vamos a escribir un <em>main</em> para probar nuestras clases:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Concierto</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        Asistente a1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Asistente</span><span class="token punctuation">(</span><span class="token string">"Carlos"</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">"VIP"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Artista art1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Artista</span><span class="token punctuation">(</span><span class="token string">"Dua Lipa"</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token string">"Pop"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Información del asistente:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        a1<span class="token punctuation">.</span><span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Información del artista:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        art1<span class="token punctuation">.</span><span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p><img src="./6.1. Herencia y polimorfismo_files/img0.png" width="393" height="240" alt="1" style="display: block; margin-left: auto; margin-right: auto;"></p></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper pblIdevice em_iDevice em_iDevice_activity em_iDevice_udl_exp_like" id="id2">
+<div class="iDevice emphasis1">
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio</h1><p class="toggle-idevice toggle-em1"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/index.html#" id="toggle-idevice-id2-em1" title="Ocultar"><span>Ocultar</span></a></p></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta2_129_2" class="block iDevice_content">
+<div class="pbl-task-description"><p>Sigue con el ejemplo anterior y añade una subclase <em>Organizador</em> para personas que trabajan en el evento. Dentro del <em>Festival</em> tendrá un un <em><strong>rol</strong> </em>específico (ejemplo: "Seguridad", "Producción", etc.).</p>
+<p>Añade lógica al programa principal para probar que funciona correctamente.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice" id="id3">
+<p class="toggle-idevice toggle-em0"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/index.html#" id="toggle-idevice-id3-em0" title="Ocultar"><span>Ocultar</span></a></p><div class="iDevice emphasis0">
+<div id="ta3_130_2" class="block iDevice_content">
+<div class="exe-text"><p><strong>Resumen del uso de herencia:</strong></p>
+<p style="padding-left: 30px;">✅ <em>Persona</em> es la superclase y almacena información común.<br>✅ <em>Asistente</em>, <em>Artista</em> y <em>Organizador</em> son subclases que extienden <em>Persona</em>.<br>✅ Cada subclase añade características específicas.<br>✅ Se usa <em>super(...)</em> para reutilizar código de la clase padre.</p></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471954/mod_resource/content/2/ud6_herencia_polimorfismo/ejercicio.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./6.1. Herencia y polimorfismo_files/_style_js.js"></script></body></html>

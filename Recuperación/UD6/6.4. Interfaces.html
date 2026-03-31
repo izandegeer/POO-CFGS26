@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./6.4. Interfaces_files/base.css">
+<link rel="stylesheet" type="text/css" href="./6.4. Interfaces_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./6.4. Interfaces_files/content.css">
+<link rel="stylesheet" type="text/css" href="./6.4. Interfaces_files/nav.css">
+
+<title>6.4. Interfaces </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<meta name="description" content="6.4. Interfaces">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./6.4. Interfaces_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./6.4. Interfaces_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./6.4. Interfaces_files/common_i18n.js"></script>
+<script type="text/javascript" src="./6.4. Interfaces_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js home-page" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">6.4. Interfaces</div></header>
+<p id="header-options"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/index.html#" class="hide-nav" id="toggle-nav" title="Menú (ocultar)"><span>Menú</span></a></p><nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/index.html" class="active daddy main-node">6.4. Interfaces</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/polimorfismo_cuando_usamos_interfaces_instanceof.html" class="no-ch">Polimorfismo cuando usamos interfaces (instanceOf)</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/ejercicio.html" class="no-ch">Ejercicio</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/diagrama_uml_con_elementos_de_tipo_interface.html" class="no-ch">Diagrama UML con elementos de tipo interface</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/clases_annimas.html" class="no-ch">Clases anónimas</a></li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/polimorfismo_cuando_usamos_interfaces_instanceof.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper" style="min-height: 256px;">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">6.4. Interfaces</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id0">
+<div class="iDevice emphasis0">
+<div id="ta0_127_2" class="block iDevice_content">
+<div class="exe-text"><p style="text-align: justify;">Si las clases abstractas se comportaban como un "<strong>molde</strong>", las interfaces van un poco más allá: son un "<strong>contrato</strong>" que las clases que implementen una interfaz deben cumplir. O dicho de otra forma, <span style="background-color: #ffff00;"><strong>una interfaz se implementa en una clase para que esta sepa qué tiene que hacer, pero no el cómo</strong></span>.</p>
+<p style="text-align: justify;">Para crear una interfaz, si seguimos con el ejemplo del <em>Festival</em>, escribiremos una interfaz con el siguiente formato:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers" style="text-align: justify;">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token comment" spellcheck="true">//interfaz para quienes organizan el evento</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Organizable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">organizarEvento</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px; text-align: justify;"><span style="text-decoration: underline;"><strong><img src="./6.4. Interfaces_files/img2.png" width="16" height="16" alt=""></strong></span><strong>&nbsp;</strong><span style="text-decoration: underline;"><strong>FÍJATE:</strong></span></p>
+<ul style="text-align: justify;">
+<li><strong>Los métodos son implícitamente públicos y abstractos SIN INDICARLO</strong><strong>.</strong></li>
+<li><strong>No puede tener constructores, ya que no se pueden instanciar directamente. En cuanto a los atributos o variables, sólo podría tener constantes estáticas y finales (<em>public static final</em>).</strong></li>
+</ul>
+<p style="text-align: justify;">&nbsp;La forma de implementar una interfaz es usando la palabra reservada <em><strong>implements</strong></em>, de la siguiente manera:</p>
+<p style="text-align: justify;"><img src="./6.4. Interfaces_files/img0.png" width="974" height="273" alt="1" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="text-align: justify;">Igual que nos pasaba con los métodos abstractos, nada más indicar en la clase que queremos usar la interfaz nos mostrará el <span style="color: #ff0000;"><strong>ERROR</strong> </span>y nos obligará a implementar los métodos que dice el "contrato", es decir, los métodos que tenga la interfaz.</p>
+<div class="highlighted-code code-style-2 language-java line-numbers" style="text-align: justify;">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">class</span> <span class="token class-name">Organizador</span> <span class="token keyword">extends</span> <span class="token class-name">Persona</span> <span class="token keyword">implements</span> <span class="token class-name">Organizable</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">private</span> String rol<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Ejemplo: "Seguridad", "Producción", "Prensa"</span>
+
+    <span class="token keyword">public</span> <span class="token function">Organizador</span><span class="token punctuation">(</span>String nombre<span class="token punctuation">,</span> <span class="token keyword">int</span> edad<span class="token punctuation">,</span> String rol<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>nombre<span class="token punctuation">,</span> edad<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>rol <span class="token operator">=</span> rol<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Rol en el festival: "</span> <span class="token operator">+</span> rol<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">accederEvento</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Accediendo como Organizador: Coordinando el evento."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">organizarEvento</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Organizando..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<hr>
+<h5 style="text-align: justify;">Herencia múltiple</h5>
+<p style="text-align: justify;">Como ves, la clase <em>Organizador</em>&nbsp;hasta ahora tiene dos referencias: por un lado, hereda las propiedades de una clase abstracta como lo es <em>Persona</em>, y por otra, implementa los métodos de la interfaz <em>Organizable</em> que acabamos de crear. <span style="background-color: #ffff00;"><strong>Este es uno de los principales usos de las interfaces: permitir la "herencia" múltiple</strong></span>, porque como ya te habrás dado cuenta, no se permite heredar (o "extender") clases hijas de varias superclases:</p>
+<p style="text-align: justify;"><img src="./6.4. Interfaces_files/img1.png" width="649" height="205" alt="2" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p style="text-align: justify;">pero en cambio, sí podemos implementar varias interfaces. Por ejemplo, si creamos otra interfaz llamada <strong><em>Promocionable</em></strong> como la siguiente:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers" style="text-align: justify;">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Promocionable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">void</span> <span class="token function">promocionar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="text-align: justify;">Podríamos implementarla también desde la clase&nbsp;<em>Organizador</em> de la siguiente manera:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers" style="text-align: justify;">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">class</span> <span class="token class-name">Organizador</span> <span class="token keyword">extends</span> <span class="token class-name">Persona</span> <span class="token keyword">implements</span> <span class="token class-name">Organizable</span><span class="token punctuation">,</span> Promocionable <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String rol<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Ejemplo: "Seguridad", "Producción", "Prensa"</span>
+
+    <span class="token keyword">public</span> <span class="token function">Organizador</span><span class="token punctuation">(</span>String nombre<span class="token punctuation">,</span> <span class="token keyword">int</span> edad<span class="token punctuation">,</span> String rol<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>nombre<span class="token punctuation">,</span> edad<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>rol <span class="token operator">=</span> rol<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">mostrarInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Rol en el festival: "</span> <span class="token operator">+</span> rol<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">accederEvento</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Accediendo como Organizador: Coordinando el evento."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">organizarEvento</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Organizando..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">promocionar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Promocionando..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<table border="1" style="width: 100%; background-color: #144dc7; border-color: #000000;">
+<tbody>
+<tr>
+<td style="width: 50%; text-align: center;"><span style="color: #ffffff;">Clases abstractas</span></td>
+<td style="width: 50%; text-align: center;"><span style="color: #ffffff;">Interfaces</span></td>
+</tr>
+<tr>
+<td style="width: 50%;"><span style="color: #ffffff;">Se usa para compartir comportamiento común entre clases relacionadas.</span></td>
+<td style="width: 50%;"><span style="color: #ffffff;">Se usa para definir un "contrato" que múltiples clases deben cumplir.</span></td>
+</tr>
+<tr>
+<td style="width: 50%;"><span style="color: #ffffff;">Puede tener métodos abstractos (sin cuerpo) y métodos tradicionales (con cuerpo).</span></td>
+<td style="width: 50%;"><span style="color: #ffffff;">Desde Java 8 puede tener métodos abstractos, métodos default (con cuerpo) y métodos estáticos, aunque será raro que los lleguemos a implementar.</span></td>
+</tr>
+<tr>
+<td style="width: 50%;"><span style="color: #ffffff;">Puede tener atributos</span></td>
+<td style="width: 50%;"><span style="color: #ffffff;">Sólo puede tener constantes estáticas y finales (public static final).</span></td>
+</tr>
+<tr>
+<td style="width: 50%;"><span style="color: #ffffff;">Puede tener constructores, aunque no se pueden instanciar directamente.</span></td>
+<td style="width: 50%;"><span style="color: #ffffff;">No puede tener constructores.</span></td>
+</tr>
+<tr>
+<td style="width: 50%;"><span style="color: #ffffff;">Una clase sólo puede extender una clase abstracta (herencia simple).</span></td>
+<td style="width: 50%;"><span style="color: #ffffff;">Una clase puede implementar múltiples interfaces (herencia múltiple).</span></td>
+</tr>
+<tr>
+<td style="width: 50%;"><span style="color: #ffffff;">Los métodos pueden tener cualquier modificador de acceso (public, protected, private).</span></td>
+<td style="width: 50%;"><span style="color: #ffffff;">Los métodos son implícitamente públicos&nbsp; (aunque desde Java 9 se permiten métodos privados para ayuda interna).</span></td>
+</tr>
+</tbody>
+</table>
+<h5 style="text-align: justify;">¿Cuándo usar cuál?</h5>
+<ul>
+<li style="text-align: justify;">Usaremos <span style="text-decoration: underline;">clase abstractas</span> si hay una relación fuerte entre clases y se comparten atributos y código común. Ejemplo: <em>Animal → Perro, Gato.</em></li>
+<li style="text-align: justify;">Usaremos <span style="text-decoration: underline;">interfaces</span> cuando necesitemos implementar herencia múltiple y definir comportamientos que pueden aplicarse a clases no relacionadas. Ejemplo: <em>Volador → Pájaro, Avión, Superhéroe.</em></li>
+</ul></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471958/mod_resource/content/3/ud6_3_interfaces/polimorfismo_cuando_usamos_interfaces_instanceof.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./6.4. Interfaces_files/_style_js.js"></script></body></html>

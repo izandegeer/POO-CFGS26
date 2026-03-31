@@ -115,7 +115,7 @@ public class AppZonaCliente {
         for (Map.Entry<Producto, Integer> mapita : clienteAsignado.getPedido().getPedido().entrySet()){
             System.out.println("x" + mapita.getValue() + " - " + mapita.getKey() + " (" + mapita.getKey().getPrecio() + "€)");
         }
-        System.out.println("\nImporte total: " + clienteAsignado.getPedido().getImporteTotal());
+        System.out.println("\nImporte total: " + clienteAsignado.getPedido().getImporteTotal() + "€");
     }
 
     /**

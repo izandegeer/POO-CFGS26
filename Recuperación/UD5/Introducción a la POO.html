@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- saved from url=(0093)https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./Introducción a la POO_files/base.css">
+<link rel="stylesheet" type="text/css" href="./Introducción a la POO_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./Introducción a la POO_files/content.css">
+<link rel="stylesheet" type="text/css" href="./Introducción a la POO_files/nav.css">
+
+<title>Introducción a la POO </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<meta name="description" content="Introducción a la POO">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./Introducción a la POO_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./Introducción a la POO_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./Introducción a la POO_files/common_i18n.js"></script>
+<script type="text/javascript" src="./Introducción a la POO_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js home-page" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">Introducción a la POO</div></header>
+<p id="header-options"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/index.html#" class="hide-nav" id="toggle-nav" title="Menú (ocultar)"><span>Menú</span></a></p><nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/index.html" class="active daddy main-node">5.1. Introducción a la POO</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/511_clases_y_objetos.html" class="no-ch">5.1.1. Clases y objetos</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/512_constructores.html" class="no-ch">5.1.2. Constructores</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/513_visibilidad.html" class="no-ch">5.1.3. Visibilidad</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/514_encapsulamiento_getterssetters.html" class="no-ch">5.1.4. Encapsulamiento (getters/setters)</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/ejercicios.html" class="no-ch">Ejercicios</a></li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/511_clases_y_objetos.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper" style="min-height: 271px;">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">5.1. Introducción a la POO</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id0">
+<div class="iDevice emphasis0">
+<div id="ta0_127_2" class="block iDevice_content">
+<div class="exe-text"><p style="text-align: justify;">Durante la década de los 80 y principios de los 90, el paradigma de programación estructurada (la que hemos visto hasta ahora) fue claramente el dominante a la hora de realizar programas más o menos complejos. Sin embargo, dicho paradigma presentaba algunas carencias a la hora de abarcar problemas complejos.&nbsp;</p>
+<p style="text-align: justify;"><br>La programación orientada a objetos (<em>POO</em>) supone un nuevo paradigma frente a la programación estructurada o modular. En esta, los datos y operaciones se encuentran separados (por un lado las variables y por otro las instrucciones), y los métodos se van pasando de unos a otros los datos que necesitan, mediante parámetros. En la <em>POO</em>, los datos y métodos se agrupan, formando así un bloque que contiene todo que se denomina <em><strong>clase</strong></em>. Así, parece más lógica y sencilla la relación entre los datos e instrucciones que componen un mismo programa.&nbsp;</p>
+<p style="text-align: justify;">Por ejemplo, si tuviera un programa para manipular un triángulo...</p>
+<ul>
+<li>En la <strong>programación modular</strong>, para calcular su área, necesitaría recoger y guardar dos valores en variables (base y altura), y luego pasárselas al método que calculara el área y nos devolverá el resultado para imprimirlo:</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Triangulo</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">double</span> base <span class="token operator">=</span> <span class="token function">leerValor</span><span class="token punctuation">(</span><span class="token string">"Introduce la base del triángulo: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> altura <span class="token operator">=</span> <span class="token function">leerValor</span><span class="token punctuation">(</span><span class="token string">"Introduce la altura del triángulo: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> area <span class="token operator">=</span> <span class="token function">calcularArea</span><span class="token punctuation">(</span>base<span class="token punctuation">,</span> altura<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">mostrarResultado</span><span class="token punctuation">(</span>area<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">double</span> <span class="token function">leerValor</span><span class="token punctuation">(</span>String mensaje<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Scanner scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>mensaje<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> scanner<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">double</span> <span class="token function">calcularArea</span><span class="token punctuation">(</span><span class="token keyword">double</span> base<span class="token punctuation">,</span> <span class="token keyword">double</span> altura<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>base <span class="token operator">*</span> altura<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">mostrarResultado</span><span class="token punctuation">(</span><span class="token keyword">double</span> area<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"El área del triángulo es: "</span> <span class="token operator">+</span> area<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<ul>
+<li style="text-align: justify;">Si traducimos lo anterior a la <em><strong>POO</strong></em>, necesitaríamos 2 variables (o características) asociadas a la clase <em>Triangulo</em> (a partir de ahora, llamadas ATRIBUTOS), junto a los métodos necesarios para calcular el área:</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Triangulo2</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">double</span> base<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> altura<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Triangulo2</span><span class="token punctuation">(</span><span class="token keyword">double</span> base<span class="token punctuation">,</span> <span class="token keyword">double</span> altura<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>base <span class="token operator">=</span> base<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>altura <span class="token operator">=</span> altura<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">calcularArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>base <span class="token operator">*</span> altura<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mostrarResultado</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"El área del triángulo es: "</span> <span class="token operator">+</span> <span class="token function">calcularArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="text-align: justify;">&nbsp;Y desde <em>main</em>:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        Triangulo2 triangulo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Triangulo2</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Has introducido base = "</span> <span class="token operator">+</span> triangulo<span class="token punctuation">.</span>base <span class="token operator">+</span> <span class="token string">" y altura = "</span> <span class="token operator">+</span> triangulo<span class="token punctuation">.</span>altura<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        triangulo<span class="token punctuation">.</span><span class="token function">mostrarResultado</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="text-align: justify;"></p></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471938/mod_resource/content/1/ud5_POO/511_clases_y_objetos.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./Introducción a la POO_files/_style_js.js"></script></body></html>

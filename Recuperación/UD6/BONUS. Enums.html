@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0107)https://aules.edu.gva.es/fp/pluginfile.php/11471960/mod_resource/content/1/bonus._enums_y_equals/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./BONUS. Enums_files/base.css">
+<link rel="stylesheet" type="text/css" href="./BONUS. Enums_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./BONUS. Enums_files/content.css">
+<link rel="stylesheet" type="text/css" href="./BONUS. Enums_files/nav.css">
+
+<title>BONUS. Enums </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471960/mod_resource/content/1/bonus._enums_y_equals/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<meta name="description" content="BONUS. Enums">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./BONUS. Enums_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./BONUS. Enums_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./BONUS. Enums_files/common_i18n.js"></script>
+<script type="text/javascript" src="./BONUS. Enums_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js home-page" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471960/mod_resource/content/1/bonus._enums_y_equals/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">BONUS. Enums</div></header>
+<p id="header-options"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471960/mod_resource/content/1/bonus._enums_y_equals/index.html#" class="hide-nav" id="toggle-nav" title="Menú (ocultar)"><span>Menú</span></a></p><nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471960/mod_resource/content/1/bonus._enums_y_equals/index.html" class="active daddy main-node">BONUS. Tipos enumerados (enum)</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471960/mod_resource/content/1/bonus._enums_y_equals/enums_en_el_proyecto_del_festival.html" class="daddy">Enums en el proyecto del Festival</a>
+   <ul class="other-section">
+      <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471960/mod_resource/content/1/bonus._enums_y_equals/ejercicios.html" class="no-ch">Ejercicios</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471960/mod_resource/content/1/bonus._enums_y_equals/enums_en_el_proyecto_del_festival.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper" style="min-height: 144px;">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">BONUS. Tipos enumerados (enum)</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id0">
+<div class="iDevice emphasis0">
+<div id="ta0_127_2" class="block iDevice_content">
+<div class="exe-text"><p style="text-align: justify;">En <em>Java</em>, las clases tipo <strong><em>enum</em> </strong>(enumeración) se utilizan para definir un conjunto fijo de&nbsp;valores. Es decir, <span style="background-color: #ffff99;"><strong><span style="text-decoration: underline;">definen tipos de datos que sólo pueden tener un conjunto específico de valores</span></strong></span>, como por ejemplo los días de la semana (<em>LUNES, MARTES, MIÉRCOLES, JUEVES, VIERNES</em>), meses del año (<em>ENERO, FEBRERO, MARZO, ABRIL,...</em>),&nbsp;los estados de un pedido (<em>RECIBIDO, PROCESANDO, COMPLETADO, ENTREGADO</em>), los tipos de entradas en un concierto (GENERAL, PISTA, VIP), los roles de un organizador (<em>SEGURIDAD, PRENSA, PROMOTOR</em>), etc.</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> identificadorValores <span class="token punctuation">{</span> 
+    <span class="token comment" spellcheck="true">//posibles valores </span>
+<span class="token punctuation">}</span> <span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">Ejemplo para los días de la semana:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> DiaSemana <span class="token punctuation">{</span>
+ LUNES<span class="token punctuation">,</span>
+ MARTES<span class="token punctuation">,</span>
+ MIÉRCOLES<span class="token punctuation">,</span>
+ JUEVES<span class="token punctuation">,</span>
+ VIERNES<span class="token punctuation">,</span>
+ SÁBADO<span class="token punctuation">,</span>
+ DOMINGO<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">🚨&nbsp;<span style="text-decoration: underline;">A tener en cuenta:</span> no podemos crear objetos del tipo enumerado con la&nbsp;sentencia <em><strong>new. </strong></em><strong><span style="background-color: #ffff99;">C</span></strong><span style="background-color: #ffff99;"><strong>ada uno de estos valores (<em>LUNES, MARTES, etc.</em>) ya son instancias de <em>DiaSemana</em>.</strong></span></p>
+<p style="padding-left: 30px;">Para usar el conjunto de días de la semana desde un programa principal <em>main...</em></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AppTipoEnumerados</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        DiasSemana diaActual <span class="token operator">=</span> DiasSemana<span class="token punctuation">.</span>JUEVES<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hoy es "</span> <span class="token operator">+</span> diaActual<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p><em><img src="./BONUS. Enums_files/img0.png" width="351" height="68" alt="1" style="display: block; margin-left: auto; margin-right: auto;"></em></p>
+<p style="padding-left: 30px;">Además, tenemos disponible el <span style="background-color: #ffff99;">método <strong>.</strong></span><em><span style="background-color: #ffff99;"><strong>values()</strong></span>,</em> que devuelve un <em>array</em> con todos los valores&nbsp;del <em>enum</em> en el orden en que son declarados:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AppTipoEnumerados</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        DiasSemana diaActual <span class="token operator">=</span> DiasSemana<span class="token punctuation">.</span>JUEVES<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hoy es "</span> <span class="token operator">+</span> diaActual<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>DiasSemana dia <span class="token operator">:</span> DiasSemana<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>dia <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p><img src="./BONUS. Enums_files/img1.png" width="501" height="107" alt="2" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<hr>
+<h5>Métodos y constructores en clases de tipo <em>enum</em></h5>
+<p style="text-align: justify;">Las clases tipo <em>enum</em> también pueden tener métodos y constructores definidos. Por&nbsp;ejemplo, con una clase <em>enum</em>&nbsp;como la siguiente que contiene las meses del año:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> Mes <span class="token punctuation">{</span>
+
+ <span class="token function">ENERO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">FEBRERO</span><span class="token punctuation">(</span><span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">MARZO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">ABRIL</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">MAYO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">JUNIO</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">JULIO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">AGOSTO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">SEPTIEMBRE</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">OCTUBRE</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">NOVIEMBRE</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">DICIEMBRE</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> dias<span class="token punctuation">;</span>
+
+<span class="token function">Mes</span><span class="token punctuation">(</span><span class="token keyword">int</span> dias<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token keyword">this</span><span class="token punctuation">.</span>dias <span class="token operator">=</span> dias<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="text-align: justify; padding-left: 30px;">La clase <em><strong>Mes</strong> </em>define 12 constantes de&nbsp;enumeración que representan los&nbsp;meses del año. Además, la clase tiene&nbsp;un campo <em><strong>dias</strong> </em>que se utiliza para&nbsp;almacenar el número de días en cada&nbsp;mes. La clase también tiene un&nbsp;constructor que se utiliza para&nbsp;inicializar el campo <em>dias</em>.</p>
+<p style="text-align: justify; padding-left: 30px;">También se podría añadir un método&nbsp;<em><strong>getDias()</strong></em> para obtener el número de días en un mes&nbsp;específico:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> Mes <span class="token punctuation">{</span>
+ <span class="token function">ENERO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">FEBRERO</span><span class="token punctuation">(</span><span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">MARZO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">ABRIL</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">MAYO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">JUNIO</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">JULIO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">AGOSTO</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">SEPTIEMBRE</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">OCTUBRE</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">NOVIEMBRE</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token function">DICIEMBRE</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> dias<span class="token punctuation">;</span>
+
+<span class="token function">Mes</span><span class="token punctuation">(</span><span class="token keyword">int</span> dias<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   <span class="token keyword">this</span><span class="token punctuation">.</span>dias <span class="token operator">=</span> dias<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getDias</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> dias<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="text-align: justify; padding-left: 30px;">Para probar las nuevas funcionalidades, añadiremos la siguiente lógica a nuestro programa principal:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AppTipoEnumerados</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        DiasSemana diaActual <span class="token operator">=</span> DiasSemana<span class="token punctuation">.</span>JUEVES<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hoy es "</span> <span class="token operator">+</span> diaActual<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>DiasSemana dia <span class="token operator">:</span> DiasSemana<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>dia <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        Mes mesActual <span class="token operator">=</span> Mes<span class="token punctuation">.</span>ENERO<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>mesActual <span class="token operator">+</span> <span class="token string">" tiene "</span> <span class="token operator">+</span> mesActual<span class="token punctuation">.</span><span class="token function">getDias</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" días"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px; text-align: center;"><img src="./BONUS. Enums_files/img2.png" width="572" height="120" alt="3"></p>
+<hr>
+<h5 style="text-align: justify;">De consola a <em>enum</em></h5>
+<p style="text-align: justify;">En ocasiones, puede que debamos recibir información por consola y almacenarla como&nbsp;tipo enumerado. Para ello, deberemos guardar en un&nbsp;<em>String</em> un valor compatible con&nbsp;algún valor de tipo enum en cuestión, y luego hacer una conversión.</p>
+<p style="text-align: justify;">Haremos dicha conversión a través del método <em><strong>valueOf(String cadena)</strong></em> que contienen todas las&nbsp;clases de tipo <em>enum. </em>Este&nbsp;método recibirá un <em>String</em> con un posible valor de tipo&nbsp;enumerado.</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AppTipoEnumerados</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">static</span> Scanner teclado <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        DiasSemana diaActual <span class="token operator">=</span> DiasSemana<span class="token punctuation">.</span>JUEVES<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hoy es "</span> <span class="token operator">+</span> diaActual<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>DiasSemana dia <span class="token operator">:</span> DiasSemana<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>dia <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Mes mesActual <span class="token operator">=</span> Mes<span class="token punctuation">.</span>ENERO<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>mesActual <span class="token operator">+</span> <span class="token string">" tiene "</span> <span class="token operator">+</span> mesActual<span class="token punctuation">.</span><span class="token function">getDias</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" días"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Dime un mes "</span> <span class="token operator">+</span> Arrays<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>Mes<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String mes <span class="token operator">=</span> teclado<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Mes mes_enum <span class="token operator">=</span> Mes<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>mes<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// mes → deberá ser un tipo enumerado válido</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>mes_enum <span class="token operator">+</span> <span class="token string">" tiene "</span> <span class="token operator">+</span> mesEnum<span class="token punctuation">.</span><span class="token function">getDias</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" días"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;"><span style="background-color: #ffff99;"><strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><img src="./BONUS. Enums_files/img3.png" width="961" height="200" alt="5" style="display: block; margin-left: auto; margin-right: auto;"></span></span></strong></span></p>
+<p style="padding-left: 30px;"><span style="background-color: #ffff99;"><strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">OJO</span></span>. Si el valor del&nbsp;<em>String</em> no es válido, se produc<span style="background-color: #ffff99;">irá un error en ejecución</span></strong>. Además, deberemos tener en cuenta que <span style="text-decoration: underline;">se diferencia entre mayúsculas y minúsculas</span>.</span></p>
+<p><img src="./BONUS. Enums_files/img4.png" width="991" height="253" alt="6" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<hr>
+<h5>Otros métodos útiles en los <em>enum</em></h5>
+<ul>
+<li><em><strong>ordinal()&nbsp;</strong></em>: devuelve la posición (índice) de la constante buscada en el <em>enum</em>.</li>
+<li><em><strong>name()&nbsp;</strong></em>: devuelve el nombre de la constante como <em>String</em>.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>enums<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Arrays<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Scanner<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AppTipoEnumerados</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">static</span> Scanner teclado <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        DiasSemana diaActual <span class="token operator">=</span> DiasSemana<span class="token punctuation">.</span>JUEVES<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hoy es "</span> <span class="token operator">+</span> diaActual<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>DiasSemana dia <span class="token operator">:</span> DiasSemana<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>dia <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Mes mesActual <span class="token operator">=</span> Mes<span class="token punctuation">.</span>ENERO<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>mesActual <span class="token operator">+</span> <span class="token string">" tiene "</span> <span class="token operator">+</span> mesActual<span class="token punctuation">.</span><span class="token function">getDias</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" días"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Dime un mes "</span> <span class="token operator">+</span> Arrays<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>Mes<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String mes <span class="token operator">=</span> teclado<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Mes mes_enum <span class="token operator">=</span> Mes<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>mes<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// mes → deberá ser un tipo enumerado válido</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>mes_enum <span class="token operator">+</span> <span class="token string">" tiene "</span> <span class="token operator">+</span> mes_enum<span class="token punctuation">.</span><span class="token function">getDias</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" días"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> posicion <span class="token operator">=</span> diaActual<span class="token punctuation">.</span><span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Posición para "</span> <span class="token operator">+</span> diaActual <span class="token operator">+</span> <span class="token string">": "</span> <span class="token operator">+</span> posicion<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String valor <span class="token operator">=</span> mesActual<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Valor del enum para "</span> <span class="token operator">+</span> mesActual <span class="token operator">+</span> <span class="token string">": "</span> <span class="token operator">+</span> valor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p><img src="./BONUS. Enums_files/img5.png" width="991" height="251" alt="7" style="display: block; margin-left: auto; margin-right: auto;"></p></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471960/mod_resource/content/1/bonus._enums_y_equals/enums_en_el_proyecto_del_festival.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./BONUS. Enums_files/_style_js.js"></script></body></html>

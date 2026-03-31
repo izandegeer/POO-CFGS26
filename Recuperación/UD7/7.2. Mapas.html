@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./7.2. Mapas_files/base.css">
+<link rel="stylesheet" type="text/css" href="./7.2. Mapas_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./7.2. Mapas_files/content.css">
+<link rel="stylesheet" type="text/css" href="./7.2. Mapas_files/nav.css">
+
+<title>7.2. Mapas </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<meta name="description" content="7.2. Mapas">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./7.2. Mapas_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./7.2. Mapas_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./7.2. Mapas_files/common_i18n.js"></script>
+<script type="text/javascript" src="./7.2. Mapas_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js home-page" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">7.2. Mapas</div></header>
+<p id="header-options"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/index.html#" class="hide-nav" id="toggle-nav" title="Menú (ocultar)"><span>Menú</span></a></p><nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/index.html" class="active daddy main-node">7.2. Mapas o diccionarios</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/tablas_hash.html" class="no-ch">Tablas Hash</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/implementacin_interna_de_hashmap_como_tabla_hash_en_java.html" class="no-ch">Implementación interna de HashMap como Tabla Hash en Java</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/diccionario_espaol__ingls.html" class="no-ch">Diccionario Español - Inglés</a></li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/tablas_hash.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper" style="min-height: 219px;">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">7.2. Mapas o diccionarios</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id0">
+<div class="iDevice emphasis1">
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Interfaz Map --&gt; (clave-valor)</h1><p class="toggle-idevice toggle-em1"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/index.html#" id="toggle-idevice-id0-em1" title="Ocultar"><span>Ocultar</span></a></p></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta0_127_2" class="block iDevice_content">
+<div class="exe-text"><p style="text-align: justify;">Como ya vimos durante la introducción a las estructuras del tema, un mapa es una estructura de datos que almacena información en forma de pares <em>clave-valor,</em> y es muy útil cuando necesitamos acceder a elementos de forma rápida. Es como un "diccionario" o una "agenda", donde cada entrada tiene dos partes: una clave (que es única) y un valor (que puede ser cualquier dato).</p>
+<p>La estructura que usa <em>Java</em> para implementar los mapas es <em><strong>HashMap</strong></em>,&nbsp;</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>HashMap<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EjemploHashMap</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Integer<span class="token operator">&gt;</span> edades <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        edades<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Juan"</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        edades<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Ana"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        edades<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Pedro"</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Edad de Juan: "</span> <span class="token operator">+</span> edades<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"Juan"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="text-align: justify;">En este ejemplo, las claves son los nombres (<em>"Juan", "Ana", "Pedro"</em>) y los valores son las edades (<em>25, 30, 28</em>). La clave se convierte en un índice mediante una función <em>hash,</em> y cada valor se almacena en una celda de una <em><strong>tabla hash </strong></em>(<em>una "lista" muy grande con muchas "casillas" donde se guardan las claves y los valores de forma súper eficiente)</em>.&nbsp;La pregunta es, ¿cómo encontramos la casilla correcta para guardar o buscar un dato? Lo vemos en el siguiente apartado.</p>
+<p>Los métodos principales de <em><strong>HashMap&nbsp;</strong></em>en<em> Java&nbsp;</em>son:</p>
+<ul>
+<li><em><strong>put(K, V)</strong></em>: para insertar un par<em> clave-valor</em>. <span style="text-decoration: underline;">En caso de que una clave ya exista, pisaremos el valor antiguo por el nuevo</span>.</li>
+<li><em><strong>get(K)</strong></em>: para obtener el valor a partir de una clave.</li>
+<li><em><strong>remove(K)</strong></em>: eliminar un valor a partir de su clave.&nbsp;También se puede usar <em><strong>remove(K key, V value)</strong></em> para eliminar sólo si el valor coincide.</li>
+<li><em><strong>containsKey(K)</strong></em>: verifica si la clave existe.</li>
+<li><em><strong>containsValue(V value)</strong></em>: verifica si existe un valor.</li>
+<li><strong><em>keySet()</em></strong>: devuelve una lista con las claves. También sirve para iterar sólo con claves.</li>
+<li><em><strong>values()</strong></em>: devuelve una lista con los valores. También sirve para iterar sólo con valores.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Integer<span class="token operator">&gt;</span> edades <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+edades<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Juan"</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+edades<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Ana"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+edades<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Pedro"</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// {Juan=25, Ana=30, Pedro=28}</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"Juan"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 25</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"Carlos"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// null</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span><span class="token string">"Ana"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span><span class="token string">"Carlos"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">.</span><span class="token function">containsValue</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">.</span><span class="token function">containsValue</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
+
+edades<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"Pedro"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// {Juan=25, Ana=30}</span>
+
+edades<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"Ana"</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// no elimina nada porque el valor no coincide</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// {Juan=25, Ana=30}</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span>String clave <span class="token operator">:</span> edades<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Clave: "</span> <span class="token operator">+</span> clave<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Clave: Juan</span>
+                                           <span class="token comment" spellcheck="true">// Clave: Ana</span>
+                                                             
+<span class="token punctuation">}</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span>Integer valor <span class="token operator">:</span> edades<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Valor: "</span> <span class="token operator">+</span> valor<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Valor: 25</span>
+                                           <span class="token comment" spellcheck="true">//Valor: 30</span>
+<span class="token punctuation">}</span>
+
+edades<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"Ana"</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// elimina Ana porque el valor coincide</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// {Juan=25}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p><em><strong><img src="./7.2. Mapas_files/img0.5.png" width="428" height="382" alt="3" style="display: block; margin-left: auto; margin-right: auto;"></strong></em></p>
+<ul>
+<li><em><strong>getOrDefault(key, defaultValue):&nbsp;</strong></em>es un método que permite obtener un valor asociado a una clave específica, pero si la clave no existe en el mapa, devuelve un valor por defecto en su lugar.</li>
+</ul>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Integer<span class="token operator">&gt;</span> edades <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        edades<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Ana"</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        edades<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Luis"</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// obtener la edad de Ana (existe en el HashMap)</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span><span class="token string">"Ana"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// salida: 9</span>
+
+        <span class="token comment" spellcheck="true">// obtener la edad de Pedro (no existe, usa el valor predeterminado 18)</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>edades<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span><span class="token string">"Pedro"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// salida: 18</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">Es útil cuando trabajamos con conteos o acumulaciones, como en el problema <a href="https://aceptaelreto.com/problem/statement.php?id=152">Va de modas... de Acepta el Reto</a>.</p>
+<hr>
+<h5>Método de iteración en un <em>HashMap</em></h5>
+<p style="text-align: justify;">Hasta ahora, hemos visto los métodos <em>keySet()</em> y <em>values()</em> para obtener claves y valores por separado. Pero si necesitamos interaccionar con nuestro mapa para obtener claves y valores a la vez, usaremos un <strong><em>for-each</em> con</strong> <span style="font-size: 14pt;"><strong>.<em>entrySet()</em></strong></span> <em>(clave-valor):</em></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span>Map<span class="token punctuation">.</span>Entry<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Integer<span class="token operator">&gt;</span> entry <span class="token operator">:</span> map<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Clave: "</span> <span class="token operator">+</span> entry<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">", Valor: "</span> <span class="token operator">+</span> entry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Clave: Juan, Valor: 25</span>
+<span class="token comment" spellcheck="true">// Clave: Ana, Valor: 30</span>
+<span class="token comment" spellcheck="true">// Clave: Pedro, Valor: 28</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p>Si has probado los iteradores anteriores, te habrás dado cuenta de algo importante: <span style="background-color: #ffff99;">las estructuras <em>HashMap</em>, igual que pasaba con los <em>HashSet</em>, no mantienen el orden de inserción. Si necesitamos orden, usaremos <em><strong><span style="color: #008000; font-size: 18pt; background-color: #ffff99;">LinkedHashMap </span></strong></em></span>(aunque su uso no es muy común).</p>
+<hr>
+<h5><strong>Asociar clave con múltiples valores</strong></h5>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> List<span class="token operator">&lt;</span>String<span class="token operator">&gt;&gt;</span> amigos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// añadimos los amigos de Juan</span>
+amigos<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"Juan"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+amigos<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"Juan"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Pedro"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+amigos<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"Juan"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Ana"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>amigos<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//{Juan=[Pedro, Ana]}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<hr>
+<h5>Uso de mapas manipulando archivos <em>JSON</em></h5>
+<p style="text-align: justify;">El uso principal de los <em>HashMap</em>&nbsp;actualmente es la manipulación de archivos tipo <em>JSON</em> característicos de las <em>APIs</em> y microservicios. También en acceso a bases de datos <em>NoSQL</em> (<em>MongoDB</em>).</p>
+<div class="highlighted-code code-style-2 language-json line-numbers">
+<div>
+<pre class="line-numbers  language-json"><code class="  language-json"><span class="token punctuation">{</span>
+    <span class="token property">"nombre"</span><span class="token operator">:</span> <span class="token string">"Juan"</span><span class="token punctuation">,</span>
+    <span class="token property">"edad"</span><span class="token operator">:</span> <span class="token number">25</span>
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="text-align: justify; padding-left: 30px;">Otro ejemplo:</p>
+<div class="highlighted-code code-style-2 language-json line-numbers">
+<div>
+<pre class="line-numbers  language-json"><code class="  language-json"></code><code class="  language-json"><span class="token punctuation">{</span>
+    <span class="token property">"usuario"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"nombre"</span><span class="token operator">:</span> <span class="token string">"Carlos"</span><span class="token punctuation">,</span>
+        <span class="token property">"edad"</span><span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
+        <span class="token property">"activo"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">"hobbies"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"fútbol"</span><span class="token punctuation">,</span> <span class="token string">"lectura"</span><span class="token punctuation">,</span> <span class="token string">"música"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"direccion"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"ciudad"</span><span class="token operator">:</span> <span class="token string">"Madrid"</span><span class="token punctuation">,</span>
+            <span class="token property">"pais"</span><span class="token operator">:</span> <span class="token string">"España"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="text-align: justify;">Aquí tenemos:</p>
+<ul>
+<li style="text-align: justify;">Un objeto "<em>usuario</em>".</li>
+<li style="text-align: justify;">Claves con valores de distintos tipos (<em>String, Number, Boolean</em>).</li>
+<li style="text-align: justify;">Un <em>array</em> "<em>hobbies</em>".</li>
+<li style="text-align: justify;">Otro objeto anidado "direccion".</li>
+</ul>
+<p>Una librería típica para manipular <em>JSON</em> es <em>Gson (com.google.gson.Gson)</em>, de <em>Google</em>. Aquí tienes un ejemplo con <em>Gson</em> para convertir <em>JSON</em> a un objeto <em>Java</em>:</p>
+<div class="highlighted-code code-style-2 language-json line-numbers">
+<div>
+<pre class="line-numbers  language-json"><code class="  language-json">import com.google.gson.Gson<span class="token punctuation">;</span>
+
+class Usuario <span class="token punctuation">{</span>
+    String nombre<span class="token punctuation">;</span>
+    int edad<span class="token punctuation">;</span>
+    boolean activo<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+public class Main <span class="token punctuation">{</span>
+    public static void main(String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        String json = <span class="token property">"{ \"nombre\"</span><span class="token operator">:</span> \<span class="token property">"Carlos\", \"edad\"</span><span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span> \<span class="token property">"activo\"</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token string">";
+
+        Gson gson = new Gson();
+        Usuario usuario = gson.fromJson(json, Usuario.class);
+
+        System.out.println("</span>Nombre<span class="token operator">:</span> <span class="token string">" + usuario.nombre);
+        System.out.println("</span>Edad<span class="token operator">:</span> <span class="token string">" + usuario.edad);
+        System.out.println("</span>Activo<span class="token operator">:</span> " + usuario.activo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper pblIdevice em_iDevice em_iDevice_activity em_iDevice_udl_exp_like" id="id3">
+<div class="iDevice emphasis1">
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio 1</h1><p class="toggle-idevice toggle-em1"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/index.html#" id="toggle-idevice-id3-em1" title="Ocultar"><span>Ocultar</span></a></p></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta3_127_2" class="block iDevice_content">
+<div class="pbl-task-description"><p>Dado un texto introducido por el usuario, cuenta cuántas veces aparece cada palabra y muestra el resultado.</p>
+<p style="padding-left: 60px;"><span style="text-decoration: underline;">Entrada de ejemplo</span>:&nbsp;</p>
+<p style="padding-left: 180px; text-align: left;"><em><strong>hola mundo hola java hola código</strong></em><span style="text-decoration: underline;"></span></p>
+<p style="padding-left: 180px; text-align: left;"><em><strong></strong></em></p>
+<p style="padding-left: 60px;"><span style="text-decoration: underline;">Salida esperada</span>:</p>
+<p style="text-align: justify; padding-left: 180px;"><img src="./7.2. Mapas_files/img0.1.png" width="106" height="92" alt="1"></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper pblIdevice em_iDevice em_iDevice_activity em_iDevice_udl_exp_like" id="id4">
+<div class="iDevice emphasis1">
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio 2: contador de caracteres</h1><p class="toggle-idevice toggle-em1"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/index.html#" id="toggle-idevice-id4-em1" title="Ocultar"><span>Ocultar</span></a></p></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta4_128_2" class="block iDevice_content">
+<div class="pbl-task-description"><p>&nbsp;Dada una palabra, cuenta cuántas veces aparece cada carácter. <strong>Usa el método <span style="color: #008000;"><em>.toCharArray()</em></span></strong>.</p>
+<p style="padding-left: 60px;"><span style="text-decoration: underline;">Entrada de ejemplo</span>:</p>
+<p style="padding-left: 240px;"><em><strong>banana</strong></em></p>
+<p style="padding-left: 60px;"><span style="text-decoration: underline;">Salida esperada</span>:</p>
+<p style="padding-left: 240px;"><em><strong><img src="./7.2. Mapas_files/img0.2.png" width="64" height="73" alt="2"></strong></em></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper pblIdevice em_iDevice em_iDevice_activity em_iDevice_udl_exp_like" id="id6">
+<div class="iDevice emphasis1">
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio 3. Registro de temperaturas por ciudad</h1><p class="toggle-idevice toggle-em1"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/index.html#" id="toggle-idevice-id6-em1" title="Ocultar"><span>Ocultar</span></a></p></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta6_130_2" class="block iDevice_content">
+<div class="pbl-task-description"><p style="text-align: justify;">Con todo el lío de la DANA, los negacionistas del cambio climático se están replanteando sus creencias y han decidido implementar un sistema sencillo que registre la temperatura en diferentes ciudades para ver si todo lo que se dice por parte de la comunidad científica es verdad. Como no se fían de los sensores automáticos, ellos mismos medirán la temperatura con un termómetro e irán insertando los datos a mano mediante una <em>app</em>.</p>
+<ul>
+<li style="text-align: justify;">Cada ciudad tendrá una temperatura registrada.</li>
+<li style="text-align: justify;">El usuario podrá&nbsp;<em><strong>insertar, actualizar</strong></em> y <em><strong>consultar</strong> </em>temperaturas por ciudad.</li>
+<li style="text-align: justify;">También podrá <em><strong>mostrar</strong> </em>un listado de todas las temperaturas registradas en todas las ciudades.</li>
+</ul>
+<p style="text-align: left; padding-left: 60px;">Ejemplo de ejecución:</p>
+<p><img src="./7.2. Mapas_files/img0.4.png" width="780" height="434" alt="1" style="display: block; margin-left: auto; margin-right: auto;"></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper pblIdevice em_iDevice em_iDevice_activity em_iDevice_udl_exp_like" id="id7">
+<div class="iDevice emphasis1">
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio 4. Evitando el pucherazo</h1><p class="toggle-idevice toggle-em1"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/index.html#" id="toggle-idevice-id7-em1" title="Ocultar"><span>Ocultar</span></a></p></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta7_131_2" class="block iDevice_content">
+<div class="pbl-task-description"><p style="text-align: justify;">En los cursos de ciclos formativos del instituto se está llevando a cabo la elección de delegado, en la que cada estudiante escribe el nombre de su candidato en un papel. Como la mayoría de los estudiantes son de informática y no se fían del proceso de votación, deciden aprovechar sus conocimientos de programación para crear una pequeña app que contabilice los votos y determine cuántos votos recibe cada candidato de forma objetiva.</p>
+<p style="padding-left: 30px;"><span style="text-decoration: underline;">Entrada</span>:</p>
+<ul>
+<li>Se escriben nombres de candidatos, uno por línea.</li>
+<li>Para finalizar la votación, se escribe la palabra "<em>fin</em>".</li>
+</ul>
+<p style="padding-left: 30px;"><span style="text-decoration: underline;">Entrada</span>:</p>
+<p style="padding-left: 90px;"><img src="./7.2. Mapas_files/img0.6.png" width="65" height="154" alt="1"></p>
+<p style="padding-left: 30px;"><span style="text-decoration: underline;">Salida</span>:&nbsp;</p>
+<p style="padding-left: 60px;"><img src="./7.2. Mapas_files/img1.1.png" width="152" height="95" alt="2"></p>
+<p style="text-align: justify; padding-left: 30px;"></p>
+<p style="text-align: justify; padding-left: 90px;"></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471972/mod_resource/content/2/7_2_Mapas/tablas_hash.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./7.2. Mapas_files/_style_js.js"></script></body></html>

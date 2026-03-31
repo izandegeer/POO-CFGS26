@@ -43,4 +43,11 @@ class ClienteTest {
         cliente.insertarProducto(Producto.ARROZ);
         assertEquals(2, cliente.getPedido().getPedido().size());
     }
+
+    @Test
+    void testProductoInexistenteLanzaExcepcion() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Producto.valueOf("INEXISTENTE");
+        });
+    }
 }

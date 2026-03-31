@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Estudio - Programacion Java (Orientado a Examen)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-light: #34d399;
+            --primary-dark: #047857;
+            --primary-bg: #ecfdf5;
+            --secondary: #7c3aed;
+            --bg: #fafaf9;
+            --card: #ffffff;
+            --text: #292524;
+            --text-light: #78716c;
+            --text-muted: #a8a29e;
+            --border: #e7e5e4;
+            --code-bg: #1c1917;
+            --code-text: #e7e5e4;
+            --accent: #f59e0b;
+            --accent-bg: #fffbeb;
+            --info: #0ea5e9;
+            --info-bg: #f0f9ff;
+            --sidebar-w: 280px;
+            --radius: 12px;
+            --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+            --shadow-md: 0 4px 6px rgba(0,0,0,.05), 0 2px 4px rgba(0,0,0,.04);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #sidebar {
+            position: fixed; top: 0; left: 0;
+            width: var(--sidebar-w); height: 100vh;
+            background: linear-gradient(175deg, #064e3b 0%, #022c22 100%);
+            color: #d1fae5; overflow-y: auto;
+            padding: 1.5rem 0 2rem; z-index: 100;
+            box-shadow: 4px 0 20px rgba(0,0,0,.15);
+        }
+        #sidebar::-webkit-scrollbar { width: 5px; }
+        #sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 10px; }
+        #sidebar h2 {
+            font-size: .75rem; padding: 0 1.2rem; margin-bottom: 1rem;
+            color: var(--primary-light); text-transform: uppercase; letter-spacing: 2px; font-weight: 700;
+        }
+        #sidebar a {
+            display: block; padding: .4rem 1.4rem; color: #6ee7b7;
+            text-decoration: none; font-size: .8rem;
+            border-left: 3px solid transparent; transition: all .15s;
+        }
+        #sidebar a:hover, #sidebar a.current {
+            color: #fff; border-left-color: var(--primary-light); background: rgba(255,255,255,.06);
+        }
+        #sidebar .sep { height: 1px; background: rgba(255,255,255,.1); margin: .5rem 1.2rem; }
+        #sidebar .freq {
+            display: inline-block; font-size: .6rem; padding: .1rem .35rem;
+            border-radius: 4px; margin-left: .3rem; font-weight: 700;
+        }
+        .freq-always { background: #ef4444; color: #fff; }
+        .freq-likely { background: #f59e0b; color: #1c1917; }
+
+        #content {
+            margin-left: var(--sidebar-w);
+            padding: 2.5rem 3.5rem 5rem;
+            max-width: 920px;
+        }
+
+        h1 { font-size: 2.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: .2rem; letter-spacing: -.02em; }
+        .subtitle { color: var(--text-light); margin-bottom: .5rem; font-size: .95rem; }
+
+        h2 {
+            font-size: 1.5rem; font-weight: 700; color: var(--primary-dark);
+            margin-top: 3rem; margin-bottom: .8rem;
+            padding-bottom: .4rem; border-bottom: 3px solid var(--primary-light);
+        }
+        h3 { font-size: 1.15rem; font-weight: 600; margin-top: 1.8rem; margin-bottom: .5rem; color: #1c1917; }
+        h4 { font-size: 1rem; font-weight: 600; margin-top: 1.3rem; margin-bottom: .3rem; color: #44403c; }
+
+        p { margin-bottom: .8rem; }
+        ul, ol { margin: .5rem 0 1rem 1.5rem; }
+        li { margin-bottom: .3rem; }
+        li::marker { color: var(--primary); }
+        strong { color: #1c1917; font-weight: 600; }
+
+        code {
+            background: #f5f5f4; padding: .15rem .45rem; border-radius: 5px;
+            font-size: .86em; font-family: 'JetBrains Mono', monospace;
+            color: var(--secondary); border: 1px solid #e7e5e4;
+        }
+        pre {
+            background: var(--code-bg); color: var(--code-text);
+            padding: 1.1rem 1.4rem; border-radius: var(--radius);
+            overflow-x: auto; margin: .8rem 0 1.2rem;
+            font-size: .83rem; line-height: 1.65;
+            border: 1px solid #292524; box-shadow: var(--shadow-md); position: relative;
+        }
+        pre::before {
+            content: 'Java'; position: absolute; top: .4rem; right: .7rem;
+            font-size: .6rem; text-transform: uppercase; letter-spacing: 1px;
+            color: #78716c; font-family: 'Inter', sans-serif; font-weight: 600;
+        }
+        pre code { background: none; padding: 0; color: inherit; border: none; font-size: inherit; }
+
+        table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            margin: .8rem 0 1.2rem; font-size: .88rem;
+            border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow); border: 1px solid var(--border);
+        }
+        th, td { padding: .55rem .85rem; text-align: left; }
+        th {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: #fff; font-weight: 600; font-size: .82rem;
+            text-transform: uppercase; letter-spacing: .5px;
+        }
+        td { border-top: 1px solid var(--border); }
+        tr:nth-child(even) td { background: #fafaf9; }
+
+        .examen {
+            background: #fef2f2; border-left: 4px solid #ef4444;
+            padding: .9rem 1.2rem; margin: 1rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow);
+        }
+        .examen strong:first-child { color: #dc2626; }
+
+        .clave {
+            background: linear-gradient(135deg, #fef3c7, #fffbeb);
+            border-left: 4px solid var(--accent);
+            padding: .9rem 1.2rem; margin: 1rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow);
+        }
+        .clave strong:first-child { color: #92400e; }
+
+        .nota {
+            background: var(--info-bg); border-left: 4px solid var(--info);
+            padding: .9rem 1.2rem; margin: 1rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow);
+        }
+
+        .respuesta {
+            background: #f0fdf4; border: 2px solid #86efac;
+            padding: 1rem 1.3rem; margin: 1rem 0;
+            border-radius: var(--radius); box-shadow: var(--shadow);
+        }
+        .respuesta strong:first-child { color: #16a34a; }
+
+        .separator { border: none; height: 1px; background: linear-gradient(to right, var(--primary-light), transparent 70%); margin: 2.5rem 0; }
+
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: .8rem; margin: 1rem 0;
+        }
+        .stat-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: .8rem 1rem;
+            box-shadow: var(--shadow); text-align: center;
+        }
+        .stat-card .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--primary-dark); }
+        .stat-card .stat-label { font-size: .75rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
+
+        #progress {
+            position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+            background: linear-gradient(90deg, var(--primary-light), #a78bfa);
+            z-index: 200; transition: width .1s;
+        }
+        #top-btn {
+            position: fixed; bottom: 1.5rem; right: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff; border: none; width: 46px; height: 46px;
+            border-radius: 14px; font-size: 1.2rem; cursor: pointer;
+            display: none; z-index: 100; box-shadow: var(--shadow-lg);
+        }
+        #dark-btn {
+            position: fixed; top: .8rem; right: 1rem;
+            width: 40px; height: 40px; border-radius: 10px;
+            border: 1px solid var(--border); background: var(--card);
+            color: var(--text-light); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.05rem; z-index: 150; box-shadow: var(--shadow);
+        }
+        #menu-toggle {
+            display: none; position: fixed; top: 1rem; left: 1rem;
+            z-index: 200; background: var(--primary-dark); color: #fff;
+            border: none; padding: .6rem .8rem; border-radius: 10px;
+            cursor: pointer; font-size: 1.1rem; box-shadow: var(--shadow-lg);
+        }
+        #overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 99; }
+        #overlay.show { display: block; }
+
+        body.dark {
+            --bg: #1c1917; --card: #292524; --text: #e7e5e4; --text-light: #a8a29e;
+            --border: #44403c; --code-bg: #0c0a09; --primary-bg: #022c22;
+            --info-bg: #0c2d48; --accent-bg: #422006;
+        }
+        body.dark code { background: #292524; border-color: #44403c; color: var(--primary-light); }
+        body.dark pre { border-color: #44403c; }
+        body.dark strong { color: #f5f5f4; }
+        body.dark h3, body.dark h4 { color: #d6d3d1; }
+        body.dark td { border-color: #44403c; }
+        body.dark tr:nth-child(even) td { background: #292524; }
+        body.dark .clave { background: #422006; }
+        body.dark .nota { background: #0c2d48; }
+        body.dark .examen { background: #450a0a; }
+        body.dark .respuesta { background: #052e16; border-color: #166534; }
+        body.dark #dark-btn { background: #292524; border-color: #44403c; color: #a8a29e; }
+        body.dark .stat-card { background: #292524; border-color: #44403c; }
+
+        @media (max-width: 768px) {
+            #sidebar { transform: translateX(-100%); transition: transform .3s; }
+            #sidebar.open { transform: translateX(0); }
+            #content { margin-left: 0; padding: 1.5rem 1.2rem 4rem; }
+            #menu-toggle { display: block; }
+            h1 { font-size: 1.6rem; }
+            pre { font-size: .78rem; padding: .9rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media print {
+            #sidebar, #menu-toggle, #top-btn, #progress, #dark-btn { display: none !important; }
+            #content { margin: 0; padding: 1rem; max-width: 100%; }
+            pre { border: 1px solid #ccc; box-shadow: none; }
+            .separator { page-break-after: always; }
+        }
+        ::selection { background: var(--primary-light); color: #022c22; }
+
+        .copy-btn {
+            position: absolute; top: .4rem; right: .4rem;
+            padding: .2rem .5rem; font-size: .6rem; font-family: inherit;
+            font-weight: 600; text-transform: uppercase; letter-spacing: .5px;
+            background: rgba(255,255,255,.08); color: #a8a29e;
+            border: 1px solid rgba(255,255,255,.1); border-radius: 6px;
+            cursor: pointer; z-index: 2;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,.15); color: #fff; }
+        .copy-btn.copied { background: var(--primary); color: #fff; }
+
+        .pila-box {
+            background: #faf5ff; border: 2px solid #c084fc; border-radius: var(--radius);
+            padding: 1rem 1.3rem; margin: .8rem 0; font-family: 'JetBrains Mono', monospace; font-size: .85rem;
+        }
+        body.dark .pila-box { background: #1e1033; border-color: #7c3aed; }
+    </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="overlay" onclick="closeSidebar()"></div>
+<button id="menu-toggle" onclick="openSidebar()">&#9776;</button>
+<button id="dark-btn" onclick="toggleDark()">&#9789;</button>
+
+<nav id="sidebar">
+    <h2>Resumen Examen</h2>
+    <a href="#stats">Analisis de examenes</a>
+    <div class="sep"></div>
+    <a href="#trazas">Trazas bucles anidados <span class="freq freq-always">3/3</span></a>
+    <a href="#recursividad">Recursividad + pila <span class="freq freq-always">3/3</span></a>
+    <a href="#polimorfismo">Polimorfismo <span class="freq freq-always">2/3</span></a>
+    <a href="#encapsulacion">Encapsulacion <span class="freq freq-always">2/3</span></a>
+    <a href="#excepciones-custom">Excepciones custom <span class="freq freq-always">2/3</span></a>
+    <a href="#iterator">Iterator <span class="freq freq-always">2/3</span></a>
+    <a href="#interfaces">Interfaces <span class="freq freq-always">2/3</span></a>
+    <a href="#matrices">Matrices <span class="freq freq-always">2/3</span></a>
+    <a href="#dfd">Diagramas de flujo <span class="freq freq-likely">2/3</span></a>
+    <a href="#static">Metodos static <span class="freq freq-likely">1/3</span></a>
+    <div class="sep"></div>
+    <a href="#teoria">Teoria complementaria</a>
+    <a href="#teoria-jvm">JVM y Bytecode</a>
+    <a href="#teoria-condicionales">Condicionales y bucles</a>
+    <a href="#teoria-arrays">Arrays</a>
+    <a href="#teoria-metodos">Metodos</a>
+    <a href="#teoria-poo">POO basica</a>
+    <a href="#teoria-herencia">Herencia</a>
+    <a href="#teoria-abstractas">Abstractas vs Interfaces</a>
+    <a href="#teoria-colecciones">Colecciones y HashMap</a>
+    <a href="#teoria-enums">Enums</a>
+    <a href="#teoria-strings">Strings</a>
+    <a href="#teoria-random">Random</a>
+    <a href="#teoria-lambdas">Lambdas y Streams</a>
+</nav>
+
+<main id="content">
+
+    <h1>Resumen Orientado a Examen - Java</h1>
+    <p class="subtitle">Basado en el analisis de 3 examenes reales de recuperacion (Abril, Mayo, Junio)</p>
+
+    <!-- ==================== ANALISIS ==================== -->
+    <h2 id="stats">Analisis de examenes anteriores</h2>
+
+    <p>Despues de analizar los 3 examenes, estos son los temas que <strong>siempre caen</strong>:</p>
+
+    <div class="stats-grid">
+        <div class="stat-card"><div class="stat-num">3/3</div><div class="stat-label">Trazas bucles</div></div>
+        <div class="stat-card"><div class="stat-num">3/3</div><div class="stat-label">Recursividad</div></div>
+        <div class="stat-card"><div class="stat-num">2/3</div><div class="stat-label">Polimorfismo</div></div>
+        <div class="stat-card"><div class="stat-num">2/3</div><div class="stat-label">Encapsulacion</div></div>
+        <div class="stat-card"><div class="stat-num">2/3</div><div class="stat-label">Excepciones custom</div></div>
+        <div class="stat-card"><div class="stat-num">2/3</div><div class="stat-label">Iterator</div></div>
+        <div class="stat-card"><div class="stat-num">2/3</div><div class="stat-label">Interfaces</div></div>
+        <div class="stat-card"><div class="stat-num">2/3</div><div class="stat-label">Matrices</div></div>
+        <div class="stat-card"><div class="stat-num">2/3</div><div class="stat-label">Diagrama flujo</div></div>
+    </div>
+
+    <div class="examen">
+        <strong>FORMATO DEL EXAMEN:</strong> 8-9 preguntas, cada una vale entre 1 y 2 puntos. Son preguntas de desarrollo: escribir codigo, hacer trazas en tabla, dibujar diagramas y explicar conceptos. No hay tipo test.
+    </div>
+
+    <hr class="separator">
+
+    <!-- ==================== 1. TRAZAS ==================== -->
+    <h2 id="trazas">1. Trazas de bucles anidados (CAE SIEMPRE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN:</strong> Te dan un codigo con 2 for anidados y una variable acumuladora. Debes hacer una tabla con los valores de i, j, la variable y la salida por pantalla en cada iteracion.
+    </div>
+
+    <h3>Como hacer una traza paso a paso</h3>
+    <ol>
+        <li>Crea una tabla con columnas: <strong>i</strong>, <strong>j</strong>, <strong>operacion</strong>, <strong>variable resultado</strong>, <strong>salida</strong>.</li>
+        <li>Escribe el valor inicial de la variable acumuladora.</li>
+        <li>Recorre el for externo: por cada valor de i, recorre COMPLETO el for interno.</li>
+        <li>En cada iteracion del for interno, aplica la operacion y escribe la salida.</li>
+        <li>Al final, escribe la ultima linea fuera de los bucles.</li>
+    </ol>
+
+    <h3>Ejercicio resuelto (estilo examen Mayo)</h3>
+    <pre><code>int resultado = 18;
+for (int i = 1; i <= 3; i++) {
+    for (int j = 3; j >= 1; j--) {
+        resultado -= i;
+        System.out.println(i + " - " + j + " - res: " + resultado);
+    }
+}
+System.out.println("resultado final: " + resultado);</code></pre>
+
+    <div class="respuesta">
+        <strong>RESOLUCION:</strong>
+    </div>
+
+    <table>
+        <tr><th>i</th><th>j</th><th>operacion</th><th>resultado</th><th>salida</th></tr>
+        <tr><td>1</td><td>3</td><td>18 - 1</td><td>17</td><td>1 - 3 - res: 17</td></tr>
+        <tr><td>1</td><td>2</td><td>17 - 1</td><td>16</td><td>1 - 2 - res: 16</td></tr>
+        <tr><td>1</td><td>1</td><td>16 - 1</td><td>15</td><td>1 - 1 - res: 15</td></tr>
+        <tr><td>2</td><td>3</td><td>15 - 2</td><td>13</td><td>2 - 3 - res: 13</td></tr>
+        <tr><td>2</td><td>2</td><td>13 - 2</td><td>11</td><td>2 - 2 - res: 11</td></tr>
+        <tr><td>2</td><td>1</td><td>11 - 2</td><td>9</td><td>2 - 1 - res: 9</td></tr>
+        <tr><td>3</td><td>3</td><td>9 - 3</td><td>6</td><td>3 - 3 - res: 6</td></tr>
+        <tr><td>3</td><td>2</td><td>6 - 3</td><td>3</td><td>3 - 2 - res: 3</td></tr>
+        <tr><td>3</td><td>1</td><td>3 - 3</td><td>0</td><td>3 - 1 - res: 0</td></tr>
+    </table>
+    <p><strong>Ultima linea:</strong> <code>resultado final: 0</code></p>
+
+    <h3>Ejercicio resuelto (estilo examen Junio - con if/else)</h3>
+    <pre><code>int resultado = 0;
+for (int j = 1; j <= 3; j++) {
+    for (int i = 3; i >= 1; i--) {
+        if ((i + j) % 2 == 0) {
+            resultado *= 2;
+        } else if (i == j) {
+            resultado -= 2;
+        } else {
+            resultado += 1;
+        }
+        System.out.println(i + " - " + j + " - resultado: " + resultado);
+    }
+}
+System.out.println("resultado final: " + resultado);</code></pre>
+
+    <div class="respuesta">
+        <strong>RESOLUCION:</strong>
+    </div>
+
+    <table>
+        <tr><th>j</th><th>i</th><th>i+j</th><th>condicion</th><th>resultado</th><th>salida</th></tr>
+        <tr><td>1</td><td>3</td><td>4 (par)</td><td>*= 2</td><td>0</td><td>3 - 1 - resultado: 0</td></tr>
+        <tr><td>1</td><td>2</td><td>3 (impar, i!=j)</td><td>+= 1</td><td>1</td><td>2 - 1 - resultado: 1</td></tr>
+        <tr><td>1</td><td>1</td><td>2 (par)</td><td>*= 2</td><td>2</td><td>1 - 1 - resultado: 2</td></tr>
+        <tr><td>2</td><td>3</td><td>5 (impar, i!=j)</td><td>+= 1</td><td>3</td><td>3 - 2 - resultado: 3</td></tr>
+        <tr><td>2</td><td>2</td><td>4 (par)</td><td>*= 2</td><td>6</td><td>2 - 2 - resultado: 6</td></tr>
+        <tr><td>2</td><td>1</td><td>3 (impar, i!=j)</td><td>+= 1</td><td>7</td><td>1 - 2 - resultado: 7</td></tr>
+        <tr><td>3</td><td>3</td><td>6 (par)</td><td>*= 2</td><td>14</td><td>3 - 3 - resultado: 14</td></tr>
+        <tr><td>3</td><td>2</td><td>5 (impar, i!=j)</td><td>+= 1</td><td>15</td><td>2 - 3 - resultado: 15</td></tr>
+        <tr><td>3</td><td>1</td><td>4 (par)</td><td>*= 2</td><td>30</td><td>1 - 3 - resultado: 30</td></tr>
+    </table>
+    <p><strong>Ultima linea:</strong> <code>resultado final: 30</code></p>
+
+    <div class="clave">
+        <strong>TRUCO:</strong> Cuando hay if/else dentro del bucle, anade una columna extra en la tabla para evaluar la condicion. Asi no te equivocas de rama.
+    </div>
+
+    <hr class="separator">
+
+    <!-- ==================== 2. RECURSIVIDAD ==================== -->
+    <h2 id="recursividad">2. Recursividad + Pila de llamadas (CAE SIEMPRE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN:</strong> Te dan un metodo recursivo y debes: a) Dibujar la pila de llamadas y la salida por pantalla. b) Responder que pasaria si el parametro fuera negativo (StackOverflowError por recursion infinita).
+    </div>
+
+    <h3>Teoria rapida</h3>
+    <p>Una funcion recursiva se llama a si misma. Necesita:</p>
+    <ul>
+        <li><strong>Caso base</strong>: condicion de parada (deja de llamarse).</li>
+        <li><strong>Caso recursivo</strong>: se llama con un valor mas pequeno.</li>
+    </ul>
+    <p>La <strong>pila de llamadas</strong> es donde la JVM apila las llamadas pendientes. Cada nueva llamada se apila encima. Cuando llega al caso base, se desapilan en orden inverso (LIFO).</p>
+
+    <h3>Ejercicio resuelto (estilo examen Mayo)</h3>
+    <pre><code>public static void recursiva(int n) {
+    if (n == 0) {
+        return;
+    }
+    System.out.print("&lt;");
+    recursiva(n - 1);
+    System.out.print("&gt;");
+}
+// Llamada: recursiva(4)</code></pre>
+
+    <div class="respuesta">
+        <strong>RESOLUCION - Pila de llamadas:</strong>
+    </div>
+
+    <div class="pila-box">
+        <strong>Fase de APILADO (bajada):</strong> Cada llamada imprime "&lt;" ANTES de la llamada recursiva.<br><br>
+        recursiva(4) &rarr; imprime "&lt;" &rarr; llama recursiva(3)<br>
+        &nbsp;&nbsp;recursiva(3) &rarr; imprime "&lt;" &rarr; llama recursiva(2)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;recursiva(2) &rarr; imprime "&lt;" &rarr; llama recursiva(1)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recursiva(1) &rarr; imprime "&lt;" &rarr; llama recursiva(0)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recursiva(0) &rarr; n==0 &rarr; return (caso base)<br><br>
+        <strong>Fase de DESAPILADO (subida):</strong> Al volver, cada llamada imprime "&gt;" DESPUES de la llamada recursiva.<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recursiva(1) &rarr; imprime "&gt;"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;recursiva(2) &rarr; imprime "&gt;"<br>
+        &nbsp;&nbsp;recursiva(3) &rarr; imprime "&gt;"<br>
+        recursiva(4) &rarr; imprime "&gt;"<br><br>
+        <strong>Salida final: &lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;</strong>
+    </div>
+
+    <p><strong>b) Si n fuera negativo:</strong> Nunca llegaria a <code>n == 0</code> (pasaria por -1, -2, -3...), entraria en <strong>recursion infinita</strong> y lanzaria <code>StackOverflowError</code>.</p>
+
+    <h3>Ejercicio resuelto (estilo examen Junio)</h3>
+    <pre><code>public static void recursivo(int n) {
+    System.out.println(n);      // ANTES de la llamada
+    if (n > 0) {
+        recursivo(n - 1);
+    }
+    System.out.println(n);      // DESPUES de la llamada
+}
+// Llamada: recursivo(3)</code></pre>
+
+    <div class="respuesta">
+        <strong>RESOLUCION:</strong>
+    </div>
+
+    <div class="pila-box">
+        recursivo(3): imprime <strong>3</strong>, llama recursivo(2)<br>
+        &nbsp;&nbsp;recursivo(2): imprime <strong>2</strong>, llama recursivo(1)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;recursivo(1): imprime <strong>1</strong>, llama recursivo(0)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recursivo(0): imprime <strong>0</strong>, n>0 es false, imprime <strong>0</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;recursivo(1): imprime <strong>1</strong><br>
+        &nbsp;&nbsp;recursivo(2): imprime <strong>2</strong><br>
+        recursivo(3): imprime <strong>3</strong><br><br>
+        <strong>Salida: 3 2 1 0 0 1 2 3</strong> (cada uno en su linea)
+    </div>
+
+    <div class="clave">
+        <strong>TRUCO para recursividad:</strong> Lo que esta ANTES de la llamada recursiva se ejecuta al APILAR (bajada). Lo que esta DESPUES se ejecuta al DESAPILAR (subida, orden inverso).
+    </div>
+
+    <h3>Ejercicio resuelto (estilo examen Abril - Potencia)</h3>
+    <pre><code>static int potencia(int base, int exponente) {
+    if (exponente == 0) return 1;            // caso base
+    return base * potencia(base, exponente - 1);  // caso recursivo
+}
+// Llamada: potencia(2, 4)</code></pre>
+
+    <div class="pila-box">
+        potencia(2, 4) = 2 * potencia(2, 3)<br>
+        &nbsp;&nbsp;potencia(2, 3) = 2 * potencia(2, 2)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;potencia(2, 2) = 2 * potencia(2, 1)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;potencia(2, 1) = 2 * potencia(2, 0)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;potencia(2, 0) = <strong>1</strong> (caso base)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 2 * 1 = <strong>2</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;= 2 * 2 = <strong>4</strong><br>
+        &nbsp;&nbsp;= 2 * 4 = <strong>8</strong><br>
+        = 2 * 8 = <strong>16</strong><br><br>
+        <strong>Resultado: 16</strong> (4 llamadas recursivas + 1 caso base = 5 llamadas totales)
+    </div>
+
+    <hr class="separator">
+
+    <!-- ==================== 3. POLIMORFISMO ==================== -->
+    <h2 id="polimorfismo">3. Polimorfismo (CAE CASI SIEMPRE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN:</strong> Te dan una superclase y subclase con el mismo metodo. Hacen <code>Superclase x = new Subclase()</code> y preguntan: a) Que metodo se ejecuta? b) Que pasa si la subclase no tiene ese metodo?
+    </div>
+
+    <h3>Ejercicio resuelto (estilo examen)</h3>
+    <pre><code>class Instrumento {
+    public void tocar() {
+        System.out.println("El instrumento esta sonando.");
+    }
+}
+
+class Guitarra extends Instrumento {
+    public void tocar() {
+        System.out.println("La guitarra esta tocando un temazo.");
+    }
+}
+
+Instrumento i = new Guitarra();
+i.tocar();</code></pre>
+
+    <div class="respuesta">
+        <strong>a) Se ejecuta el metodo de Guitarra.</strong> Imprime: "La guitarra esta tocando un temazo."<br><br>
+        <strong>Por que?</strong> Porque en Java, el metodo que se ejecuta depende del <strong>tipo real del objeto</strong> (Guitarra, que es lo que hay despues del <code>new</code>), no del tipo de la variable (Instrumento). Esto se llama <strong>polimorfismo</strong> o <strong>enlace dinamico</strong>.
+    </div>
+
+    <div class="respuesta">
+        <strong>b) Si tocar() no estuviera en Guitarra:</strong> Se ejecutaria el metodo de Instrumento (la superclase). Porque Guitarra hereda todos los metodos de Instrumento, y al no sobreescribirlo, usa el del padre.
+    </div>
+
+    <div class="clave">
+        <strong>REGLA DE ORO:</strong>
+        <ul>
+            <li>El <strong>tipo de la variable</strong> (izquierda del =) determina QUE metodos puedes llamar.</li>
+            <li>El <strong>tipo del objeto</strong> (derecha del new) determina CUAL implementacion se ejecuta.</li>
+        </ul>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ==================== 4. ENCAPSULACION ==================== -->
+    <h2 id="encapsulacion">4. Encapsulacion (CAE CASI SIEMPRE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN:</strong> Te dan una clase con atributos public. Alguien hace <code>p.edad = -5</code>. Preguntan: Que problema hay? Como lo arreglas con encapsulacion?
+    </div>
+
+    <h3>Ejercicio resuelto (identico al del examen)</h3>
+    <pre><code>// PROBLEMA: atributo public, se puede asignar cualquier valor
+public class Persona {
+    public int edad;
+}
+
+Persona p = new Persona();
+p.edad = -5;   // ESTO NO DEBERIA ESTAR PERMITIDO</code></pre>
+
+    <div class="respuesta">
+        <strong>PROBLEMA:</strong> Al ser <code>public</code>, cualquier clase externa puede modificar la edad directamente, incluyendo valores invalidos como -5. No hay ninguna validacion.
+    </div>
+
+    <div class="respuesta">
+        <strong>SOLUCION con encapsulacion:</strong>
+    </div>
+
+    <pre><code>public class Persona {
+    private int edad;    // 1. Atributo PRIVATE
+
+    // 2. GETTER: permite leer
+    public int getEdad() {
+        return edad;
+    }
+
+    // 3. SETTER: permite escribir CON VALIDACION
+    public void setEdad(int edad) {
+        if (edad >= 0) {
+            this.edad = edad;
+        } else {
+            System.out.println("Error: la edad no puede ser negativa.");
+        }
+    }
+}
+
+// Ahora:
+Persona p = new Persona();
+p.setEdad(-5);  // NO modifica, muestra error
+p.setEdad(25);  // SI modifica correctamente</code></pre>
+
+    <div class="clave">
+        <strong>Los 3 pasos de la encapsulacion:</strong>
+        <ol>
+            <li>Atributos <code>private</code></li>
+            <li>Getter (<code>getX()</code>) para leer</li>
+            <li>Setter (<code>setX()</code>) para escribir con validacion</li>
+        </ol>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ==================== 5. EXCEPCIONES PERSONALIZADAS ==================== -->
+    <h2 id="excepciones-custom">5. Excepciones personalizadas (CAE CASI SIEMPRE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN:</strong> Crea una excepcion personalizada (ej: FondosInsuficientesException). Decide si extiende Exception o RuntimeException y justifica. Usala con throw desde un metodo.
+    </div>
+
+    <h3>Ejercicio resuelto (identico al del examen)</h3>
+
+    <h4>Paso 1: Crear la excepcion</h4>
+    <pre><code>// Opcion A: extends Exception (CHECKED)
+public class FondosInsuficientesException extends Exception {
+    public FondosInsuficientesException(String mensaje) {
+        super(mensaje);
+    }
+}
+
+// Opcion B: extends RuntimeException (UNCHECKED)
+public class FondosInsuficientesException extends RuntimeException {
+    public FondosInsuficientesException(String mensaje) {
+        super(mensaje);
+    }
+}</code></pre>
+
+    <h4>Paso 2: Usarla en el metodo</h4>
+    <pre><code>// Si elegimos Exception (checked): OBLIGATORIO poner throws
+public void retirar(double cantidad, double saldo) throws FondosInsuficientesException {
+    if (cantidad > saldo) {
+        throw new FondosInsuficientesException("Fondos insuficientes. Saldo: " + saldo);
+    } else {
+        saldo -= cantidad;
+    }
+}
+
+// Si elegimos RuntimeException (unchecked): NO hace falta throws
+public void retirar(double cantidad, double saldo) {
+    if (cantidad > saldo) {
+        throw new FondosInsuficientesException("Fondos insuficientes. Saldo: " + saldo);
+    } else {
+        saldo -= cantidad;
+    }
+}</code></pre>
+
+    <div class="clave">
+        <strong>JUSTIFICACION (esto te lo preguntan):</strong>
+        <table>
+            <tr><th></th><th>Exception (Checked)</th><th>RuntimeException (Unchecked)</th></tr>
+            <tr><td><strong>Obliga a</strong></td><td><code>throws</code> en cabecera + try-catch al llamar</td><td>Nada, se puede ignorar</td></tr>
+            <tr><td><strong>Cuando usar</strong></td><td>Errores previsibles que DEBEMOS controlar (BD caida, fichero no existe)</td><td>Errores del usuario/programador en runtime</td></tr>
+            <tr><td><strong>En este caso</strong></td><td>Valido: el saldo insuficiente es un error previsible y debemos gestionarlo</td><td>Valido: es un error provocado por el usuario al pedir mas dinero del que tiene</td></tr>
+        </table>
+        <p><strong>Ambas respuestas son validas</strong> si las justificas bien. En el examen lo importante es la justificacion.</p>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ==================== 6. ITERATOR ==================== -->
+    <h2 id="iterator">6. Iterator (CAE CASI SIEMPRE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN:</strong> Dado un ArrayList, usa un Iterator para eliminar elementos segun condicion. Explica por que no se puede usar for-each.
+    </div>
+
+    <h3>Ejercicio resuelto (identico al del examen)</h3>
+    <pre><code>ArrayList&lt;Integer&gt; lista = new ArrayList&lt;&gt;(Arrays.asList(2, 4, 6, 8, 10));
+
+// Eliminar numeros menores a 8 con Iterator:
+Iterator&lt;Integer&gt; it = lista.iterator();
+while (it.hasNext()) {
+    int num = it.next();
+    if (num < 8) {
+        it.remove();    // elimina de forma SEGURA
+    }
+}
+// Resultado: [8, 10]</code></pre>
+
+    <div class="respuesta">
+        <strong>Por que NO se puede usar for-each?</strong><br>
+        Porque el for-each internamente usa un Iterator, pero si modificamos la lista (remove/add) durante la iteracion, el Iterator detecta que la lista ha cambiado y lanza <code>ConcurrentModificationException</code>. Solo <code>it.remove()</code> del propio Iterator puede eliminar de forma segura durante el recorrido.
+    </div>
+
+    <pre><code>// ESTO LANZA EXCEPCION:
+for (int num : lista) {
+    if (num < 8) {
+        lista.remove(Integer.valueOf(num));  // ConcurrentModificationException!
+    }
+}</code></pre>
+
+    <hr class="separator">
+
+    <!-- ==================== 7. INTERFACES ==================== -->
+    <h2 id="interfaces">7. Interfaces y herencia multiple (CAE CASI SIEMPRE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN (2 variantes):</strong><br>
+        A) Explica como Java resuelve la herencia multiple &rarr; con interfaces.<br>
+        B) Dada una interfaz sin clase que la implemente, como la usas de forma temporal &rarr; clase anonima.
+    </div>
+
+    <h3>Variante A: Herencia multiple</h3>
+    <div class="respuesta">
+        <strong>Respuesta:</strong> Java <strong>no permite</strong> heredar de varias clases (<code>class A extends B, C</code> no compila). Para conseguir un comportamiento similar, Java usa <strong>interfaces</strong>: una clase puede implementar <strong>multiples interfaces</strong> con <code>implements</code>.
+    </div>
+
+    <pre><code>interface Volador {
+    void volar();
+}
+
+interface Nadador {
+    void nadar();
+}
+
+// "Herencia multiple" via interfaces:
+class Pato extends Animal implements Volador, Nadador {
+    public void volar() { System.out.println("Volando"); }
+    public void nadar() { System.out.println("Nadando"); }
+}</code></pre>
+
+    <h3>Variante B: Clase anonima (examen Junio)</h3>
+    <p>Te dan una interfaz sin clase que la implemente y piden una solucion temporal:</p>
+
+    <pre><code>public interface GestionInventario {
+    void verificarStock();
+}
+
+// Solucion: CLASE ANONIMA en el main
+public class App {
+    public static void main(String[] args) {
+        GestionInventario gestion = new GestionInventario() {
+            @Override
+            public void verificarStock() {
+                System.out.println("Verificando stock...");
+            }
+        };
+
+        gestion.verificarStock();
+    }
+}</code></pre>
+
+    <div class="clave">
+        <strong>Que es una clase anonima?</strong> Es una forma de implementar una interfaz "sobre la marcha", sin crear un archivo .java separado. Se usa como solucion temporal o cuando solo necesitas una implementacion en un sitio concreto.
+    </div>
+
+    <hr class="separator">
+
+    <!-- ==================== 8. MATRICES ==================== -->
+    <h2 id="matrices">8. Matrices - Que imprime este codigo? (CAE CASI SIEMPRE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN:</strong> Te dan una matriz y un bucle que recorre una columna o fila. Preguntan: Que imprime? + Como modificarias el bucle para sumar otra fila/columna?
+    </div>
+
+    <h3>Ejercicio resuelto (identico al del examen)</h3>
+    <pre><code>int[][] matriz = {{5, 3, 2}, {1, 4, 6}, {0, 7, 8}};
+int res = 0, j = 2;
+for (int i = 0; i < matriz.length; i++) {
+    res += matriz[i][j];     // j fijo en 2 = recorre COLUMNA 2
+}
+System.out.println(res);</code></pre>
+
+    <div class="respuesta">
+        <strong>Resolucion:</strong> j=2, asi que recorre la <strong>columna 2</strong> (tercera columna):<br>
+        <code>matriz[0][2]</code> = 2 &rarr; res = 2<br>
+        <code>matriz[1][2]</code> = 6 &rarr; res = 8<br>
+        <code>matriz[2][2]</code> = 8 &rarr; res = 16<br><br>
+        <strong>Imprime: 16</strong>
+    </div>
+
+    <h4>Pregunta extra: sumar siempre la ultima fila</h4>
+    <pre><code>// Ultima fila = matriz[matriz.length - 1]
+int suma = 0;
+int ultimaFila = matriz.length - 1;
+for (int j = 0; j < matriz[ultimaFila].length; j++) {
+    suma += matriz[ultimaFila][j];
+}
+// Para la matriz de ejemplo: 0 + 7 + 8 = 15</code></pre>
+
+    <div class="clave">
+        <strong>Recordatorio matrices:</strong>
+        <ul>
+            <li><code>matriz.length</code> = numero de filas</li>
+            <li><code>matriz[i].length</code> = numero de columnas de la fila i</li>
+            <li><code>matriz[fila][columna]</code> = acceso a un elemento</li>
+            <li>j fijo + i variable = recorre una <strong>columna</strong></li>
+            <li>i fijo + j variable = recorre una <strong>fila</strong></li>
+        </ul>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ==================== 9. DFD ==================== -->
+    <h2 id="dfd">9. Diagramas de flujo (CAE PROBABLE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN:</strong> Dibuja un DFD para un programa simple (comparar 2 numeros, sumar N numeros, etc.)
+    </div>
+
+    <h3>Simbolos que debes usar</h3>
+    <table>
+        <tr><th>Simbolo</th><th>Forma</th><th>Uso</th></tr>
+        <tr><td><strong>Inicio/Fin</strong></td><td>Ovalo / rectangulo redondeado</td><td>Marca el principio y final</td></tr>
+        <tr><td><strong>Proceso</strong></td><td>Rectangulo</td><td>Operaciones, calculos, asignaciones</td></tr>
+        <tr><td><strong>Decision</strong></td><td>Rombo</td><td>Condiciones (si/no)</td></tr>
+        <tr><td><strong>Entrada/Salida</strong></td><td>Paralelogramo</td><td>Leer datos / mostrar resultados</td></tr>
+        <tr><td><strong>Flechas</strong></td><td>Lineas con punta</td><td>Flujo de ejecucion</td></tr>
+    </table>
+
+    <h4>Ejemplo: mayor de dos numeros (examen Mayo)</h4>
+    <pre><code>INICIO
+  |
+  v
+[Leer A, B]          (paralelogramo)
+  |
+  v
+&lt;A > B?&gt;             (rombo)
+ / \
+Si   No
+|     |
+v     v
+&lt;A == B?&gt;  No
+|          |
+Si         v
+v      [Mostrar "A es mayor"]
+[Mostrar   |
+"Iguales"] |
+|          |
+v          v
+   [FIN]</code></pre>
+
+    <p>Version correcta con las 3 ramas:</p>
+    <pre><code>INICIO &rarr; Leer A, B &rarr; A > B?
+   SI &rarr; Mostrar "A es mayor" &rarr; FIN
+   NO &rarr; B > A?
+      SI &rarr; Mostrar "B es mayor" &rarr; FIN
+      NO &rarr; Mostrar "Son iguales" &rarr; FIN</code></pre>
+
+    <hr class="separator">
+
+    <!-- ==================== 10. STATIC ==================== -->
+    <h2 id="static">10. Metodos y atributos static (CAE POSIBLE)</h2>
+
+    <div class="examen">
+        <strong>QUE TE PIDEN (examen Junio):</strong> Te dan una clase con un metodo <code>static</code> y preguntan como llamarlo. Tambien sobre anotaciones Lombok.
+    </div>
+
+    <h3>Ejercicio resuelto</h3>
+    <pre><code>class Alumno {
+    private int nia;
+    private String nombre;
+
+    public Alumno(int nia, String nombre) {
+        this.nia = nia;
+        this.nombre = nombre;
+    }
+
+    // Metodo STATIC: pertenece a la CLASE, no a un objeto
+    public static void obtenerDescripcion(Alumno alumno) {
+        System.out.println("Alumno: " + alumno.nombre + ", NIA: " + alumno.nia);
+    }
+}
+
+// Se llama con el nombre de la CLASE:
+public class Main {
+    public static void main(String[] args) {
+        Alumno a = new Alumno(12345, "Juan");
+        Alumno.obtenerDescripcion(a);   // con la CLASE, no con el objeto
+    }
+}</code></pre>
+
+    <div class="clave">
+        <strong>Regla:</strong>
+        <ul>
+            <li>Metodo <strong>static</strong> se llama con <code>NombreClase.metodo()</code></li>
+            <li>Metodo <strong>no static</strong> se llama con <code>objeto.metodo()</code></li>
+            <li>Un metodo static NO puede usar <code>this</code> ni acceder a atributos no-static directamente</li>
+        </ul>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ==================== TEORIA COMPLEMENTARIA ==================== -->
+    <h2 id="teoria">Teoria complementaria (repaso rapido)</h2>
+    <p>Resumen condensado del resto de temas por si caen como preguntas menores.</p>
+
+    <h3 id="teoria-jvm">JVM, Bytecode y Compilacion</h3>
+    <table>
+        <tr><th>Concepto</th><th>Explicacion</th></tr>
+        <tr><td><strong>javac</strong></td><td>Compilador: .java &rarr; .class (bytecode)</td></tr>
+        <tr><td><strong>java</strong></td><td>Interprete: ejecuta el bytecode en la JVM</td></tr>
+        <tr><td><strong>JVM</strong></td><td>Maquina Virtual Java: interpreta bytecode. Cada SO tiene su propia JVM, pero el bytecode es universal</td></tr>
+        <tr><td><strong>Multiplataforma</strong></td><td>"Write once, run anywhere": el programa no corre en el SO sino en la JVM</td></tr>
+    </table>
+
+    <h3 id="teoria-condicionales">Condicionales y bucles</h3>
+    <table>
+        <tr><th>Estructura</th><th>Uso</th><th>Clave</th></tr>
+        <tr><td><code>if / else if / else</code></td><td>Decision</td><td>Evalua condiciones booleanas</td></tr>
+        <tr><td><code>switch-case</code></td><td>Comparar variable vs valores fijos</td><td>Necesita <code>break</code>, sino cae al siguiente case</td></tr>
+        <tr><td><code>while</code></td><td>Repetir mientras condicion true</td><td>Puede no ejecutarse nunca</td></tr>
+        <tr><td><code>do-while</code></td><td>Repetir al menos 1 vez</td><td>Condicion se evalua al FINAL</td></tr>
+        <tr><td><code>for</code></td><td>Numero concreto de repeticiones</td><td><code>for (inicio; condicion; incremento)</code></td></tr>
+        <tr><td><code>break</code></td><td>Sale del bucle</td><td>Termina inmediatamente</td></tr>
+        <tr><td><code>continue</code></td><td>Salta a siguiente iteracion</td><td>No sale, solo salta</td></tr>
+        <tr><td>Ternario</td><td>If-else en 1 linea</td><td><code>x = cond ? valorTrue : valorFalse</code></td></tr>
+    </table>
+
+    <h3 id="teoria-arrays">Arrays y ordenacion</h3>
+    <pre><code>// Declaracion
+int[] a = new int[5];            // tamano fijo
+int[] b = {3, 7, 1, 9, 4};      // inicializacion directa
+
+// .length (sin parentesis!) para la longitud
+// Indices: 0 a length-1
+
+// ORDENACION por seleccion (ascendente):
+for (int i = 0; i < a.length - 1; i++) {
+    for (int j = i + 1; j < a.length; j++) {
+        if (a[j] < a[i]) {            // descendente: cambiar < por >
+            int aux = a[j];
+            a[j] = a[i];
+            a[i] = aux;
+        }
+    }
+}</code></pre>
+
+    <h3 id="teoria-metodos">Metodos</h3>
+    <pre><code>// Con retorno:
+public static int sumar(int a, int b) {
+    return a + b;
+}
+
+// Sin retorno (void):
+public static void saludar(String nombre) {
+    System.out.println("Hola " + nombre);
+}
+
+// Parametros = copias (paso por valor)
+// Variables locales: solo existen dentro del metodo
+// Variables globales: static, dentro del class pero fuera de metodos</code></pre>
+
+    <h3 id="teoria-poo">POO basica</h3>
+    <pre><code>public class Coche {
+    private String marca;            // atributo private
+    private int km;
+
+    public Coche(String marca, int km) {  // constructor
+        this.marca = marca;
+        this.km = km;
+    }
+
+    public String getMarca() { return marca; }      // getter
+    public void setKm(int km) {                      // setter con validacion
+        if (km >= 0) this.km = km;
+    }
+
+    @Override
+    public String toString() {                        // representacion texto
+        return marca + " (" + km + " km)";
+    }
+}
+
+// Uso:
+Coche c = new Coche("Toyota", 50000);    // new llama al constructor
+System.out.println(c);                     // llama a toString()</code></pre>
+
+    <h3 id="teoria-herencia">Herencia</h3>
+    <pre><code>class Animal {                           // superclase
+    String nombre;
+    public Animal(String nombre) { this.nombre = nombre; }
+    public void hablar() { System.out.println("..."); }
+}
+
+class Perro extends Animal {             // subclase
+    public Perro(String nombre) {
+        super(nombre);                   // llama al constructor del padre
+    }
+    @Override
+    public void hablar() {               // sobreescribe
+        System.out.println("Guau!");
+    }
+}
+
+// Polimorfismo:
+Animal a = new Perro("Rex");
+a.hablar();  // ejecuta el de Perro: "Guau!"</code></pre>
+
+    <h3 id="teoria-abstractas">Clases abstractas vs Interfaces</h3>
+    <table>
+        <tr><th></th><th>Clase abstracta</th><th>Interfaz</th></tr>
+        <tr><td>Se instancia?</td><td>No</td><td>No</td></tr>
+        <tr><td>Metodos con codigo</td><td>Si</td><td>Solo default/static</td></tr>
+        <tr><td>Atributos</td><td>Cualquiera</td><td>Solo public static final</td></tr>
+        <tr><td>Constructor</td><td>Si</td><td>No</td></tr>
+        <tr><td>Herencia multiple</td><td>No (1 padre)</td><td>Si (N interfaces)</td></tr>
+        <tr><td>Palabra clave</td><td><code>extends</code></td><td><code>implements</code></td></tr>
+        <tr><td>Cuando</td><td>Clases relacionadas (Animal &rarr; Perro)</td><td>Comportamiento compartido (Volador &rarr; Pajaro, Avion)</td></tr>
+    </table>
+
+    <h3 id="teoria-colecciones">Colecciones y HashMap</h3>
+    <pre><code>// ArrayList: lista dinamica
+ArrayList&lt;String&gt; lista = new ArrayList&lt;&gt;();
+lista.add("A"); lista.get(0); lista.remove(0); lista.size();
+
+// HashMap: pares clave-valor
+HashMap&lt;String, Integer&gt; mapa = new HashMap&lt;&gt;();
+mapa.put("Juan", 25);
+mapa.get("Juan");            // 25
+mapa.getOrDefault("Ana", 0); // 0 (no existe)
+mapa.containsKey("Juan");    // true
+mapa.remove("Juan");
+
+// Recorrer HashMap:
+for (Map.Entry&lt;String, Integer&gt; e : mapa.entrySet()) {
+    System.out.println(e.getKey() + " = " + e.getValue());
+}
+
+// Jerarquia: Collection > List (ArrayList), Set (HashSet), Queue
+//            Map > HashMap, LinkedHashMap (con orden), TreeMap (ordenado)</code></pre>
+
+    <h3 id="teoria-enums">Enums</h3>
+    <pre><code>public enum DiaSemana {
+    LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
+}
+
+DiaSemana d = DiaSemana.LUNES;
+DiaSemana.values();              // array con todos
+DiaSemana.valueOf("LUNES");     // String a enum (case-sensitive!)
+d.ordinal();                     // posicion (0)
+d.name();                        // "LUNES"
+
+// Enum con atributos:
+public enum Mes {
+    ENERO(31), FEBRERO(28);
+    private final int dias;
+    Mes(int dias) { this.dias = dias; }
+    public int getDias() { return dias; }
+}</code></pre>
+
+    <h3 id="teoria-strings">Metodos de String</h3>
+    <table>
+        <tr><th>Metodo</th><th>Que hace</th></tr>
+        <tr><td><code>.length()</code></td><td>Longitud</td></tr>
+        <tr><td><code>.charAt(i)</code></td><td>Caracter en posicion i</td></tr>
+        <tr><td><code>.substring(i, j)</code></td><td>Subcadena [i, j)</td></tr>
+        <tr><td><code>.equals(s)</code></td><td>Compara contenido (NUNCA usar ==)</td></tr>
+        <tr><td><code>.equalsIgnoreCase(s)</code></td><td>Compara sin mayus/minus</td></tr>
+        <tr><td><code>.toUpperCase()</code> / <code>.toLowerCase()</code></td><td>Cambiar caso</td></tr>
+        <tr><td><code>.trim()</code></td><td>Quita espacios extremos</td></tr>
+        <tr><td><code>.contains(s)</code></td><td>Contiene subcadena?</td></tr>
+        <tr><td><code>.indexOf(s)</code></td><td>Posicion primera aparicion</td></tr>
+        <tr><td><code>.replace(a, b)</code></td><td>Reemplaza</td></tr>
+        <tr><td><code>.split(sep)</code></td><td>Divide en array</td></tr>
+    </table>
+
+    <h3 id="teoria-random">Clase Random</h3>
+    <pre><code>Random rnd = new Random();
+int dado = rnd.nextInt(6) + 1;          // [1, 6]
+// Formula: rnd.nextInt(max - min + 1) + min
+double d = rnd.nextDouble();             // [0.0, 1.0)
+boolean b = rnd.nextBoolean();           // true o false</code></pre>
+
+    <h3 id="teoria-lambdas">Lambdas y Streams</h3>
+    <pre><code>// Lambda: (parametros) -> expresion
+lista.sort((a, b) -> a.compareTo(b));
+lista.forEach(x -> System.out.println(x));
+
+// Streams: procesar colecciones de forma funcional
+List&lt;Integer&gt; nums = Arrays.asList(1, 2, 3, 4, 5);
+
+// filter: filtrar
+nums.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());  // [2, 4]
+
+// map: transformar
+nums.stream().map(n -> n * 2).collect(Collectors.toList());          // [2, 4, 6, 8, 10]
+
+// reduce: acumular
+nums.stream().reduce(0, Integer::sum);                                // 15
+
+// Intermedias: filter, map, sorted, distinct
+// Terminales: collect, reduce, forEach, count</code></pre>
+
+    <hr class="separator">
+
+    <p style="text-align:center; color: var(--text-light); margin-top: 3rem; font-size: .9rem;">
+        Resumen orientado a examen - Programacion Java CFGS<br>
+        <small>Basado en examenes de Abril, Mayo y Junio</small>
+    </p>
+
+</main>
+
+<button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+
+<script>
+function openSidebar() {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('overlay').classList.add('show');
+}
+function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('show');
+}
+document.querySelectorAll('#sidebar a').forEach(a => {
+    a.addEventListener('click', () => { if (window.innerWidth <= 768) closeSidebar(); });
+});
+
+const sections = Array.from(document.querySelectorAll('h2[id], h3[id]'));
+const sidebarLinks = document.querySelectorAll('#sidebar a[href^="#"]');
+
+function onScroll() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('progress').style.width = ((scrollTop / docHeight) * 100) + '%';
+    document.getElementById('top-btn').style.display = scrollTop > 400 ? 'block' : 'none';
+    let currentId = '';
+    for (let i = sections.length - 1; i >= 0; i--) {
+        if (scrollTop >= sections[i].offsetTop - 80) { currentId = sections[i].id; break; }
+    }
+    sidebarLinks.forEach(a => a.classList.toggle('current', a.getAttribute('href') === '#' + currentId));
+}
+
+let scrollTick = false;
+window.addEventListener('scroll', () => {
+    if (!scrollTick) { requestAnimationFrame(() => { onScroll(); scrollTick = false; }); scrollTick = true; }
+});
+
+function toggleDark() {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+}
+if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark');
+
+document.querySelectorAll('pre').forEach(pre => {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copiar';
+    btn.onclick = () => {
+        navigator.clipboard.writeText(pre.querySelector('code')?.textContent || pre.textContent);
+        btn.textContent = 'Copiado!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 1500);
+    };
+    pre.appendChild(btn);
+});
+</script>
+
+</body>
+</html>

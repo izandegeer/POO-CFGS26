@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- saved from url=(0107)https://aules.edu.gva.es/fp/pluginfile.php/11471872/mod_resource/content/2/ud2_operador_ternario/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./BONUS_ el operador ternario en Java_files/base.css">
+<link rel="stylesheet" type="text/css" href="./BONUS_ el operador ternario en Java_files/exe_highlighter.css">
+<link rel="stylesheet" type="text/css" href="./BONUS_ el operador ternario en Java_files/content.css">
+<link rel="stylesheet" type="text/css" href="./BONUS_ el operador ternario en Java_files/nav.css">
+
+<title>BONUS: el operador ternario en Java </title>
+<link rel="shortcut icon" href="https://aules.edu.gva.es/fp/pluginfile.php/11471872/mod_resource/content/2/ud2_operador_ternario/favicon.ico" type="image/x-icon">
+<meta name="author" content="Patricia Benavente Domenech">
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net">
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="./BONUS_ el operador ternario en Java_files/exe_jquery.js"></script>
+<script type="text/javascript" src="./BONUS_ el operador ternario en Java_files/exe_highlighter.js"></script>
+<script type="text/javascript" src="./BONUS_ el operador ternario en Java_files/common_i18n.js"></script>
+<script type="text/javascript" src="./BONUS_ el operador ternario en Java_files/common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="exe-web-site js home-page" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471872/mod_resource/content/2/ud2_operador_ternario/index.html#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" role="banner"><div id="headerContent">BONUS: el operador ternario en Java</div></header>
+<p id="header-options"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471872/mod_resource/content/2/ud2_operador_ternario/index.html#" class="hide-nav" id="toggle-nav" title="Menú (ocultar)"><span>Menú</span></a></p><nav id="siteNav" role="navigation">
+<ul>
+   <li id="active"><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471872/mod_resource/content/2/ud2_operador_ternario/index.html" class="active daddy main-node">BONUS: el operador ternario en Java</a></li>
+   <li><a href="https://aules.edu.gva.es/fp/pluginfile.php/11471872/mod_resource/content/2/ud2_operador_ternario/ejercicios.html" class="no-ch">Ejercicios</a></li>
+</ul>
+</nav>
+<div id="topPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471872/mod_resource/content/2/ud2_operador_ternario/ejercicios.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper" style="min-height: 122px;">
+<section id="main" role="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">BONUS: el operador ternario en Java</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id0">
+<div class="iDevice emphasis1">
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">El operador ternario</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta0_127_2" class="block iDevice_content">
+<div class="exe-text"><p>Existe un formato de condición adicional, que permite comprobar si se cumple una condición y&nbsp;devolver un cierto valor según si dicha condición se cumple o no. Es lo que se conoce&nbsp;como el "operador ternario" <em>( ? )</em>.</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">variable <span class="token operator">=</span> condicion <span class="token operator">?</span> resultado_si_cierto <span class="token operator">:</span> resultado_si_falso<span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p>Es decir, se indica la condición seguida por una interrogación, después el valor que hay&nbsp;que devolver si se cumple la condición (<em>true</em>), a continuación un símbolo de "dos puntos" (:) y&nbsp;finalmente el resultado que hay que devolver si no se cumple la condición (<em>false</em>).</p>
+<p></p>
+<p>Es frecuente emplearlo en <strong>asignaciones</strong> (aunque <span style="color: #ff0000; background-color: #ffff99;"><strong>algunos autores desaconsejan su uso</strong></span> porque&nbsp;puede resultar menos legible que un "<em>if</em>"), como en este ejemplo:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">x <span class="token operator">=</span> a <span class="token operator">==</span> <span class="token number">10</span> <span class="token operator">?</span> b<span class="token operator">*</span><span class="token number">2</span> <span class="token operator">:</span> a <span class="token punctuation">;</span><span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p>En este caso, si "a" vale 10, la variable "x" tomará el valor de b*2, y en caso contrario, tomará el&nbsp;valor de "a". Esto también se podría haber escrito de la siguiente forma, más larga pero más legible:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    x <span class="token operator">=</span> b<span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    x <span class="token operator">=</span> a<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p>Podemos concatenar ternarias en ambos resultados. Por ejemplo,</p>
+<p style="padding-left: 30px;">- si lo hacemos en la parte del <em>true</em>:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> x<span class="token punctuation">;</span>
+x <span class="token operator">=</span> a <span class="token operator">==</span> <span class="token number">10</span> <span class="token operator">?</span> b <span class="token operator">==</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token number">100</span> <span class="token operator">:</span> <span class="token number">1</span> <span class="token operator">:</span> a <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//100</span><span class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;">-&nbsp;si lo hacemos en la parte del <em>false</em>:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> x<span class="token punctuation">;</span>
+x <span class="token operator">=</span> a <span class="token operator">==</span> <span class="token number">10</span> <span class="token operator">?</span> b<span class="token operator">*</span><span class="token number">2</span> <span class="token operator">:</span> b <span class="token operator">==</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token number">100</span> <span class="token operator">:</span> a<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//100</span><span class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p>Siguiendo este formato, podemos concatenar todas las ternarias que necesitemos:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+<span class="token keyword">boolean</span> condicion <span class="token operator">=</span> a <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>condicion<span class="token punctuation">)</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a vale 1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a no vale 1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+condicion <span class="token operator">=</span> a <span class="token operator">==</span> <span class="token number">3</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span>
+            b <span class="token operator">==</span> <span class="token number">3</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span>
+            c <span class="token operator">==</span> <span class="token number">3</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>condicion<span class="token punctuation">)</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Alguna variable vale 3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Ninguna variable vale 3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+a <span class="token operator">=</span> a <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token number">2</span> <span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//a vale 2</span>
+
+b <span class="token operator">=</span> a <span class="token operator">==</span> c <span class="token operator">?</span> <span class="token number">2</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//b vale 1</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p></p>
+<p>Otro uso común&nbsp;es <strong>formatear frases a mostrar por pantalla</strong> que tengan 2 posibles salidas:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"La letra A ha aparecido "</span> <span class="token operator">+</span> cantidad <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span><span class="token punctuation">(</span>cantidad <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token string">"vez"</span> <span class="token operator">:</span> <span class="token string">"veces"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<p></p>
+<hr>
+<h5><span style="text-decoration: underline;"><strong>EJERCICIO 1</strong></span>: intenta calcular el valor de "<em>resultado</em>" y haciendo un seguimiento de <em>a</em>, <em>b</em> y <em>c</em> en cada uno de los siguientes casos:</h5>
+<p style="padding-left: 30px;"><span style="text-decoration: underline;">Caso 1</span>:</p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token comment" spellcheck="true">//caso 1</span>
+<span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> resultado <span class="token operator">=</span> a<span class="token operator">++</span> <span class="token operator">==</span> <span class="token number">2</span> <span class="token operator">&amp;&amp;</span> c <span class="token operator">&gt;</span> b<span class="token operator">++</span> <span class="token operator">?</span> a <span class="token operator">+=</span> b <span class="token operator">:</span>
+                    a <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> a <span class="token operator">==</span> b <span class="token operator">?</span> a <span class="token operator">+=</span> c <span class="token operator">:</span>
+                                a <span class="token operator">==</span> c <span class="token operator">?</span> a<span class="token operator">++</span> <span class="token operator">:</span> a<span class="token operator">--</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;"><span style="text-decoration: underline;">Caso 2:</span></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token comment" spellcheck="true">//caso 2a = 1; b = 2; c = 3;</span>
+
+resultado <span class="token operator">=</span> a<span class="token operator">++</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> a <span class="token operator">&gt;</span> b<span class="token operator">++</span> <span class="token operator">?</span> a <span class="token operator">+=</span> b <span class="token operator">:</span>
+                a <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> a <span class="token operator">==</span> b <span class="token operator">?</span> a <span class="token operator">+=</span> c <span class="token operator">:</span>
+                            a <span class="token operator">==</span> c <span class="token operator">?</span> a<span class="token operator">++</span> <span class="token operator">:</span> a<span class="token operator">--</span><span class="token punctuation">;</span> <span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<p style="padding-left: 30px;"><span style="text-decoration: underline;">Caso 3:</span></p>
+<div class="highlighted-code code-style-2 language-java line-numbers">
+<div>
+<pre class="line-numbers  language-java"><code class="  language-java"><span class="token comment" spellcheck="true">//caso 3</span>
+a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+resultado <span class="token operator">=</span> a<span class="token operator">++</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> a <span class="token operator">&gt;</span> b<span class="token operator">++</span> <span class="token operator">?</span> a <span class="token operator">+=</span> b <span class="token operator">:</span>
+                a <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> a <span class="token operator">==</span> b <span class="token operator">?</span> a <span class="token operator">+=</span> c <span class="token operator">:</span>
+                            b <span class="token operator">==</span> c <span class="token operator">?</span> a<span class="token operator">++</span> <span class="token operator">:</span> a<span class="token operator">--</span><span class="token punctuation">;</span> <span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<hr>
+<h5><span style="text-decoration: underline;">EJERCICIO 2</span>: escribe un pequeño programa que utilice el operador ternario (similar a los anteriores) y pásaselo a alguno de tus compañeros para que intente resolverlo.</h5></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id="bottomPagination">
+<nav class="pagination noprt">
+<a href="https://aules.edu.gva.es/fp/pluginfile.php/11471872/mod_resource/content/2/ud2_operador_ternario/ejercicios.html" class="next"><span>Siguiente<span> »</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="./BONUS_ el operador ternario en Java_files/_style_js.js"></script></body></html>

@@ -1,8 +1,11 @@
 package org.example.demofx;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
+import java.io.IOException;
 
 public class HelloController {
     @FXML
@@ -33,4 +36,7 @@ public class HelloController {
 
     }
 
+    public void pantalla2Button() throws IOException {
+        HelloApplication.setRoot("pantalla2-view");
+    }
 }

@@ -9,7 +9,23 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <Button mnemonicParsing="false" onAction="#anteriorButton" text="Anterior" />
+      <TableView fx:id="personasTableView" mouseTransparent="true" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="nombreTableColumn" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="edadTableColumn" prefWidth="75.0" text="Edad" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TextField fx:id="nombreTextField" promptText="Introduzca nombre" />
+      <TextField fx:id="edadTextField" promptText="Introduzca edad" />
+      <HBox alignment="CENTER" prefHeight="26.0" prefWidth="31.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#anteriorButton" text="Anterior" />
+            <Button mnemonicParsing="false" onAction="#guardarButton" text="Guardar" />
+         </children>
+      </HBox>
    </children>
 
 

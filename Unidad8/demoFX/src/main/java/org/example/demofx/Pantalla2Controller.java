@@ -1,49 +1,55 @@
 package org.example.demofx;
 
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class Pantalla2Controller {
     @FXML
+    private TextField niaTextField;
+    @FXML
     private TextField nombreTextField;
     @FXML
-    private TextField edadTextField;
+    private DatePicker fechaNacimientoDatePicker;
     @FXML
     private TableView<Persona> personasTableView;
     @FXML
-    private TableColumn<Persona,String> nombreTableColumn;
+    private TableColumn<Persona, String> niaTableColumn;
     @FXML
-    private TableColumn<Persona, Integer> edadTableColumn;
+    private TableColumn<Persona, String> nombreTableColumn;
+    @FXML
+    private TableColumn<Persona, LocalDate> fechaNacimientoTableColumn;
 
     public void anteriorButton() throws IOException {
         HelloApplication.setRoot("hello-view");
     }
 
     public void guardarButton() {
+        String nia = niaTextField.getText();
         String nombre = nombreTextField.getText();
-        Integer edad = Integer.parseInt(edadTextField.getText());
+        LocalDate fechaNacimiento = fechaNacimientoDatePicker.getValue();
 
-        Persona persona = new Persona(nombre, edad);
+        Persona persona = new Persona(nia, nombre, fechaNacimiento);
         PersonasGuardadas.insertarPersona(persona);
-        System.out.println("Persona creada. Nombre: " + nombre + " - Edad: " + edad + " años.");
+        System.out.println("Persona creada: " + persona);
         System.out.println(PersonasGuardadas.getListaPersonas());
+        niaTextField.clear();
         nombreTextField.clear();
-        edadTextField.clear();
+        fechaNacimientoDatePicker.setValue(null);
     }
 
     @FXML
     public void initialize() {
+        niaTableColumn.setCellValueFactory(datos -> new SimpleStringProperty(datos.getValue().getNia()));
         nombreTableColumn.setCellValueFactory(datos -> new SimpleStringProperty(datos.getValue().getNombre()));
-        edadTableColumn.setCellValueFactory(datos -> new SimpleIntegerProperty(datos.getValue().getEdad()).asObject());
+        fechaNacimientoTableColumn.setCellValueFactory(datos -> new SimpleObjectProperty<>(datos.getValue().getFechaNacimiento()));
         personasTableView.setItems(PersonasGuardadas.getListaPersonas());
     }
 }

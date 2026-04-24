@@ -1,20 +1,33 @@
 package org.example.demofx;
 
-public class Persona {
-    private String nombre;
-    private Integer edad;
+import java.time.LocalDate;
 
-    public Persona(String nombre, Integer edad) {
+public class Persona {
+    private String nia;
+    private String nombre;
+    private LocalDate fechaNacimiento;
+
+    public Persona(String nia, String nombre, LocalDate fechaNacimiento) {
+        this.nia = nia;
         this.nombre = nombre;
-        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     @Override
     public String toString() {
         return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
+                "nia='" + nia + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
                 '}';
+    }
+
+    public String getNia() {
+        return nia;
+    }
+
+    public void setNia(String nia) {
+        this.nia = nia;
     }
 
     public String getNombre() {
@@ -25,11 +38,11 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public Integer getEdad() {
-        return edad;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setEdad(Integer edad) {
-        this.edad = edad;
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 }

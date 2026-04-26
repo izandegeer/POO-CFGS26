@@ -13,24 +13,33 @@ public class Estudiante {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
-    public Integer getNia() {
-        return nia;
+    @Override
+    public String toString() {
+        return "Estudiantes{" +
+                "nia=" + nia +
+                ", nombre='" + nombre + '\'' +
+                ", fecha_nacimiento=" + fecha_nacimiento +
+                '}';
     }
 
-    public void setNia(Integer nia) {
-        this.nia = nia;
+    public Integer getNia() {
+        return nia;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public LocalDate getFecha_nacimiento() {
         return fecha_nacimiento;
+    }
+
+    public void setNia(Integer nia) {
+        this.nia = nia;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setFecha_nacimiento(LocalDate fecha_nacimiento) {

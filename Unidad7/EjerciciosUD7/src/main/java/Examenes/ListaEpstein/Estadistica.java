@@ -4,7 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -34,15 +36,22 @@ public class Estadistica implements Informes {
 
     @Override
     public void informeJuzgado() {
-        System.out.println("\nListado ordenado por países: (No está ordenada)");
+        System.out.println("\nListado ordenado por países:");
 
-        for (Famoso famoso : estadisticas.keySet()) {
-            System.out.println("# " + famoso.getPais() + " - " + famoso.getPais() + ".");
-        }
+        estadisticas.keySet().stream()
+                .sorted(Comparator.comparing(Famoso::getPais)
+                                  .thenComparing(Famoso::getNombre))
+                .forEach(f -> System.out.println("#" + f.getPais() + " - " + f.getNombre() + "."));
     }
 
     @Override
     public void verRanking() {
         System.out.println("\nRanking (famosos con más de una visita):");
+
+        int[] posicion = {1};
+        estadisticas.entrySet().stream()
+                .filter(e -> e.getValue() > 1)
+                .sorted(Map.Entry.<Famoso, Integer>comparingByValue().reversed())
+                .forEach(e -> System.out.println("#" + posicion[0]++ + " " + e.getKey().getNombre() + " (" + e.getValue() + " visita/s)"));
     }
 }

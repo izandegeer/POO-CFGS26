@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repaso UD7 — Estructuras Dinámicas de Datos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      container: { center: true, padding: '2rem', screens: { '2xl': '1400px' } },
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          border: 'hsl(var(--border))',
+          input: 'hsl(var(--input))',
+          ring: 'hsl(var(--ring))',
+          background: 'hsl(var(--background))',
+          foreground: 'hsl(var(--foreground))',
+          primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
+          secondary: { DEFAULT: 'hsl(var(--secondary))', foreground: 'hsl(var(--secondary-foreground))' },
+          destructive: { DEFAULT: 'hsl(var(--destructive))', foreground: 'hsl(var(--destructive-foreground))' },
+          muted: { DEFAULT: 'hsl(var(--muted))', foreground: 'hsl(var(--muted-foreground))' },
+          accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
+          card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' },
+        },
+        borderRadius: {
+          lg: 'var(--radius)',
+          md: 'calc(var(--radius) - 2px)',
+          sm: 'calc(var(--radius) - 4px)',
+        },
+      },
+    },
+  };
+</script>
+<style type="text/tailwindcss">
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 0 0% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 0 0% 3.9%;
+      --primary: 0 0% 9%;
+      --primary-foreground: 0 0% 98%;
+      --secondary: 0 0% 96.1%;
+      --secondary-foreground: 0 0% 9%;
+      --muted: 0 0% 96.1%;
+      --muted-foreground: 0 0% 45.1%;
+      --accent: 0 0% 96.1%;
+      --accent-foreground: 0 0% 9%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 0 0% 89.8%;
+      --input: 0 0% 89.8%;
+      --ring: 0 0% 3.9%;
+      --radius: 0.5rem;
+    }
+    .dark {
+      --background: 0 0% 3.9%;
+      --foreground: 0 0% 98%;
+      --card: 0 0% 3.9%;
+      --card-foreground: 0 0% 98%;
+      --primary: 0 0% 98%;
+      --primary-foreground: 0 0% 9%;
+      --secondary: 0 0% 14.9%;
+      --secondary-foreground: 0 0% 98%;
+      --muted: 0 0% 14.9%;
+      --muted-foreground: 0 0% 63.9%;
+      --accent: 0 0% 14.9%;
+      --accent-foreground: 0 0% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 0 0% 14.9%;
+      --input: 0 0% 14.9%;
+      --ring: 0 0% 83.1%;
+    }
+    * { @apply border-border; }
+    body { @apply bg-background text-foreground font-sans antialiased; font-feature-settings: "rlig" 1, "calt" 1; }
+  }
+
+  /* Code blocks (shadcn-ish dark always) */
+  pre {
+    @apply rounded-lg border bg-zinc-950 dark:bg-zinc-900 p-4 overflow-x-auto text-sm leading-relaxed font-mono text-zinc-100;
+  }
+  pre code { @apply bg-transparent text-inherit p-0 font-mono text-[13px]; }
+  :not(pre) > code {
+    @apply font-mono text-[0.85em] bg-muted text-foreground px-1.5 py-0.5 rounded-md border;
+  }
+  .kw  { color: #ff7b72; }
+  .typ { color: #79c0ff; }
+  .str { color: #a5d6ff; }
+  .com { color: #8b949e; font-style: italic; }
+  .num { color: #d2a8ff; }
+  .fn  { color: #d2a8ff; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- ===== HEADER / NAV ===== -->
+<header class="sticky top-0 z-30 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <div class="container flex h-14 items-center justify-between">
+    <div class="flex items-center gap-2">
+      <button id="burger" aria-label="Abrir índice" class="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors -ml-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+        <path d="M16 18 22 12 16 6"/><path d="m8 6-6 6 6 6"/>
+      </svg>
+      <span class="font-semibold tracking-tight">UD7 · Repaso</span>
+    </div>
+    <div class="flex items-center gap-1">
+      <button id="theme-toggle" aria-label="Cambiar tema" class="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 dark:hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 hidden dark:block"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== SIDEBAR (Sheet) ===== -->
+<div id="sidebar-overlay" class="fixed inset-0 z-40 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<aside id="sidebar" class="fixed left-0 top-0 z-50 h-full w-80 max-w-[85vw] bg-background border-r shadow-lg -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+  <div class="flex h-14 items-center justify-between border-b px-6 shrink-0">
+    <span class="font-semibold tracking-tight text-sm uppercase tracking-wider text-muted-foreground">Índice</span>
+    <button id="sidebar-close" aria-label="Cerrar" class="inline-flex h-8 w-8 items-center justify-center rounded-md text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors -mr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <nav class="overflow-y-auto flex-1 p-3">
+    <ol class="space-y-0.5 text-sm">
+      <li><a href="#colecciones"        data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">01</span><span class="font-medium">Las 4 colecciones</span></a></li>
+      <li><a href="#equals"              data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">02</span><span class="font-medium">equals y hashCode</span></a></li>
+      <li><a href="#iterator"            data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">03</span><span class="font-medium">Iterator</span></a></li>
+      <li><a href="#comparator"          data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">04</span><span class="font-medium">Comparable vs Comparator</span></a></li>
+      <li><a href="#streams"             data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">05</span><span class="font-medium">Streams y lambdas</span></a></li>
+      <li><a href="#enums"               data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">06</span><span class="font-medium">Interfaces y enums</span></a></li>
+      <li><a href="#lombok"              data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">07</span><span class="font-medium">Lombok</span></a></li>
+      <li><a href="#scanner"             data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">08</span><span class="font-medium">Scanner</span></a></li>
+      <li class="pt-2 mt-2 border-t"><span class="px-3 text-xs uppercase tracking-wider text-muted-foreground font-semibold">Casos del examen</span></li>
+      <li><a href="#metodos-colecciones" data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">09</span><span class="font-medium">Métodos de cada colección</span></a></li>
+      <li><a href="#recorrer-map"        data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">10</span><span class="font-medium">Recorrer Map sin streams</span></a></li>
+      <li><a href="#aleatorios"          data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">11</span><span class="font-medium">Generar aleatorios</span></a></li>
+      <li><a href="#anonima"             data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">12</span><span class="font-medium">Interface con clase anónima</span></a></li>
+      <li><a href="#excepciones"         data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">13</span><span class="font-medium">Excepciones personalizadas</span></a></li>
+      <li><a href="#herencia"            data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">14</span><span class="font-medium">Herencia + polimorfismo</span></a></li>
+      <li><a href="#pom"                 data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">15</span><span class="font-medium">Setup pom.xml con Lombok</span></a></li>
+      <li class="pt-2 mt-2 border-t"><span class="px-3 text-xs uppercase tracking-wider text-muted-foreground font-semibold">Final</span></li>
+      <li><a href="#patrones"            data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">16</span><span class="font-medium">Patrones que siempre caen</span></a></li>
+      <li><a href="#dia-d"               data-nav class="flex items-center gap-3 rounded-md px-3 py-2 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-colors"><span class="text-xs font-mono text-muted-foreground w-6">17</span><span class="font-medium">Estrategia día del examen</span></a></li>
+    </ol>
+  </nav>
+  <div class="border-t p-4 text-xs text-muted-foreground shrink-0">
+    Pulsa <kbd class="rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px]">Esc</kbd> para cerrar
+  </div>
+</aside>
+
+<div class="container max-w-4xl py-10 lg:py-16">
+
+  <!-- ===== HERO ===== -->
+  <section class="mb-12 space-y-4">
+    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors bg-secondary text-secondary-foreground">
+      Programación · CFGS DAW · IES Mutxamel
+    </div>
+    <h1 class="text-4xl font-bold tracking-tight lg:text-5xl">Estructuras Dinámicas de Datos</h1>
+    <p class="text-lg text-muted-foreground max-w-2xl">Repaso completo de la UD7 para el examen práctico. Colecciones, equals, comparators, streams y todos los patrones que SIEMPRE caen.</p>
+  </section>
+
+  <!-- ===== HINT TO OPEN SIDEBAR ===== -->
+  <div class="mb-12 rounded-lg border border-dashed bg-muted/30 p-4 text-sm text-muted-foreground flex items-center gap-3">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    <span>Pulsa el botón <strong>menú</strong> arriba a la izquierda para ver el índice completo. Atajo: <kbd class="rounded border bg-background px-1.5 py-0.5 font-mono text-[10px] mx-0.5">⌘</kbd> + <kbd class="rounded border bg-background px-1.5 py-0.5 font-mono text-[10px] mx-0.5">K</kbd> o <kbd class="rounded border bg-background px-1.5 py-0.5 font-mono text-[10px] mx-0.5">/</kbd>.</span>
+  </div>
+
+  <!-- ===== SECTION 1: COLECCIONES ===== -->
+  <section id="colecciones" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">01.</span> Las 4 colecciones</h2>
+      <p class="text-muted-foreground">Cuándo usar cada una. Antes de programar, pregúntate <em>qué necesito hacer con estos datos</em>.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <p class="leading-7 mb-6">Los <strong>arrays</strong> (<code>int[]</code>) tienen tamaño fijo y son rígidos. Las <strong>colecciones</strong> crecen solas y traen métodos para buscar, ordenar y filtrar. Hay 4 familias — la elección depende del comportamiento que necesitas.</p>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+
+      <!-- Card: List -->
+      <div class="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+        <div class="flex flex-col space-y-1.5 p-6">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold w-fit bg-primary text-primary-foreground">List</span>
+          <h3 class="text-xl font-semibold tracking-tight pt-2">Lista de la compra</h3>
+        </div>
+        <div class="p-6 pt-0 space-y-2 text-sm">
+          <p>Mantiene <strong>orden de inserción</strong>. <strong>Permite duplicados</strong>. Acceso por posición.</p>
+          <p class="text-muted-foreground"><strong>Implementación:</strong> <code>ArrayList</code></p>
+          <p class="text-muted-foreground"><strong>Pista:</strong> "lista de", "histórico", "asistentes" con posibles repetidos.</p>
+        </div>
+      </div>
+
+      <!-- Card: Set -->
+      <div class="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+        <div class="flex flex-col space-y-1.5 p-6">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold w-fit bg-primary text-primary-foreground">Set</span>
+          <h3 class="text-xl font-semibold tracking-tight pt-2">DNIs de una clase</h3>
+        </div>
+        <div class="p-6 pt-0 space-y-2 text-sm">
+          <p><strong>NO permite duplicados</strong>. No garantiza orden (<code>HashSet</code>); usa <code>TreeSet</code> si lo necesitas.</p>
+          <p class="text-muted-foreground"><strong>Implementación:</strong> <code>HashSet</code></p>
+          <p class="text-muted-foreground"><strong>Pista:</strong> "sin repetidos", "únicos", "evita duplicados".</p>
+        </div>
+      </div>
+
+      <!-- Card: Map -->
+      <div class="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+        <div class="flex flex-col space-y-1.5 p-6">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold w-fit bg-primary text-primary-foreground">Map</span>
+          <h3 class="text-xl font-semibold tracking-tight pt-2">Agenda de teléfonos</h3>
+        </div>
+        <div class="p-6 pt-0 space-y-2 text-sm">
+          <p>Pares <strong>clave-valor</strong>. Clave única, valor cualquiera. Buscas por clave.</p>
+          <p class="text-muted-foreground"><strong>Implementación:</strong> <code>HashMap</code></p>
+          <p class="text-muted-foreground"><strong>Pista:</strong> "contar cuántas veces", "ranking", "estadísticas".</p>
+        </div>
+      </div>
+
+      <!-- Card: Queue -->
+      <div class="rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+        <div class="flex flex-col space-y-1.5 p-6">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold w-fit bg-primary text-primary-foreground">Queue</span>
+          <h3 class="text-xl font-semibold tracking-tight pt-2">Cola del Mercadona</h3>
+        </div>
+        <div class="p-6 pt-0 space-y-2 text-sm">
+          <p><strong>FIFO</strong>: primero en entrar, primero en salir. <code>offer()</code> encola, <code>poll()</code> desencola.</p>
+          <p class="text-muted-foreground"><strong>Implementación:</strong> <code>LinkedList</code></p>
+          <p class="text-muted-foreground"><strong>Pista:</strong> "orden de llegada", "cola de espera", "buzón".</p>
+        </div>
+      </div>
+    </div>
+
+    <pre class="mt-6"><code><span class="com">// Declaración típica de cada una</span>
+<span class="typ">List</span>&lt;<span class="typ">Famoso</span>&gt; lista     = <span class="kw">new</span> <span class="typ">ArrayList</span>&lt;&gt;();
+<span class="typ">Set</span>&lt;<span class="typ">Famoso</span>&gt; conjunto   = <span class="kw">new</span> <span class="typ">HashSet</span>&lt;&gt;();
+<span class="typ">Map</span>&lt;<span class="typ">Famoso</span>, <span class="typ">Integer</span>&gt; mapa = <span class="kw">new</span> <span class="typ">HashMap</span>&lt;&gt;();
+<span class="typ">Queue</span>&lt;<span class="typ">Famoso</span>&gt; cola     = <span class="kw">new</span> <span class="typ">LinkedList</span>&lt;&gt;();</code></pre>
+  </section>
+
+  <!-- ===== SECTION 2: EQUALS ===== -->
+  <section id="equals" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">02.</span> equals y hashCode</h2>
+      <p class="text-muted-foreground">El concepto que TODOS olvidan y que rompe Map, Set y contains() en silencio.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <p class="leading-7 mb-4">Si haces <code>new Famoso("Trump", "EEUU", "Político", 78)</code> dos veces, Java los considera objetos <strong>distintos</strong>. Por defecto compara direcciones de memoria, no contenido.</p>
+
+    <!-- Alert destructive -->
+    <div class="relative w-full rounded-lg border border-destructive/50 text-destructive dark:border-destructive bg-destructive/5 p-4 mb-4 [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+      <h5 class="mb-1 font-medium leading-none tracking-tight">Esto rompe cosas</h5>
+      <div class="text-sm [&_p]:leading-relaxed text-foreground/80">
+        <ul class="list-disc pl-5 space-y-1 mt-2">
+          <li><code>lista.contains(famoso)</code> no lo encuentra aunque exista uno idéntico.</li>
+          <li><code>mapa.get(famoso)</code> devuelve <code>null</code>.</li>
+          <li><code>set.add(famoso)</code> no detecta el duplicado.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="leading-7 mb-4"><strong>Solución</strong>: sobreescribir <code>equals()</code> y <code>hashCode()</code>. <strong>Van en pareja</strong> — si sobreescribes uno, sobreescribe el otro.</p>
+
+    <!-- Alert success -->
+    <div class="relative w-full rounded-lg border bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-900 p-4 [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-emerald-600 dark:text-emerald-400"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+      <h5 class="mb-1 font-medium leading-none tracking-tight text-emerald-900 dark:text-emerald-100">Atajo con Lombok</h5>
+      <div class="text-sm text-emerald-900/80 dark:text-emerald-100/80 mt-2">Pon <code>@EqualsAndHashCode</code> encima de la clase y Lombok te los genera comparando todos los campos.</div>
+    </div>
+
+    <p class="leading-7 mt-6"><strong>Regla mental:</strong> toda clase que viva en un <code>Map</code>, <code>Set</code> o donde uses <code>contains()</code> necesita <code>equals/hashCode</code> bien hechos.</p>
+  </section>
+
+  <!-- ===== SECTION 3: ITERATOR ===== -->
+  <section id="iterator" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">03.</span> Iterator</h2>
+      <p class="text-muted-foreground">Eliminar mientras iteras — obligatorio cuando un <code>for-each</code> revienta.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <p class="leading-7 mb-4">Si recorres una lista con <code>for-each</code> e intentas eliminar un elemento por el medio, Java lanza <code>ConcurrentModificationException</code>. Traducción: "estás cambiando la lista mientras la recorro, me lías".</p>
+
+    <p class="leading-7 mb-4"><strong>Solución</strong>: un <code>Iterator</code>, que recorre y permite borrar de forma segura con <code>it.remove()</code>.</p>
+
+    <pre><code><span class="typ">Iterator</span>&lt;<span class="typ">Famoso</span>&gt; it = lista.iterator();
+<span class="kw">while</span> (it.hasNext()) {
+    <span class="typ">Famoso</span> f = it.next();
+    <span class="kw">if</span> (f.getEdad() &lt; <span class="num">18</span>) {
+        <span class="typ">System</span>.out.println(<span class="str">"-- "</span> + f.getNombre() + <span class="str">" fulminado."</span>);
+        it.remove();
+    }
+}</code></pre>
+
+    <div class="relative w-full rounded-lg border bg-card p-4 mt-4 [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M12 16v-4"/><path d="M12 8h.01"/><circle cx="12" cy="12" r="10"/></svg>
+      <h5 class="mb-1 font-medium leading-none tracking-tight">Alternativa moderna en una línea</h5>
+      <div class="text-sm text-muted-foreground mt-2"><code>lista.removeIf(f -&gt; f.getEdad() &lt; 18);</code> — vale igual. Usa <code>Iterator</code> si el enunciado pide mostrar a cada uno mientras lo eliminas.</div>
+    </div>
+
+    <p class="leading-7 mt-4"><strong>Cuándo es obligatorio:</strong> enunciados tipo "elimina los X que cumplan tal condición" (menores de edad, tickets caducados, asistentes que no han pagado...).</p>
+  </section>
+
+  <!-- ===== SECTION 4: COMPARATOR ===== -->
+  <section id="comparator" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">04.</span> Comparable vs Comparator</h2>
+      <p class="text-muted-foreground">Le tienes que decir a Java cómo ordenar tus objetos.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <div class="rounded-md border overflow-hidden">
+      <table class="w-full text-sm">
+        <thead class="bg-muted/50">
+          <tr class="border-b">
+            <th class="h-10 px-4 text-left font-medium text-muted-foreground">Comparable</th>
+            <th class="h-10 px-4 text-left font-medium text-muted-foreground">Comparator</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="p-4 align-top">Va <strong>DENTRO</strong> de la clase.</td>
+            <td class="p-4 align-top">Va <strong>FUERA</strong>, cuando ordenas.</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4 align-top">Define UN orden "natural".</td>
+            <td class="p-4 align-top">Defines varios órdenes ad-hoc.</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4 align-top"><code>implements Comparable&lt;Famoso&gt;</code> + <code>compareTo</code>.</td>
+            <td class="p-4 align-top"><code>Comparator.comparing(Famoso::getEdad)</code></td>
+          </tr>
+          <tr>
+            <td class="p-4 align-top">Útil si la clase tiene un orden obvio (factura por fecha).</td>
+            <td class="p-4 align-top">Más flexible. <strong>El que casi siempre vas a usar.</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <pre class="mt-6"><code><span class="com">// Ordenar por un solo criterio</span>
+<span class="typ">Comparator</span>.comparing(<span class="typ">Famoso</span>::getEdad)
+
+<span class="com">// Por varios criterios (país, y en empate, nombre)</span>
+<span class="typ">Comparator</span>.comparing(<span class="typ">Famoso</span>::getPais)
+          .thenComparing(<span class="typ">Famoso</span>::getNombre)
+
+<span class="com">// De mayor a menor</span>
+<span class="typ">Comparator</span>.comparing(<span class="typ">Famoso</span>::getEdad).reversed()</code></pre>
+
+    <p class="leading-7 mt-4">La sintaxis <code>Famoso::getEdad</code> es un <strong>method reference</strong>, equivale a <code>f -&gt; f.getEdad()</code> pero más corto.</p>
+  </section>
+
+  <!-- ===== SECTION 5: STREAMS ===== -->
+  <section id="streams" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">05.</span> Streams y lambdas</h2>
+      <p class="text-muted-foreground">Una cinta transportadora por la que pasan tus datos.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <p class="leading-7 mb-4">Un <strong>lambda</strong> es una mini-función en una línea. La sintaxis <code>(x) -&gt; x + 1</code> se lee "dado x, devuelve x + 1".</p>
+    <p class="leading-7 mb-4">Un <strong>stream</strong> es una cinta transportadora por la que pasan tus elementos aplicándoles operaciones encadenadas.</p>
+
+    <div class="rounded-md border overflow-hidden">
+      <table class="w-full text-sm">
+        <thead class="bg-muted/50">
+          <tr class="border-b">
+            <th class="h-10 px-4 text-left font-medium text-muted-foreground">Operación</th>
+            <th class="h-10 px-4 text-left font-medium text-muted-foreground">Para qué</th>
+            <th class="h-10 px-4 text-left font-medium text-muted-foreground">Ejemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="p-4"><code>.stream()</code></td><td class="p-4">Arranca la cinta</td><td class="p-4"><code>lista.stream()</code></td></tr>
+          <tr class="border-b"><td class="p-4"><code>.filter()</code></td><td class="p-4">Te quedas con los que cumplen</td><td class="p-4"><code>.filter(f -&gt; f.getEdad() &gt; 18)</code></td></tr>
+          <tr class="border-b"><td class="p-4"><code>.map()</code></td><td class="p-4">Transforma cada uno</td><td class="p-4"><code>.map(f -&gt; f.getNombre())</code></td></tr>
+          <tr class="border-b"><td class="p-4"><code>.sorted()</code></td><td class="p-4">Ordena</td><td class="p-4"><code>.sorted(Comparator.comparing(...))</code></td></tr>
+          <tr class="border-b"><td class="p-4"><code>.forEach()</code></td><td class="p-4">Cierra: imprime</td><td class="p-4"><code>.forEach(System.out::println)</code></td></tr>
+          <tr class="border-b"><td class="p-4"><code>.count()</code></td><td class="p-4">Cierra: cuántos hay</td><td class="p-4"><code>.count()</code></td></tr>
+          <tr><td class="p-4"><code>.toList()</code></td><td class="p-4">Cierra: a lista</td><td class="p-4"><code>.toList()</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="leading-7 mt-4">Sin streams, todo se hace con bucles y <code>if</code> a mano. Ambas formas valen, pero los streams te ahorran 10 líneas en métodos tipo "ranking", "listado ordenado" o "filtrar por X".</p>
+  </section>
+
+  <!-- ===== SECTION 6: INTERFACES Y ENUMS ===== -->
+  <section id="enums" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">06.</span> Interfaces y enums</h2>
+      <p class="text-muted-foreground">Cae en el Parking. Polimorfismo + valores cerrados.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <h3 class="text-xl font-semibold tracking-tight mt-6 mb-2">Interface — "un contrato"</h3>
+    <p class="leading-7 mb-2">Lista de métodos que una clase PROMETE implementar, sin código dentro.</p>
+
+    <pre><code><span class="kw">public interface</span> <span class="typ">Acciones</span> {
+    <span class="kw">void</span> generar();
+    <span class="kw">void</span> recoger();
+    <span class="kw">void</span> pagar();
+}</code></pre>
+
+    <p class="leading-7 mt-4">En el Parking, <code>Ticket implements Acciones</code>. Pero en la <code>app3()</code> te piden implementar <code>pagar()</code> <em>desde la app</em>, no desde Ticket — se hace con clase anónima o lambda. Demuestra que entiendes polimorfismo.</p>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">Enum — "valores fijos cerrados"</h3>
+    <p class="leading-7 mb-2">Cuando un campo solo puede tener un conjunto limitado de valores. Más seguro que <code>String</code>.</p>
+
+    <pre><code><span class="kw">public enum</span> <span class="typ">Estado</span> {
+    PENDIENTE, GENERADO, RECOGIDO, PAGADO
+}
+
+<span class="com">// Uso:</span>
+ticket.setEstado(<span class="typ">Estado</span>.RECOGIDO);</code></pre>
+  </section>
+
+  <!-- ===== SECTION 7: LOMBOK ===== -->
+  <section id="lombok" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">07.</span> Lombok</h2>
+      <p class="text-muted-foreground">Tu mejor amigo. Te ahorra 30 minutos de teclear getters/setters.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <div class="rounded-md border overflow-hidden mb-6">
+      <table class="w-full text-sm">
+        <thead class="bg-muted/50">
+          <tr class="border-b">
+            <th class="h-10 px-4 text-left font-medium text-muted-foreground">Anotación</th>
+            <th class="h-10 px-4 text-left font-medium text-muted-foreground">Qué genera</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="p-4"><code>@Getter @Setter</code></td><td class="p-4">Todos los getters y setters.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>@ToString</code></td><td class="p-4">Un <code>toString()</code> decente: "Famoso(nombre=Trump, …)".</td></tr>
+          <tr class="border-b"><td class="p-4"><code>@EqualsAndHashCode</code></td><td class="p-4"><strong>equals + hashCode comparando todos los campos. CLAVE.</strong></td></tr>
+          <tr class="border-b"><td class="p-4"><code>@NoArgsConstructor</code></td><td class="p-4">Constructor vacío.</td></tr>
+          <tr><td class="p-4"><code>@AllArgsConstructor</code></td><td class="p-4">Constructor con todos los campos.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <pre><code><span class="kw">import</span> lombok.*;
+
+<span class="com">@Getter @Setter @ToString @EqualsAndHashCode</span>
+<span class="kw">public class</span> <span class="typ">Famoso</span> {
+    <span class="kw">private</span> <span class="typ">String</span> nombre;
+    <span class="kw">private</span> <span class="typ">String</span> pais;
+    <span class="kw">private</span> <span class="typ">String</span> profesion;
+    <span class="kw">private</span> <span class="kw">int</span> edad;
+
+    <span class="kw">public</span> <span class="typ">Famoso</span>(<span class="typ">String</span> nombre, <span class="typ">String</span> pais, <span class="typ">String</span> profesion, <span class="kw">int</span> edad) {
+        <span class="kw">this</span>.nombre = nombre;
+        <span class="kw">this</span>.pais = pais;
+        <span class="kw">this</span>.profesion = profesion;
+        <span class="kw">this</span>.edad = edad;
+    }
+}</code></pre>
+  </section>
+
+  <!-- ===== SECTION 8: SCANNER ===== -->
+  <section id="scanner" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">08.</span> Scanner</h2>
+      <p class="text-muted-foreground">Entrada por teclado y la trampa que todos pisan.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <pre><code><span class="typ">Scanner</span> teclado = <span class="kw">new</span> <span class="typ">Scanner</span>(<span class="typ">System</span>.in);
+
+<span class="typ">String</span> linea  = teclado.nextLine();    <span class="com">// hasta Enter</span>
+<span class="kw">int</span>    numero = teclado.nextInt();     <span class="com">// entero</span>
+<span class="kw">double</span> precio = teclado.nextDouble();  <span class="com">// decimal</span></code></pre>
+
+    <div class="relative w-full rounded-lg border bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-900 p-4 mt-4 [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-amber-600 dark:text-amber-400"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <h5 class="mb-1 font-medium leading-none tracking-tight text-amber-900 dark:text-amber-100">La trampa que todos pisan</h5>
+      <div class="text-sm text-amber-900/80 dark:text-amber-100/80 mt-2">Tras un <code>nextInt()</code> o <code>nextDouble()</code>, haz siempre un <code>teclado.nextLine()</code> vacío para limpiar el salto pendiente. Si no, el siguiente <code>nextLine()</code> devuelve cadena vacía y parece que tu programa no espera input.</div>
+    </div>
+
+    <pre class="mt-4"><code><span class="typ">System</span>.out.print(<span class="str">"Edad: "</span>);
+<span class="kw">int</span> edad = teclado.nextInt();
+teclado.nextLine();  <span class="com">// ← LIMPIA el salto pendiente</span>
+
+<span class="typ">System</span>.out.print(<span class="str">"Nombre: "</span>);
+<span class="typ">String</span> nombre = teclado.nextLine();  <span class="com">// ahora SÍ espera</span></code></pre>
+  </section>
+
+  <!-- ===== SECTION 9: PATRONES ===== -->
+  <!-- ===== SECTION 9: METODOS COLECCIONES ===== -->
+  <section id="metodos-colecciones" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">09.</span> Métodos de cada colección</h2>
+      <p class="text-muted-foreground">Chuleta de referencia rápida — los métodos que SÍ o SÍ vas a necesitar.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <h3 class="text-xl font-semibold tracking-tight mt-4 mb-2">List &lt;T&gt;</h3>
+    <div class="rounded-md border overflow-hidden mb-6">
+      <table class="w-full text-sm">
+        <thead class="bg-muted/50">
+          <tr class="border-b"><th class="h-10 px-4 text-left font-medium text-muted-foreground">Método</th><th class="h-10 px-4 text-left font-medium text-muted-foreground">Qué hace</th></tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="p-4"><code>.add(e)</code></td><td class="p-4">Añade al final.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.add(i, e)</code></td><td class="p-4">Añade en la posición <code>i</code>.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.get(i)</code></td><td class="p-4">Devuelve el elemento de la posición <code>i</code>.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.set(i, e)</code></td><td class="p-4">Reemplaza el elemento de la posición <code>i</code>.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.remove(i)</code></td><td class="p-4">Elimina por posición.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.remove(obj)</code></td><td class="p-4">Elimina por objeto (usa <code>equals</code>).</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.removeIf(pred)</code></td><td class="p-4">Elimina los que cumplan la condición.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.contains(obj)</code></td><td class="p-4">¿Existe? (usa <code>equals</code>).</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.indexOf(obj)</code></td><td class="p-4">Posición del objeto, o <code>-1</code>.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.size()</code></td><td class="p-4">Cuántos elementos hay.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.isEmpty()</code></td><td class="p-4">¿Está vacía?</td></tr>
+          <tr><td class="p-4"><code>.clear()</code></td><td class="p-4">Vaciarla entera.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">Set &lt;T&gt;</h3>
+    <div class="rounded-md border overflow-hidden mb-6">
+      <table class="w-full text-sm">
+        <thead class="bg-muted/50">
+          <tr class="border-b"><th class="h-10 px-4 text-left font-medium text-muted-foreground">Método</th><th class="h-10 px-4 text-left font-medium text-muted-foreground">Qué hace</th></tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="p-4"><code>.add(e)</code></td><td class="p-4">Añade. Devuelve <code>false</code> si ya existía.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.contains(obj)</code></td><td class="p-4">¿Existe?</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.remove(obj)</code></td><td class="p-4">Elimina.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.size()</code></td><td class="p-4">Cuántos hay.</td></tr>
+          <tr><td class="p-4"><code>.isEmpty()</code></td><td class="p-4">¿Vacío?</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">Map &lt;K, V&gt;</h3>
+    <div class="rounded-md border overflow-hidden mb-6">
+      <table class="w-full text-sm">
+        <thead class="bg-muted/50">
+          <tr class="border-b"><th class="h-10 px-4 text-left font-medium text-muted-foreground">Método</th><th class="h-10 px-4 text-left font-medium text-muted-foreground">Qué hace</th></tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="p-4"><code>.put(k, v)</code></td><td class="p-4">Añade o reemplaza. Devuelve el valor anterior (o null).</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.get(k)</code></td><td class="p-4">Devuelve el valor de esa clave, o <code>null</code>.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.getOrDefault(k, def)</code></td><td class="p-4">Como <code>get</code> pero devuelve <code>def</code> si no existe. Útil para contar.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.containsKey(k)</code></td><td class="p-4">¿Existe esa clave?</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.containsValue(v)</code></td><td class="p-4">¿Existe ese valor?</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.remove(k)</code></td><td class="p-4">Elimina por clave.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.keySet()</code></td><td class="p-4">Devuelve <code>Set&lt;K&gt;</code> con todas las claves.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.values()</code></td><td class="p-4">Devuelve <code>Collection&lt;V&gt;</code> con todos los valores.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.entrySet()</code></td><td class="p-4">Devuelve <code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code> con todos los pares.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.size()</code></td><td class="p-4">Cuántos pares hay.</td></tr>
+          <tr><td class="p-4"><code>.isEmpty()</code></td><td class="p-4">¿Vacío?</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">Queue &lt;T&gt;</h3>
+    <div class="rounded-md border overflow-hidden">
+      <table class="w-full text-sm">
+        <thead class="bg-muted/50">
+          <tr class="border-b"><th class="h-10 px-4 text-left font-medium text-muted-foreground">Método</th><th class="h-10 px-4 text-left font-medium text-muted-foreground">Qué hace</th></tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="p-4"><code>.offer(e)</code></td><td class="p-4">Encola al final.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.poll()</code></td><td class="p-4">Desencola el primero y lo devuelve. <code>null</code> si vacía.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.peek()</code></td><td class="p-4">Mira el primero SIN sacarlo.</td></tr>
+          <tr class="border-b"><td class="p-4"><code>.size()</code></td><td class="p-4">Cuántos hay.</td></tr>
+          <tr><td class="p-4"><code>.isEmpty()</code></td><td class="p-4">¿Vacía?</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 10: RECORRER MAP ===== -->
+  <section id="recorrer-map" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">10.</span> Recorrer un Map sin streams</h2>
+      <p class="text-muted-foreground">El patrón clásico — más rápido de escribir que un stream cuando solo quieres imprimir.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <p class="leading-7 mb-3"><strong>Si necesitas clave Y valor</strong> → recorre <code>entrySet()</code>:</p>
+    <pre><code><span class="kw">for</span> (<span class="typ">Map</span>.<span class="typ">Entry</span>&lt;<span class="typ">Famoso</span>, <span class="typ">Integer</span>&gt; entry : mapa.entrySet()) {
+    <span class="typ">Famoso</span> famoso = entry.getKey();
+    <span class="kw">int</span>    visitas = entry.getValue();
+    <span class="typ">System</span>.out.println(famoso.getNombre() + <span class="str">": "</span> + visitas);
+}</code></pre>
+
+    <p class="leading-7 mt-6 mb-3"><strong>Si solo necesitas las claves</strong> → recorre <code>keySet()</code>:</p>
+    <pre><code><span class="kw">for</span> (<span class="typ">Famoso</span> f : mapa.keySet()) {
+    <span class="typ">System</span>.out.println(f.getNombre());
+}</code></pre>
+
+    <p class="leading-7 mt-6 mb-3"><strong>Si solo necesitas los valores</strong> → recorre <code>values()</code>:</p>
+    <pre><code><span class="kw">for</span> (<span class="typ">Integer</span> v : mapa.values()) {
+    total += v;
+}</code></pre>
+
+    <div class="relative w-full rounded-lg border bg-card p-4 mt-4 [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M12 16v-4"/><path d="M12 8h.01"/><circle cx="12" cy="12" r="10"/></svg>
+      <h5 class="mb-1 font-medium leading-none tracking-tight">Truco para contar</h5>
+      <div class="text-sm text-muted-foreground mt-2">En lugar de <code>if (containsKey) put(k, get(k)+1) else put(k, 1)</code>, usa <code>mapa.put(k, mapa.getOrDefault(k, 0) + 1);</code> — una línea.</div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 11: ALEATORIOS ===== -->
+  <section id="aleatorios" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">11.</span> Generar aleatorios</h2>
+      <p class="text-muted-foreground">Necesario para Parking (matrículas) y cualquier "generador de datos aleatorios".</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <h3 class="text-xl font-semibold tracking-tight mt-4 mb-2">Random vs Math.random</h3>
+    <pre><code><span class="com">// Opción 1: clase Random (más cómoda)</span>
+<span class="typ">Random</span> rand = <span class="kw">new</span> <span class="typ">Random</span>();
+<span class="kw">int</span> n1 = rand.nextInt(<span class="num">10</span>);          <span class="com">// entero entre 0 y 9</span>
+<span class="kw">int</span> n2 = rand.nextInt(<span class="num">100</span>, <span class="num">200</span>);     <span class="com">// entero entre 100 y 199</span>
+<span class="kw">double</span> d = rand.nextDouble();         <span class="com">// decimal entre 0.0 y 1.0</span>
+
+<span class="com">// Opción 2: Math.random (devuelve siempre double 0.0 a 1.0)</span>
+<span class="kw">int</span> n3 = (<span class="kw">int</span>) (<span class="typ">Math</span>.random() * <span class="num">10</span>);  <span class="com">// 0 a 9</span></code></pre>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">Generar matrícula tipo 1234BCD</h3>
+    <pre><code><span class="typ">String</span> letras  = <span class="str">"BCDFGHJKLMNPQRSTVWXYZ"</span>;
+<span class="typ">String</span> numeros = <span class="str">"0123456789"</span>;
+<span class="typ">Random</span> rand = <span class="kw">new</span> <span class="typ">Random</span>();
+<span class="typ">String</span> matricula = <span class="str">""</span>;
+
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">4</span>; i++) {
+    matricula += numeros.charAt(rand.nextInt(numeros.length()));
+}
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">3</span>; i++) {
+    matricula += letras.charAt(rand.nextInt(letras.length()));
+}</code></pre>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">Evitar duplicados al generar varios</h3>
+    <pre><code><span class="kw">while</span> (parking.getClientesActuales().size() &lt; <span class="num">10</span>) {
+    <span class="typ">String</span> matricula = generarMatricula();
+    <span class="kw">if</span> (!yaExiste(matricula)) {
+        parking.getClientesActuales().add(<span class="kw">new</span> <span class="typ">Ticket</span>(matricula, ...));
+    }
+}</code></pre>
+  </section>
+
+  <!-- ===== SECTION 12: INTERFACE ANONIMA ===== -->
+  <section id="anonima" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">12.</span> Interface con clase anónima</h2>
+      <p class="text-muted-foreground">El patrón de <code>app3()</code> del Parking: implementar <code>pagar()</code> SIN crear una clase nueva.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <p class="leading-7 mb-4">A veces necesitas implementar una interface "al vuelo" para un único uso, sin crear un fichero nuevo. Hay dos formas:</p>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-4 mb-2">Clase anónima (siempre vale)</h3>
+    <pre><code><span class="typ">Acciones</span> trabajador = <span class="kw">new</span> <span class="typ">Acciones</span>() {
+    <span class="com">@Override</span>
+    <span class="kw">public void</span> generar() { }
+
+    <span class="com">@Override</span>
+    <span class="kw">public void</span> recoger() { }
+
+    <span class="com">@Override</span>
+    <span class="kw">public void</span> pagar() {
+        <span class="typ">System</span>.out.print(<span class="str">"Introduce los minutos a cobrar: "</span>);
+        <span class="kw">int</span> minutos = teclado.nextInt();
+        <span class="kw">double</span> importe = minutos * parking.getPrecio_minuto();
+        <span class="typ">System</span>.out.println(<span class="str">"Importe: "</span> + importe + <span class="str">"€"</span>);
+    }
+};
+trabajador.pagar();</code></pre>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">Lambda (solo si la interface tiene UN método)</h3>
+    <p class="leading-7 mb-2">Si tu interface es <code>@FunctionalInterface</code> (un solo método abstracto) puedes hacer:</p>
+    <pre><code><span class="com">// Interface con un solo método:</span>
+<span class="com">@FunctionalInterface</span>
+<span class="kw">interface</span> <span class="typ">Pagador</span> { <span class="kw">void</span> pagar(); }
+
+<span class="typ">Pagador</span> trabajador = () -&gt; {
+    <span class="typ">System</span>.out.println(<span class="str">"Pagando..."</span>);
+};
+trabajador.pagar();</code></pre>
+
+    <div class="relative w-full rounded-lg border bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-900 p-4 mt-4 [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-amber-600 dark:text-amber-400"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <h5 class="mb-1 font-medium leading-none tracking-tight text-amber-900 dark:text-amber-100">Ojo</h5>
+      <div class="text-sm text-amber-900/80 dark:text-amber-100/80 mt-2">La interface <code>Acciones</code> del Parking tiene 3 métodos, así que <strong>NO puedes usar lambda</strong> — tienes que usar clase anónima e implementar los 3 (los que no uses los dejas vacíos).</div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 13: EXCEPCIONES ===== -->
+  <section id="excepciones" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">13.</span> Excepciones personalizadas</h2>
+      <p class="text-muted-foreground">Cae en el examen de Junio (PiscinaMutxamel: <code>EdadException</code>).</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <h3 class="text-xl font-semibold tracking-tight mt-4 mb-2">1. Crear tu propia excepción</h3>
+    <pre><code><span class="kw">public class</span> <span class="typ">EdadException</span> <span class="kw">extends</span> <span class="typ">Exception</span> {
+    <span class="kw">public</span> <span class="typ">EdadException</span>(<span class="typ">String</span> mensaje) {
+        <span class="kw">super</span>(mensaje);
+    }
+}</code></pre>
+    <p class="text-sm text-muted-foreground mt-2"><code>extends Exception</code> → es una checked exception (te obliga a capturarla o declararla con <code>throws</code>). <code>extends RuntimeException</code> → unchecked (no obliga).</p>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">2. Lanzarla cuando algo va mal</h3>
+    <pre><code><span class="kw">public void</span> inscribir(<span class="kw">int</span> edad) <span class="kw">throws</span> <span class="typ">EdadException</span> {
+    <span class="kw">if</span> (edad &lt; <span class="num">18</span>) {
+        <span class="kw">throw new</span> <span class="typ">EdadException</span>(<span class="str">"Menor de edad: "</span> + edad);
+    }
+    <span class="com">// resto de la lógica</span>
+}</code></pre>
+    <p class="text-sm text-muted-foreground mt-2">El <code>throws EdadException</code> en la firma avisa a quien te llame de que esto puede explotar.</p>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">3. Capturarla cuando llamas al método</h3>
+    <pre><code><span class="kw">try</span> {
+    banyista.inscribir(<span class="num">15</span>);
+} <span class="kw">catch</span> (<span class="typ">EdadException</span> e) {
+    <span class="typ">System</span>.out.println(<span class="str">"Error: "</span> + e.getMessage());
+}</code></pre>
+  </section>
+
+  <!-- ===== SECTION 14: HERENCIA EN COLECCIONES ===== -->
+  <section id="herencia" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">14.</span> Herencia + polimorfismo en colecciones</h2>
+      <p class="text-muted-foreground">El patrón de PiscinaMutxamel: una lista del padre que contiene objetos de varios hijos.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <h3 class="text-xl font-semibold tracking-tight mt-4 mb-2">Clase padre abstracta + hijos</h3>
+    <pre><code><span class="kw">public abstract class</span> <span class="typ">Banyista</span> {
+    <span class="kw">protected</span> <span class="typ">String</span> nombre;
+    <span class="kw">public abstract double</span> calcularPrecio();  <span class="com">// cada hijo lo implementa a su manera</span>
+}
+
+<span class="kw">public class</span> <span class="typ">Adulto</span> <span class="kw">extends</span> <span class="typ">Banyista</span> {
+    <span class="com">@Override</span>
+    <span class="kw">public double</span> calcularPrecio() { <span class="kw">return</span> <span class="num">10.0</span>; }
+}
+
+<span class="kw">public class</span> <span class="typ">Nino</span> <span class="kw">extends</span> <span class="typ">Banyista</span> {
+    <span class="com">@Override</span>
+    <span class="kw">public double</span> calcularPrecio() { <span class="kw">return</span> <span class="num">5.0</span>; }
+}</code></pre>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">Lista del padre con objetos hijos</h3>
+    <pre><code><span class="typ">List</span>&lt;<span class="typ">Banyista</span>&gt; piscina = <span class="kw">new</span> <span class="typ">ArrayList</span>&lt;&gt;();
+piscina.add(<span class="kw">new</span> <span class="typ">Adulto</span>());
+piscina.add(<span class="kw">new</span> <span class="typ">Nino</span>());
+piscina.add(<span class="kw">new</span> <span class="typ">Adulto</span>());
+
+<span class="com">// Polimorfismo: cada uno ejecuta SU versión de calcularPrecio</span>
+<span class="kw">double</span> total = <span class="num">0</span>;
+<span class="kw">for</span> (<span class="typ">Banyista</span> b : piscina) {
+    total += b.calcularPrecio();  <span class="com">// 10 + 5 + 10 = 25</span>
+}</code></pre>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">instanceof + cast (para acceder a métodos del hijo)</h3>
+    <pre><code><span class="kw">for</span> (<span class="typ">Banyista</span> b : piscina) {
+    <span class="kw">if</span> (b <span class="kw">instanceof</span> <span class="typ">Nino</span>) {
+        <span class="typ">Nino</span> n = (<span class="typ">Nino</span>) b;
+        n.metodoEspecificoDeNino();
+    }
+}
+
+<span class="com">// Java 16+: pattern matching más limpio (sin cast manual)</span>
+<span class="kw">for</span> (<span class="typ">Banyista</span> b : piscina) {
+    <span class="kw">if</span> (b <span class="kw">instanceof</span> <span class="typ">Nino</span> n) {
+        n.metodoEspecificoDeNino();
+    }
+}</code></pre>
+  </section>
+
+  <!-- ===== SECTION 15: POM XML ===== -->
+  <section id="pom" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">15.</span> Setup pom.xml con Lombok</h2>
+      <p class="text-muted-foreground">La parte 1 de cada examen (0,5p): crear proyecto Maven con Lombok funcionando.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <p class="leading-7 mb-2">Pega esto dentro de las etiquetas <code>&lt;dependencies&gt;</code> y <code>&lt;build&gt;</code> de tu <code>pom.xml</code>:</p>
+
+    <pre><code><span class="kw">&lt;dependencies&gt;</span>
+    <span class="kw">&lt;dependency&gt;</span>
+        <span class="kw">&lt;groupId&gt;</span>org.projectlombok<span class="kw">&lt;/groupId&gt;</span>
+        <span class="kw">&lt;artifactId&gt;</span>lombok<span class="kw">&lt;/artifactId&gt;</span>
+        <span class="kw">&lt;version&gt;</span>1.18.38<span class="kw">&lt;/version&gt;</span>
+        <span class="kw">&lt;scope&gt;</span>provided<span class="kw">&lt;/scope&gt;</span>
+    <span class="kw">&lt;/dependency&gt;</span>
+<span class="kw">&lt;/dependencies&gt;</span>
+
+<span class="kw">&lt;build&gt;</span>
+    <span class="kw">&lt;plugins&gt;</span>
+        <span class="kw">&lt;plugin&gt;</span>
+            <span class="kw">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="kw">&lt;/groupId&gt;</span>
+            <span class="kw">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="kw">&lt;/artifactId&gt;</span>
+            <span class="kw">&lt;version&gt;</span>3.13.0<span class="kw">&lt;/version&gt;</span>
+            <span class="kw">&lt;configuration&gt;</span>
+                <span class="kw">&lt;source&gt;</span>23<span class="kw">&lt;/source&gt;</span>
+                <span class="kw">&lt;target&gt;</span>23<span class="kw">&lt;/target&gt;</span>
+                <span class="kw">&lt;annotationProcessorPaths&gt;</span>
+                    <span class="kw">&lt;path&gt;</span>
+                        <span class="kw">&lt;groupId&gt;</span>org.projectlombok<span class="kw">&lt;/groupId&gt;</span>
+                        <span class="kw">&lt;artifactId&gt;</span>lombok<span class="kw">&lt;/artifactId&gt;</span>
+                        <span class="kw">&lt;version&gt;</span>1.18.38<span class="kw">&lt;/version&gt;</span>
+                    <span class="kw">&lt;/path&gt;</span>
+                <span class="kw">&lt;/annotationProcessorPaths&gt;</span>
+            <span class="kw">&lt;/configuration&gt;</span>
+        <span class="kw">&lt;/plugin&gt;</span>
+    <span class="kw">&lt;/plugins&gt;</span>
+<span class="kw">&lt;/build&gt;</span></code></pre>
+
+    <div class="relative w-full rounded-lg border bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-900 p-4 mt-4 [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-amber-600 dark:text-amber-400"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <h5 class="mb-1 font-medium leading-none tracking-tight text-amber-900 dark:text-amber-100">No olvides activar el procesado en IntelliJ</h5>
+      <div class="text-sm text-amber-900/80 dark:text-amber-100/80 mt-2">Settings → Build, Execution, Deployment → Compiler → Annotation Processors → marca <strong>Enable annotation processing</strong>. Si no, los <code>@Getter</code> no generan nada.</div>
+    </div>
+
+    <h3 class="text-xl font-semibold tracking-tight mt-8 mb-2">Después de tocar el pom.xml</h3>
+    <p class="leading-7">Click derecho sobre el <code>pom.xml</code> → <strong>Maven → Reload Project</strong>. Esto baja las dependencias.</p>
+  </section>
+
+  <!-- ===== SECTION 16: PATRONES ===== -->
+  <section id="patrones" class="mb-16 scroll-mt-20">
+    <div class="mb-6 space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight"><span class="text-muted-foreground font-normal">16.</span> Patrones que SIEMPRE caen</h2>
+      <p class="text-muted-foreground">Si memorizas estos 7 snippets, tienes el 60% del examen ganado.</p>
+    </div>
+    <hr class="my-6 border-border">
+
+    <div class="space-y-6">
+
+      <div class="rounded-lg border bg-card p-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">A</span>
+          <h3 class="text-lg font-semibold tracking-tight">Contar ocurrencias con Map</h3>
+        </div>
+        <pre><code><span class="typ">HashMap</span>&lt;<span class="typ">Famoso</span>, <span class="typ">Integer</span>&gt; conteo = <span class="kw">new</span> <span class="typ">HashMap</span>&lt;&gt;();
+<span class="kw">for</span> (<span class="typ">Famoso</span> f : lista) {
+    <span class="kw">if</span> (conteo.containsKey(f)) {
+        conteo.put(f, conteo.get(f) + <span class="num">1</span>);
+    } <span class="kw">else</span> {
+        conteo.put(f, <span class="num">1</span>);
+    }
+}</code></pre>
+      </div>
+
+      <div class="rounded-lg border bg-card p-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">B</span>
+          <h3 class="text-lg font-semibold tracking-tight">Eliminar mientras iteras</h3>
+        </div>
+        <pre><code><span class="typ">Iterator</span>&lt;<span class="typ">Famoso</span>&gt; it = lista.iterator();
+<span class="kw">while</span> (it.hasNext()) {
+    <span class="typ">Famoso</span> f = it.next();
+    <span class="kw">if</span> (f.getEdad() &lt; <span class="num">18</span>) {
+        it.remove();
+    }
+}</code></pre>
+      </div>
+
+      <div class="rounded-lg border bg-card p-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">C</span>
+          <h3 class="text-lg font-semibold tracking-tight">Ordenar por varios criterios</h3>
+        </div>
+        <pre><code>lista.stream()
+    .sorted(<span class="typ">Comparator</span>.comparing(<span class="typ">Famoso</span>::getPais)
+                      .thenComparing(<span class="typ">Famoso</span>::getNombre))
+    .forEach(f -&gt; <span class="typ">System</span>.out.println(f.getPais() + <span class="str">" - "</span> + f.getNombre()));</code></pre>
+      </div>
+
+      <div class="rounded-lg border bg-card p-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">D</span>
+          <h3 class="text-lg font-semibold tracking-tight">Ordenar un Map por valor (rankings)</h3>
+        </div>
+        <pre><code>mapa.entrySet().stream()
+    .filter(e -&gt; e.getValue() &gt; <span class="num">1</span>)
+    .sorted(<span class="typ">Map</span>.<span class="typ">Entry</span>.&lt;<span class="typ">Famoso</span>, <span class="typ">Integer</span>&gt;comparingByValue().reversed())
+    .forEach(e -&gt; <span class="typ">System</span>.out.println(e.getKey().getNombre() + <span class="str">" ("</span> + e.getValue() + <span class="str">")"</span>));</code></pre>
+      </div>
+
+      <div class="rounded-lg border bg-card p-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">E</span>
+          <h3 class="text-lg font-semibold tracking-tight">Filtrar por una condición</h3>
+        </div>
+        <pre><code>lista.stream()
+    .filter(f -&gt; f.getProfesion().equalsIgnoreCase(<span class="str">"Político"</span>))
+    .forEach(f -&gt; <span class="typ">System</span>.out.println(f.getNombre() + <span class="str">" - "</span> + f.getPais()));</code></pre>
+      </div>
+
+      <div class="rounded-lg border bg-card p-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">F</span>
+          <h3 class="text-lg font-semibold tracking-tight">Procesar una Queue hasta vaciarla</h3>
+        </div>
+        <pre><code><span class="kw">while</span> (!cola.isEmpty()) {
+    <span class="typ">Famoso</span> f = cola.poll();
+    lista.add(f);
+}</code></pre>
+      </div>
+
+      <div class="rounded-lg border bg-card p-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">G</span>
+          <h3 class="text-lg font-semibold tracking-tight">Buscar usando equals (con Lombok)</h3>
+        </div>
+        <pre><code><span class="typ">Famoso</span> buscado = <span class="kw">new</span> <span class="typ">Famoso</span>(nombre, pais, profesion, edad);
+<span class="kw">if</span> (lista.contains(buscado)) {
+    <span class="typ">System</span>.out.println(<span class="str">"Existe"</span>);
+}</code></pre>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DAY D ===== -->
+  <section id="dia-d" class="mb-16 scroll-mt-20">
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+      <div class="flex flex-col space-y-1.5 p-6">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+          <h2 class="text-2xl font-semibold leading-none tracking-tight">Estrategia día del examen</h2>
+        </div>
+        <p class="text-sm text-muted-foreground pt-2">El orden importa. Estos 7 pasos te garantizan no quedarte en blanco.</p>
+      </div>
+      <div class="p-6 pt-0 space-y-4">
+        <ol class="space-y-3 text-sm">
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">1</span><span><strong>Lee el enunciado COMPLETO antes de tocar el teclado.</strong> No vayas haciéndolo a medida que lees.</span></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">2</span><span><strong>Dibuja el UML en una hoja.</strong> Identifica qué colección va en cada sitio y por qué. Media batalla ganada.</span></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">3</span><span><strong>Crea TODAS las clases vacías primero</strong> con atributos y <code>@Getter @Setter @ToString</code>. No implementes métodos todavía. Garantiza puntos del esqueleto y que compile.</span></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">4</span><span><strong>Si una clase va en un Map/Set o usas <code>contains</code></strong> → añade <code>@EqualsAndHashCode</code> AHORA, no después.</span></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">5</span><span><strong>Implementa por orden de dificultad</strong>: primero los fáciles (constructores, generar datos, mostrar). Streams y comparators al final.</span></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">6</span><span><strong>Commits frecuentes</strong>: cada método decente, <code>git add . &amp;&amp; git commit -m "Método X funcionando"</code>. Te ahorra puntos de la parte 1.</span></li>
+          <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-semibold">7</span><span><strong>Si te trabas, déjalo y sigue con otro método.</strong> Mejor 6 al 90% que 3 al 100% y 5 sin tocar.</span></li>
+        </ol>
+
+        <hr class="border-border my-4">
+
+        <blockquote class="border-l-2 pl-4 italic text-sm text-muted-foreground">
+          "Me dan un UML. Identifico qué colección va donde. Sé que toda clase en Map/Set necesita equals/hashCode. Sé que para eliminar mientras itero uso Iterator. Sé que para ordenar uso Comparator con thenComparing. Sé que para contar ocurrencias uso HashMap. Sé que para ordenar un Map por valor uso <code>Map.Entry.comparingByValue().reversed()</code>. Sé que Lombok me genera lo aburrido. Sé que tras nextInt() hay que limpiar con nextLine()."
+        </blockquote>
+        <p class="text-sm">Si tienes eso en la cabeza, el examen es ejecución.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mt-16 pt-8 border-t text-center text-sm text-muted-foreground">
+    Repaso UD7 · POO · Izan de Geer · Mayo 2026
+  </footer>
+
+</div>
+
+<script>
+  // ===== Theme toggle =====
+  const root = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    root.classList.add('dark');
+  }
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    root.classList.toggle('dark');
+    localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+  });
+
+  // ===== Sidebar / Sheet =====
+  const sidebar    = document.getElementById('sidebar');
+  const overlay    = document.getElementById('sidebar-overlay');
+  const burger     = document.getElementById('burger');
+  const closeBtn   = document.getElementById('sidebar-close');
+  const navLinks   = document.querySelectorAll('[data-nav]');
+
+  function openSidebar() {
+    sidebar.classList.remove('-translate-x-full');
+    overlay.classList.remove('opacity-0', 'pointer-events-none');
+    overlay.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSidebar() {
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('opacity-0', 'pointer-events-none');
+    overlay.classList.remove('opacity-100');
+    document.body.style.overflow = '';
+  }
+  function toggleSidebar() {
+    sidebar.classList.contains('-translate-x-full') ? openSidebar() : closeSidebar();
+  }
+
+  burger.addEventListener('click', toggleSidebar);
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  navLinks.forEach(a => a.addEventListener('click', () => setTimeout(closeSidebar, 120)));
+
+  // Keyboard shortcuts: ⌘K / Ctrl+K / "/" abre, Esc cierra
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSidebar();
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      toggleSidebar();
+    }
+    if (e.key === '/' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+      e.preventDefault();
+      openSidebar();
+    }
+  });
+
+  // ===== Scroll spy (resalta sección actual en el sidebar) =====
+  const sections = document.querySelectorAll('section[id]');
+  const activeClasses = ['bg-accent', 'text-accent-foreground'];
+  const inactiveClasses = ['text-foreground/70'];
+
+  function setActive(id) {
+    navLinks.forEach(a => {
+      const isActive = a.getAttribute('href') === '#' + id;
+      a.classList.toggle('bg-accent', isActive);
+      a.classList.toggle('text-accent-foreground', isActive);
+      a.classList.toggle('text-foreground/70', !isActive);
+      a.classList.toggle('font-semibold', isActive);
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    // Mejor candidato: el que esté más alto en la zona de interés
+    const visible = entries.filter(e => e.isIntersecting)
+                           .sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    if (visible.length) setActive(visible[0].target.id);
+  }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

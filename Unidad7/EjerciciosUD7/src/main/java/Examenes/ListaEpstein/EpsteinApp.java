@@ -13,10 +13,13 @@ public class EpsteinApp {
         procesarDatos();
 
         System.out.println("\n*** APP MANTENIMIENTO LISTA EPSTEIN ***\n");
-//        nuevoFamoso();
-//        buscarFamoso();
-//        eliminarMenores();
-        generarEstadisticas();
+        nuevoFamoso();
+        buscarFamoso();
+        eliminarMenores();
+        Estadistica estadistica = generarEstadisticas();
+        estadistica.verPoliticos();
+        estadistica.informeJuzgado();
+        estadistica.verRanking();
     }
 
     public static void procesarDatos() {
@@ -25,12 +28,12 @@ public class EpsteinApp {
         while (!EntradaDatos.getDatosActuales().isEmpty()){
             Famoso famoso = EntradaDatos.getDatosActuales().poll();
 
-            System.out.println("- Grabando " + famoso);;
+            System.out.println("- Grabando " + famoso);
 
             EpsteinApp.listaEpstein.add(famoso);
-
-            System.out.println("Proceso de datos finalizado");
         }
+
+        System.out.println("Proceso de datos finalizado");
     }
 
     public static void nuevoFamoso() {
@@ -50,7 +53,8 @@ public class EpsteinApp {
         teclado.nextLine();
 
         Famoso famoso = new Famoso(nombre, pais, profesion, edad);
-        System.out.println(nombre + " insertado como famoso.");
+        listaEpstein.add(famoso);
+        System.out.println("Famoso insertado.");
     }
 
     public static void buscarFamoso() {
@@ -67,19 +71,14 @@ public class EpsteinApp {
 
         System.out.print("Edad: ");
         int edad = teclado.nextInt();
+        teclado.nextLine();
 
-        boolean famosoEncontrado = false;
+        Famoso buscado = new Famoso(nombre, pais, profesion, edad);
 
-        for (Famoso famoso : listaEpstein){
-            if (famoso.getNombre().equalsIgnoreCase(nombre) && famoso.getPais().equalsIgnoreCase(pais) && famoso.getProfesion().equalsIgnoreCase(profesion) && famoso.getEdad() == edad){
-                famosoEncontrado = true;
-            }
-        }
-
-        if (famosoEncontrado){
-            System.out.println("El famoso HA ACUDIDO a la isla");
+        if (listaEpstein.contains(buscado)){
+            System.out.println("El famoso HA ACUDIDO a la Isla...");
         } else {
-            System.out.println("El famoso no ha acudido a la isla");
+            System.out.println("El famoso no está en la lista Epstein. No ha acudido a la Isla...");
         }
     }
 
@@ -96,16 +95,15 @@ public class EpsteinApp {
         }
     }
 
-    public static void generarEstadisticas() {
-        Estadistica estadistica = new Estadistica(listaEpstein);
+    public static Estadistica generarEstadisticas() {
         System.out.println("\nGenerando estadísticas...");
+        Estadistica estadistica = new Estadistica(listaEpstein);
         System.out.println("Estadísticas generadas: ");
 
         for (Map.Entry<Famoso, Integer> mapita : estadistica.getEstadisticas().entrySet()){
-            System.out.println("-- " + mapita.getKey().getNombre() + ": " + mapita.getValue() + " visita/s");
+            System.out.println("-- " + mapita.getKey().getNombre() + ": " + mapita.getValue() + " visita/s.");
         }
 
-        estadistica.verPoliticos();
-        estadistica.informeJuzgado();
+        return estadistica;
     }
 }

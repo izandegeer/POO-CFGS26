@@ -1,4 +1,4 @@
-package SimulacroExamen;
+package Examenes.SimulacroExamen;
 
 public interface AccionesHuelga {
     void secundar();

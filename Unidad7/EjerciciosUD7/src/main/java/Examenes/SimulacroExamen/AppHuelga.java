@@ -1,4 +1,4 @@
-package SimulacroExamen;
+package Examenes.SimulacroExamen;
 
 import java.util.HashSet;
 import java.util.Scanner;

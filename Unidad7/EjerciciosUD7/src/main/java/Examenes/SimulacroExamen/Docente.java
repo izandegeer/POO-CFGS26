@@ -1,4 +1,4 @@
-package SimulacroExamen;
+package Examenes.SimulacroExamen;
 
 import lombok.Getter;
 import lombok.Setter;

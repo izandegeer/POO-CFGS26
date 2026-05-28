@@ -1,4 +1,4 @@
-package SimulacroExamen;
+package Examenes.SimulacroExamen;
 
 public class DocenteHuelga extends RuntimeException {
     public DocenteHuelga() {

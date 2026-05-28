@@ -11,10 +11,14 @@ module org.example.demofx {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires java.net.http;
+    requires com.google.gson;
 
     opens org.example.demofx to javafx.fxml;
     exports org.example.demofx;
 
     opens Practica2 to javafx.fxml;
     exports Practica2;
+
+    opens Practica4 to com.google.gson;
 }

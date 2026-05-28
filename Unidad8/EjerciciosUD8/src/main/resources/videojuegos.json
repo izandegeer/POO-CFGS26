@@ -1,0 +1,41 @@
+[
+  {
+    "nombre": "Half-Life",
+    "plataforma": "PC",
+    "precio": 29.99,
+    "disponible": true,
+    "generos": [
+      "accion",
+      "shooter"
+    ]
+  },
+  {
+    "nombre": "God of War",
+    "plataforma": "PS5",
+    "precio": 49.99,
+    "disponible": true,
+    "generos": [
+      "accion",
+      "aventura"
+    ]
+  },
+  {
+    "nombre": "Halo Infinite",
+    "plataforma": "Xbox",
+    "precio": 19.99,
+    "disponible": false,
+    "generos": [
+      "shooter"
+    ]
+  },
+  {
+    "nombre": "Stardew Valley",
+    "plataforma": "PC",
+    "precio": 13.99,
+    "disponible": true,
+    "generos": [
+      "simulacion",
+      "rol"
+    ]
+  }
+]

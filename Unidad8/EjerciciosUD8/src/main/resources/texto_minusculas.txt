@@ -1,0 +1,2 @@
+java es un lenguaje de programacion
+el manejo de ficheros es muy util

@@ -1,4 +1,4 @@
-package Examenes2;
+package Examenes;
 
 public class m {
 }

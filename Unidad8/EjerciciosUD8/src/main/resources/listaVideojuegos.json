@@ -1,0 +1,92 @@
+[
+  {
+    "nombre": "FC26",
+    "plataforma": "PC",
+    "precio": 100.0,
+    "disponible": true,
+    "genero": [
+      "Deportes",
+      "Simulación"
+    ]
+  },
+  {
+    "nombre": "Minecraft",
+    "plataforma": "PC",
+    "precio": 95.0,
+    "disponible": true,
+    "genero": [
+      "Supervivencia",
+      "Sandbox"
+    ]
+  },
+  {
+    "nombre": "GTA VI",
+    "plataforma": "PC",
+    "precio": 50.0,
+    "disponible": true,
+    "genero": [
+      "Acción",
+      " Aventura"
+    ]
+  },
+  {
+    "nombre": "Rocket League",
+    "plataforma": "PS5",
+    "precio": 40.95,
+    "disponible": true,
+    "genero": [
+      "Deportes",
+      "Acción"
+    ]
+  },
+  {
+    "nombre": "NBA 2K29",
+    "plataforma": "PS5",
+    "precio": 130.0,
+    "disponible": true,
+    "genero": [
+      "Deportes",
+      "Simulación"
+    ]
+  },
+  {
+    "nombre": "Blacklight Revolution",
+    "plataforma": "PS5",
+    "precio": 13.5,
+    "disponible": true,
+    "genero": [
+      "Acción",
+      "Shooter"
+    ]
+  },
+  {
+    "nombre": "FIFA 16",
+    "plataforma": "XBOX",
+    "precio": 5.5,
+    "disponible": true,
+    "genero": [
+      "Deportes",
+      "Simulación"
+    ]
+  },
+  {
+    "nombre": "Forza Horizon 6",
+    "plataforma": "XBOX",
+    "precio": 130.0,
+    "disponible": true,
+    "genero": [
+      "Carreras",
+      "Mundo abierto"
+    ]
+  },
+  {
+    "nombre": "Terraria",
+    "plataforma": "XBOX",
+    "precio": 90.0,
+    "disponible": true,
+    "genero": [
+      "Aventura",
+      "Sandbox"
+    ]
+  }
+]

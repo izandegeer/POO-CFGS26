@@ -21,4 +21,5 @@ module org.example.demofx {
     exports Practica2;
 
     opens Practica4 to com.google.gson;
+    opens Practica4b to com.google.gson;
 }

@@ -1,0 +1,45 @@
+@startuml
+
+interface Informes {
+    +verPoliticos()
+    +informeJuzgado()
+    +verRanking()
+}
+
+class Famoso {
+    -nombre : String
+    -pais : String
+    -profesion : String
+    -edad : int
+    +Famoso(nombre, pais, profesion, edad)
+
+}
+
+class EntradaDatos {
+    -static datos : Queue<Famoso>
+    +static generarDatos() : void
+    +static getDatosActuales() : Queue<Famoso>
+}
+
+class EpsteinApp {
+    -static listaEpstein : Collection<Famoso>
+    +static main(String[]) : void
+    +static procesarDatos() : void
+    +static nuevoFamoso() : void
+    +static buscarFamoso() : void
+    +static eliminarMenores() : void
+    +static generarEstadisticas() : Estadistica
+}
+
+class Estadistica {
+    -estadisticas : Map<?,?>
+    +Estadistica(Collection<Famoso>)
+}
+
+Estadistica ..|> Informes
+EntradaDatos *--> Famoso
+EpsteinApp --> EntradaDatos
+EpsteinApp *--> Famoso
+EpsteinApp *--> Estadistica
+
+@enduml

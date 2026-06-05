@@ -3,8 +3,6 @@ package ActividadesSerializacion;
 import java.io.Serializable;
 
 public class Empleado implements Serializable {
-    private static final long serialVersionUID = 1L;
-
     private String nombre;
     private double salario;
 
@@ -13,16 +11,11 @@ public class Empleado implements Serializable {
         this.salario = salario;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
     @Override
     public String toString() {
-        return "Empleado{nombre=" + nombre + ", salario=" + salario + "}";
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", salario=" + salario +
+                '}';
     }
 }

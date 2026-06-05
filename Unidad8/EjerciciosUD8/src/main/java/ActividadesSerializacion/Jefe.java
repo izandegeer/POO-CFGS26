@@ -1,19 +1,17 @@
 package ActividadesSerializacion;
 
-public class Jefe extends Empleado {
-    private String departamento;
+public class Jefe extends Empleado{
+    private String departamente;
 
-    public Jefe(String nombre, double salario, String departamento) {
+    public Jefe(String nombre, double salario, String departamente) {
         super(nombre, salario);
-        this.departamento = departamento;
-    }
-
-    public String getDepartamento() {
-        return departamento;
+        this.departamente = departamente;
     }
 
     @Override
     public String toString() {
-        return "Jefe{nombre=" + getNombre() + ", salario=" + getSalario() + ", departamento=" + departamento + "}";
+        return "Jefe{" +
+                "departamente='" + departamente + '\'' +
+                '}';
     }
 }

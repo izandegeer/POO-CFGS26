@@ -22,6 +22,7 @@ public class Practica1 {
         videojuegos.add(new Videojuego("God of War", "PS5", 49.99, true, List.of("accion", "aventura")));
         videojuegos.add(new Videojuego("Halo Infinite", "Xbox", 19.99, false, List.of("shooter")));
 
+
         guardar(gson, ruta, videojuegos);
         System.out.println("a-b) Colección guardada en " + ruta);
 

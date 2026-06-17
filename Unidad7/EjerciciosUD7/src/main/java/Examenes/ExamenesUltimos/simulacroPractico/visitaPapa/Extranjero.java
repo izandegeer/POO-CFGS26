@@ -1,0 +1,30 @@
+package Examenes.ExamenesUltimos.simulacroPractico.visitaPapa;
+
+public class Extranjero extends Peregrino {
+    private String pais;
+
+    public Extranjero(Integer numReserva, String nombre, EstadoPeregrino estado, String pais) {
+        super(numReserva, nombre, estado);
+        this.pais = pais;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    @Override
+    public String toString() {
+        return "Extranjero{" +
+                "pais='" + pais + '\'' +
+                '}';
+    }
+
+    @Override
+    public void recibirBesico() {
+        System.out.println("[!] El Papa le da un besico en la frente a " + getNombre() + " y l@ despacha con una sonrisa.");
+    }
+}
